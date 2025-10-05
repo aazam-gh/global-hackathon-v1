@@ -30,13 +30,12 @@ export const handler = async (event) => {
     const cleanQ = sanitizeQuestion(question);
 
     const subgraph = buildNeighborhood(focusId);
+    const focusNode = (graph.nodes || []).find(n => n.id === focusId) || {};
+    const exampleIntent = /\b(example|sample|exercise|practice|question\s*example)\b/i.test(cleanQ || '');
 
     const known = Array.isArray(knownIds) ? knownIds.map(String).slice(0, 100) : [];
-    const msgs = [
-      { role: 'system', content: 'You are a helpful tutor grounded in a knowledge graph and a specific node context. Keep answers very short (≤ 80 words). No references or citations.' },
-      { role: 'user', content: `Focus node: ${focusId}\nKnown completed nodes: ${known.join(', ') || '(none)'}\nContext (focus + immediate prereqs/dependents): ${JSON.stringify(subgraph).slice(0, 12000)}\nQuestion: ${cleanQ || '(briefly explain this topic)'}\nReturn JSON with fields: answer (plain text), suggestedNext (array of {id, reason}). Answer ≤ 80 words.` }
-    ];
-
+    const msgs = [];
+    msgs.push({ role: 'system', content: 'You are a helpful tutor grounded in a knowledge graph and a specific node context. Never propose a study plan or list multiple next nodes. Keep answers extremely concise (≤ 100 words). If the user asks for an example, give exactly one short, relevant example. Do not include references or citations. Answer only about the focus node and its immediate context.' });
     if (Array.isArray(history) && history.length) {
       history.slice(-6).forEach(m => {
         if (m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string') {
@@ -44,6 +43,17 @@ export const handler = async (event) => {
         }
       });
     }
+    const nodeDetails = {
+      id: focusNode.id,
+      title: focusNode.title,
+      summary: focusNode.summary,
+      objectives: Array.isArray(focusNode.objectives) ? focusNode.objectives.slice(0, 6) : [],
+      keywords: Array.isArray(focusNode.keywords) ? focusNode.keywords.slice(0, 10) : []
+    };
+    const exampleDirective = exampleIntent
+      ? 'If the request implies an example, provide exactly ONE concrete example for this node, starting with "Example:" and no bullets. Keep it ≤ 60 words. Set suggestedNext to an empty array.'
+      : 'If not explicitly asked for an example, answer briefly and optionally suggest 1–2 next nodes.';
+    msgs.push({ role: 'user', content: `Focus node id: ${focusId}\nFocus node details: ${JSON.stringify(nodeDetails)}\nKnown completed nodes: ${known.join(', ') || '(none)'}\nContext (focus + immediate prereqs/dependents): ${JSON.stringify(subgraph).slice(0, 12000)}\nUser question: ${cleanQ || '(briefly explain this topic)'}\n${exampleDirective}\nReturn JSON with fields: answer (plain text), suggestedNext (array of {id, reason}). Do not propose a plan.` });
 
     const out = await cb.chat.completions.create({
       model: 'llama-4-scout-17b-16e-instruct',
@@ -73,7 +83,7 @@ export const handler = async (event) => {
       },
       messages: msgs,
       temperature: 0.2,
-      max_completion_tokens: 250
+      max_completion_tokens: 300
     });
 
     let payload;
@@ -84,13 +94,21 @@ export const handler = async (event) => {
     }
 
     const validIds = new Set((graph.nodes || []).map(n => n.id));
-    const normalizedNext = Array.isArray(payload.suggestedNext) ? payload.suggestedNext
+    let normalizedNext = Array.isArray(payload.suggestedNext) ? payload.suggestedNext
       .filter(x => x && typeof x.id === 'string' && typeof x.reason === 'string' && validIds.has(x.id))
       .slice(0, 6)
       : [];
+    if (exampleIntent) normalizedNext = [];
+
+    let answer = String(payload.answer || '').slice(0, 800);
+    // Sanitize plan-like prefixes or headings
+    answer = answer.replace(/\*\*?next steps:?\*\*?/gi, '').replace(/\b(next steps|plan)[:：]/gi, '');
+    // Enforce ≤ 100 words hard cap as a final safeguard
+    const words = answer.trim().split(/\s+/);
+    if (words.length > 100) answer = words.slice(0, 100).join(' ');
 
     const body = {
-      answer: String(payload.answer || '').slice(0, 800),
+      answer,
       suggestedNext: normalizedNext
     };
 

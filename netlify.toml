@@ -24,3 +24,8 @@
   from = "/.netlify/functions/askNode"
   to = "/.netlify/functions/askNode"
   status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/quiz"
+  to = "/.netlify/functions/quiz"
+  status = 200

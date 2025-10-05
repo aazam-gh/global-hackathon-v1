@@ -97,6 +97,7 @@
       </div>
       <div class="row">
         <button id="toggleKnown" class="pill" title="Mark as known">Mark known</button>
+        <button id="openQuiz" class="pill" title="Quiz this topic">Quiz</button>
         <button id="closeChat" class="pill" aria-label="Close">Close</button>
       </div>
     </div>
@@ -113,6 +114,19 @@
     </form>
   </div>
   <div id="cy"></div>
+
+  <!-- Quiz panel -->
+  <div id="quizPanel" class="suggest-panel hidden" role="dialog" aria-label="Quiz panel">
+    <div class="suggest-header">
+      <span><strong>Quiz</strong></span>
+      <div class="actions">
+        <button id="regenQuiz" class="pill" title="Regenerate">Regenerate</button>
+        <button id="closeQuiz" class="pill" title="Close">Close</button>
+      </div>
+    </div>
+    <div id="quizBody" class="suggest-body"></div>
+    <div class="hint">Answers are saved locally</div>
+  </div>
 
   <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
   <script>
@@ -232,7 +246,12 @@
     const $chatQuestion = document.getElementById('chatQuestion');
     // radius removed from UI; server uses fixed small context
     const $toggleKnown = document.getElementById('toggleKnown');
+    const $openQuiz = document.getElementById('openQuiz');
     const $closeChat = document.getElementById('closeChat');
+    const $quizPanel = document.getElementById('quizPanel');
+    const $quizBody = document.getElementById('quizBody');
+    const $closeQuiz = document.getElementById('closeQuiz');
+    const $regenQuiz = document.getElementById('regenQuiz');
     let currentNodeId = null;
     const chatHistoryByNode = new Map();
     const knownKey = 'knownIds';
@@ -428,6 +447,174 @@
       });
     }
 
+    // Quiz logic
+    const quizCacheKey = 'quizCacheV1';
+    const quizResultKey = 'quizResultsV1';
+    function getCache(key) {
+      try { return JSON.parse(localStorage.getItem(key) || '{}'); } catch { return {}; }
+    }
+    function setCache(key, obj) {
+      localStorage.setItem(key, JSON.stringify(obj));
+    }
+    function getQuizFromCache(nodeId) {
+      const cache = getCache(quizCacheKey);
+      return cache[nodeId] || null;
+    }
+    function saveQuizToCache(nodeId, data) {
+      const cache = getCache(quizCacheKey);
+      cache[nodeId] = { ...data, savedAt: Date.now() };
+      setCache(quizCacheKey, cache);
+    }
+    function getResults(nodeId) {
+      const all = getCache(quizResultKey);
+      return all[nodeId] || {};
+    }
+    function saveResults(nodeId, results) {
+      const all = getCache(quizResultKey);
+      all[nodeId] = results;
+      setCache(quizResultKey, all);
+    }
+
+    async function fetchQuiz(nodeId, force = false) {
+      if (!force) {
+        const cached = getQuizFromCache(nodeId);
+        if (cached && Array.isArray(cached.items) && cached.items.length) return cached;
+      }
+      // Try Netlify function first
+      try {
+        const res = await fetch('/.netlify/functions/quiz', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nodeId }) });
+        if (res.ok) {
+          const data = await res.json();
+          saveQuizToCache(nodeId, data);
+          return data;
+        }
+      } catch {}
+      // Fallback to local express
+      try {
+        const res2 = await fetch('/quiz', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nodeId }) });
+        if (res2.ok) {
+          const data2 = await res2.json();
+          saveQuizToCache(nodeId, data2);
+          return data2;
+        }
+      } catch {}
+      // Heuristic offline quiz
+      const node = graph?.nodes?.find(n => n.id === nodeId) || {};
+      const title = node.title || String(nodeId);
+      const summary = (node.summary || '').trim() || 'A course concept.';
+      const obj = Array.isArray(node.objectives) && node.objectives.length ? node.objectives[0] : '';
+      const kw = Array.isArray(node.keywords) && node.keywords.length ? node.keywords[0] : '';
+      const heuristic = {
+        nodeId,
+        items: [
+          { id: `${nodeId}::h1`, nodeId, type: 'mcq', question: `Which best describes ${title}?`, options: [summary, 'An unrelated topic', 'A historical anecdote', 'A UI component'], answer: summary, explanation: 'Matches the node summary.', sources: [] },
+          { id: `${nodeId}::h2`, nodeId, type: 'short', question: `Name one key idea of ${title}.`, options: [], answer: obj || kw || title, explanation: 'Based on objectives/keywords.', sources: [] },
+          { id: `${nodeId}::h3`, nodeId, type: 'mcq', question: `Which keyword relates to ${title}?`, options: [kw || 'concept', 'football', 'astronomy', 'cooking'], answer: kw || 'concept', explanation: 'From node keywords.', sources: [] }
+        ]
+      };
+      saveQuizToCache(nodeId, heuristic);
+      return heuristic;
+    }
+
+    function renderQuiz(nodeId, quiz) {
+      $quizBody.innerHTML = '';
+      const results = getResults(nodeId);
+      (quiz.items || []).forEach((item, idx) => {
+        const wrap = document.createElement('div');
+        wrap.style.borderTop = '1px solid #eee';
+        wrap.style.paddingTop = '8px';
+        const q = document.createElement('div');
+        q.style.fontWeight = '600';
+        q.textContent = `${idx + 1}. ${item.question}`;
+        wrap.appendChild(q);
+        const key = item.id;
+        if (item.type === 'mcq') {
+          const opts = document.createElement('div');
+          item.options.forEach((opt, i) => {
+            const id = `${key}__${i}`;
+            const label = document.createElement('label');
+            label.style.display = 'block';
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = key;
+            radio.value = opt;
+            radio.checked = results[key]?.answer === opt;
+            radio.onchange = () => grade(nodeId, item, opt);
+            label.appendChild(radio);
+            const span = document.createElement('span');
+            span.textContent = ' ' + opt;
+            label.appendChild(span);
+            opts.appendChild(label);
+          });
+          wrap.appendChild(opts);
+        } else {
+          const input = document.createElement('input');
+          input.type = 'text';
+          input.style.width = '100%';
+          input.placeholder = 'Type your answer';
+          input.value = results[key]?.answer || '';
+          input.onchange = () => grade(nodeId, item, input.value);
+          wrap.appendChild(input);
+        }
+        const feedback = document.createElement('div');
+        feedback.id = `${key}__fb`;
+        feedback.style.fontSize = '13px';
+        feedback.style.marginTop = '4px';
+        if (results[key]) {
+          feedback.textContent = results[key].correct ? `✅ Correct. ${item.explanation || ''}` : `❌ Try again. ${item.explanation || ''}`;
+          feedback.style.color = results[key].correct ? '#2e7d32' : '#c62828';
+        }
+        wrap.appendChild(feedback);
+        $quizBody.appendChild(wrap);
+      });
+    }
+
+    function grade(nodeId, item, userAnswer) {
+      const results = getResults(nodeId);
+      const correct = String(userAnswer || '').trim().toLowerCase() === String(item.answer || '').trim().toLowerCase();
+      results[item.id] = {
+        answer: userAnswer,
+        correct,
+        attempts: (results[item.id]?.attempts || 0) + 1,
+        lastSeenAt: Date.now()
+      };
+      saveResults(nodeId, results);
+      const fb = document.getElementById(`${item.id}__fb`);
+      if (fb) {
+        fb.textContent = correct ? `✅ Correct. ${item.explanation || ''}` : `❌ Try again. ${item.explanation || ''}`;
+        fb.style.color = correct ? '#2e7d32' : '#c62828';
+      }
+    }
+
+    async function openQuiz(force = false) {
+      if (!currentNodeId) return;
+      try {
+        $status.textContent = force ? 'Regenerating quiz…' : 'Loading quiz…';
+        const quiz = await fetchQuiz(currentNodeId, force);
+        renderQuiz(currentNodeId, quiz);
+        $quizPanel.classList.remove('hidden');
+        $status.textContent = 'Quiz ready.';
+      } catch (e) {
+        // As a last resort, show a minimal heuristic quiz
+        const offline = await fetchQuiz(currentNodeId, true).catch(() => null);
+        if (offline && Array.isArray(offline.items) && offline.items.length) {
+          renderQuiz(currentNodeId, offline);
+          $quizPanel.classList.remove('hidden');
+          $status.textContent = 'Showing offline quiz.';
+        } else {
+          $quizBody.textContent = 'Failed to load quiz.';
+          $quizPanel.classList.remove('hidden');
+          $status.textContent = 'Quiz failed.';
+        }
+      } finally {
+        setTimeout(() => { $status.textContent = ''; }, 1500);
+      }
+    }
+
+    $openQuiz.onclick = () => openQuiz(false);
+    $regenQuiz.onclick = () => openQuiz(true);
+    $closeQuiz.onclick = () => $quizPanel.classList.add('hidden');
+
     function fetchNodeDetails(id) {
       return fetch('/.netlify/functions/node', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
         .then(res => { if (!res.ok) throw new Error('server'); return res.json(); })
@@ -485,13 +672,23 @@
         appendMsg('assistant', answer, data);
         $status.textContent = 'Ready.';
       } catch (err) {
-        // Fallback to /ask if available
-        try {
-          const res2 = await fetch('/ask', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ question: text, knownIds: Array.from(getKnown()) }) });
-          const j = await res2.json();
-          appendMsg('assistant', j.answer || '');
-        } catch {}
-        $status.textContent = 'Answer may be limited.';
+        // Local concise fallback: synthesize a compact answer or example from node metadata
+        const node = graph?.nodes?.find(n => n.id === currentNodeId) || {};
+        const wantsExample = /\b(example|sample|exercise|practice|question\s*example)\b/i.test(text || '');
+        let fallback = '';
+        if (wantsExample) {
+          const title = node.title || String(currentNodeId || 'this topic');
+          const kw = Array.isArray(node.keywords) && node.keywords.length ? node.keywords[0] : '';
+          // Simple templated example question
+          fallback = `Example: For ${title}${kw ? ` (${kw})` : ''}, given a small input, show the expected output.`;
+        } else {
+          fallback = (node.summary || '').trim() || `This topic is ${node.title || currentNodeId}.`;
+        }
+        // Enforce < 100 words
+        const words = fallback.trim().split(/\s+/);
+        if (words.length > 100) fallback = words.slice(0, 100).join(' ');
+        appendMsg('assistant', fallback || 'Sorry, I cannot answer that right now.');
+        $status.textContent = 'Local fallback used.';
       } finally {
         setTimeout(() => { $status.textContent = ''; }, 1500);
       }
