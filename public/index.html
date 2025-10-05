@@ -9,6 +9,30 @@
     #toolbar { padding: 8px 12px; border-bottom: 1px solid #eee; display:flex; gap:8px; align-items:center; }
     #cy { width: 100vw; height: calc(100vh - 56px); }
     .pill { padding:4px 8px; border:1px solid #ddd; border-radius:999px; }
+    #status { color:#666; font-size:13px; margin-left:auto; }
+    .pill:disabled { opacity:0.6; pointer-events:none; }
+    .hidden { display:none; }
+    .suggest-panel {
+      position: fixed;
+      top: 64px;
+      right: 12px;
+      width: 360px;
+      max-width: calc(100vw - 24px);
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 12px;
+      z-index: 10;
+      max-height: 70vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .suggest-panel.hidden { display: none; }
+    .suggest-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; cursor: move; }
+    .suggest-panel .actions { display:flex; gap:6px; }
+    .suggest-body { white-space:pre-wrap; line-height:1.4; font-size:14px; color:#2c3e50; overflow:auto; max-height: 55vh; -webkit-overflow-scrolling: touch; }
+    .suggest-panel .hint { margin-top:8px; font-size:12px; color:#888; }
   </style>
 </head>
 <body>
@@ -16,8 +40,19 @@
     <input id="q" placeholder="Search concept…" class="pill"/>
     <button id="focus" class="pill">Focus</button>
     <button id="reset" class="pill">Reset</button>
-    <button id="suggest" class="pill">What next?</button>
+    <button id="suggest" class="pill" title="Ask AI what to learn next (shortcut: N)">What's next?</button>
     <span id="status"></span>
+  </div>
+  <div id="suggestPanel" class="suggest-panel hidden" role="region" aria-label="Suggestion panel">
+    <div class="suggest-header">
+      <span><strong>Suggested next step</strong></span>
+      <div class="actions">
+        <button id="copySuggest" class="pill" title="Copy suggestion">Copy</button>
+        <button id="closeSuggest" class="pill" title="Close panel" aria-label="Close suggestion panel">Close</button>
+      </div>
+    </div>
+    <div id="suggestText" class="suggest-body"></div>
+    <div class="hint">Press N to ask again</div>
   </div>
   <div id="cy"></div>
 
@@ -34,13 +69,45 @@
       return '#bbb';
     }
 
+    const slowPhysics = {
+      enabled: true,
+      solver: 'barnesHut',
+      stabilization: false,
+      barnesHut: {
+        gravitationalConstant: -800,
+        centralGravity: 0.001,
+        springLength: 120,
+        springConstant: 0.02,
+        damping: 0.9,
+        avoidOverlap: 0
+      },
+      maxVelocity: 0.8,
+      minVelocity: 0.0001,
+      timestep: 0.4,
+      adaptiveTimestep: true
+    };
+
+    const fastPhysics = {
+      enabled: true,
+      solver: 'barnesHut',
+      stabilization: false,
+      barnesHut: {
+        gravitationalConstant: -5000,
+        centralGravity: 0.02,
+        springLength: 90,
+        springConstant: 0.05,
+        damping: 0.4,
+        avoidOverlap: 0
+      },
+      maxVelocity: 5,
+      minVelocity: 0.2,
+      timestep: 0.8,
+      adaptiveTimestep: true
+    };
+
     const options = {
       interaction: { hover: true, multiselect: true, selectConnectedEdges: true },
-      physics: {
-        enabled: true,
-        solver: 'barnesHut',
-        stabilization: { iterations: 150, updateInterval: 25 }
-      },
+      physics: fastPhysics,
       nodes: { shape: 'dot', size: 14, font: { size: 12 }, borderWidth: 1 },
       edges: {
         width: 1,
@@ -71,6 +138,9 @@
         color: { color: edgeColor(e.type) }
       })));
       network.fit({ animation: { duration: 500, easing: 'easeInOutQuad' } });
+      setTimeout(() => {
+        network.setOptions({ physics: slowPhysics });
+      }, 1500);
 
       network.on('click', (params) => {
         if (params.nodes && params.nodes.length) {
@@ -82,6 +152,101 @@
     });
 
     const $q = document.getElementById('q');
+    const $status = document.getElementById('status');
+    const $suggestBtn = document.getElementById('suggest');
+    const $panel = document.getElementById('suggestPanel');
+    const $suggestText = document.getElementById('suggestText');
+    const $copySuggest = document.getElementById('copySuggest');
+    const $closeSuggest = document.getElementById('closeSuggest');
+    const $header = $panel.querySelector('.suggest-header');
+
+    function showSuggestion(text) {
+      $suggestText.textContent = text;
+      $panel.classList.remove('hidden');
+    }
+    function hideSuggestion() {
+      $panel.classList.add('hidden');
+    }
+    $closeSuggest.onclick = hideSuggestion;
+    $copySuggest.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText($suggestText.textContent || '');
+        $status.textContent = 'Copied suggestion';
+      } catch {}
+      setTimeout(() => { $status.textContent = ''; }, 1200);
+    };
+
+    // Drag & Drop for suggestion panel (mouse + touch)
+    let isDragging = false;
+    let dragStartX = 0, dragStartY = 0, startLeft = 0, startTop = 0;
+    function onDragStart(e) {
+      const target = e.target;
+      // Do not start drag when interacting with buttons/controls in header
+      if (target && (target.closest('.actions') || target.closest('button, a, input, textarea'))) return;
+      const p = e.touches ? e.touches[0] : e;
+      isDragging = true;
+      const rect = $panel.getBoundingClientRect();
+      $panel.style.left = rect.left + 'px';
+      $panel.style.top = rect.top + 'px';
+      $panel.style.right = 'auto';
+      dragStartX = p.clientX;
+      dragStartY = p.clientY;
+      startLeft = rect.left;
+      startTop = rect.top;
+      document.addEventListener('mousemove', onDragMove);
+      document.addEventListener('mouseup', onDragEnd);
+      document.addEventListener('touchmove', onDragMove, { passive: false });
+      document.addEventListener('touchend', onDragEnd);
+      if (e.cancelable) e.preventDefault();
+    }
+    function onDragMove(e) {
+      if (!isDragging) return;
+      const p = e.touches ? e.touches[0] : e;
+      const dx = p.clientX - dragStartX;
+      const dy = p.clientY - dragStartY;
+      let newLeft = startLeft + dx;
+      let newTop = startTop + dy;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const rectNow = $panel.getBoundingClientRect();
+      const pw = rectNow.width;
+      const ph = rectNow.height;
+      newLeft = Math.max(0, Math.min(vw - pw, newLeft));
+      newTop = Math.max(0, Math.min(vh - ph, newTop));
+      $panel.style.left = newLeft + 'px';
+      $panel.style.top = newTop + 'px';
+      if (e.cancelable) e.preventDefault();
+    }
+    function onDragEnd() {
+      isDragging = false;
+      document.removeEventListener('mousemove', onDragMove);
+      document.removeEventListener('mouseup', onDragEnd);
+      document.removeEventListener('touchmove', onDragMove);
+      document.removeEventListener('touchend', onDragEnd);
+    }
+    $header.addEventListener('mousedown', onDragStart);
+    $header.addEventListener('touchstart', onDragStart, { passive: false });
+    let lastQuery = '';
+    let lastQueryIndex = 0;
+
+    $q.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      const term = $q.value.trim().toLowerCase();
+      if (!term) return;
+      const matches = nodes.getIds({
+        filter: it => (it.label || '').toLowerCase().includes(term) || String(it.id).toLowerCase().includes(term)
+      });
+      if (!matches.length) return;
+      if (term === lastQuery) {
+        lastQueryIndex = (lastQueryIndex + 1) % matches.length;
+      } else {
+        lastQuery = term;
+        lastQueryIndex = 0;
+      }
+      const id = matches[lastQueryIndex];
+      network.selectNodes([id]);
+      network.focus(id, { scale: 1.6, animation: { duration: 600, easing: 'easeInOutQuad' } });
+    });
     document.getElementById('focus').onclick = () => {
       const term = $q.value.trim().toLowerCase();
       if (!term) return;
@@ -107,13 +272,39 @@
       network.fit({ animation: { duration: 500, easing: 'easeInOutQuad' } });
     };
 
-    document.getElementById('suggest').onclick = async () => {
-      const selected = network.getSelectedNodes();
-      const res = await fetch('/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: 'What should I learn next?', knownIds: selected }) });
-      const { answer } = await res.json();
-      alert(answer);
-    };
+    function setSuggestLoading(isLoading) {
+      $suggestBtn.disabled = isLoading;
+      $suggestBtn.textContent = isLoading ? 'Thinking…' : "What's next?";
+      $suggestBtn.setAttribute('aria-busy', String(isLoading));
+    }
+    async function getSuggestion() {
+      try {
+        setSuggestLoading(true);
+        const selected = network.getSelectedNodes();
+        $status.textContent = 'Asking for next step...';
+        const res = await fetch('/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question: 'What should I learn next?', knownIds: selected }) });
+        if (!res.ok) throw new Error('Server error ' + res.status);
+        const { answer } = await res.json();
+        showSuggestion(answer || 'No suggestion returned.');
+        $status.textContent = 'Suggestion ready.';
+      } catch (err) {
+        showSuggestion('There was an error fetching a suggestion. ' + (err && err.message ? err.message : err));
+        $status.textContent = 'Failed to get suggestion.';
+      } finally {
+        setSuggestLoading(false);
+        setTimeout(() => { if ($status.textContent) $status.textContent = ''; }, 2000);
+      }
+    }
+    $suggestBtn.onclick = getSuggestion;
+    document.addEventListener('keydown', (e) => {
+      const active = document.activeElement;
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || active.isContentEditable)) return;
+      if (e.key === 'n' || e.key === 'N') {
+        e.preventDefault();
+        getSuggestion();
+      }
+    });
   </script>
 </body>
 </html>
