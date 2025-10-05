@@ -1,14 +1,1865 @@
 {
-    "nodes": [
-      { "id":"sample-probability", "title":"Probability Basics", "kind":"concept",
-        "summary":"Sample spaces, events, and axioms.", "prerequisites":[], "outcomes":["bayes-theorem"],
-        "resources":[{"label":"MIT OCW 18.05 (home)"}] },
-      { "id":"bayes-theorem", "title":"Bayes' Theorem", "kind":"theorem",
-        "summary":"Posterior = (likelihood × prior) / evidence.", "prerequisites":["sample-probability"], "outcomes":["naive-bayes"],
-        "resources":[{"label":"MIT OCW 18.05 (Bayes)"}] }
-    ],
-    "edges": [
-      { "source":"sample-probability","target":"bayes-theorem","type":"prereq" }
-    ]
-  }
-  
+  "nodes": [
+    {
+      "id": "probability-and-statistics",
+      "title": "Probability and Statistics",
+      "kind": "concept",
+      "summary": "Relationship between probability and statistics",
+      "prerequisites": [
+        "probability",
+        "statistics"
+      ],
+      "outcomes": [
+        "understanding statistical methods",
+        "critical thinking"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/why-teach-probability-and-statistics-together/index.html"
+        }
+      ]
+    },
+    {
+      "id": "probability",
+      "title": "Probability",
+      "kind": "concept",
+      "summary": "Mathematical description of random events",
+      "prerequisites": [
+        "math"
+      ],
+      "outcomes": [
+        "understanding probability theorems"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/why-teach-probability-and-statistics-together/index.html"
+        }
+      ]
+    },
+    {
+      "id": "statistics",
+      "title": "Statistics",
+      "kind": "concept",
+      "summary": "Applied probability and data analysis",
+      "prerequisites": [
+        "probability"
+      ],
+      "outcomes": [
+        "data analysis and inference"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/why-teach-probability-and-statistics-together/index.html"
+        }
+      ]
+    },
+    {
+      "id": "applied-probability",
+      "title": "Applied Probability",
+      "kind": "concept",
+      "summary": "Practical applications of probability",
+      "prerequisites": [
+        "probability"
+      ],
+      "outcomes": [
+        "problem-solving"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/why-teach-probability-and-statistics-together/index.html"
+        }
+      ]
+    },
+    {
+      "id": "statistical-pitfalls",
+      "title": "Statistical Pitfalls",
+      "kind": "concept",
+      "summary": "Common mistakes in statistical analysis",
+      "prerequisites": [
+        "statistics"
+      ],
+      "outcomes": [
+        "critical thinking"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/why-teach-probability-and-statistics-together/index.html"
+        }
+      ]
+    },
+    {
+      "id": "open-course-ware",
+      "title": "OpenCourseWare",
+      "kind": "concept",
+      "summary": "OpenCourseWare site for 18.05",
+      "prerequisites": [
+        "18.05"
+      ],
+      "outcomes": [
+        "understand course material"
+      ],
+      "resources": [
+        {
+          "label": "Mathlets",
+          "url": "../../pages/mathlets-applets/index.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/using-the-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "mathlets",
+      "title": "Mathlets",
+      "kind": "concept",
+      "summary": "Dynamic and interactive mathematical applets",
+      "prerequisites": [
+        "open-course-ware"
+      ],
+      "outcomes": [
+        "explore mathematical concepts"
+      ],
+      "resources": [
+        {
+          "label": "Mathlets",
+          "url": "../../pages/mathlets-applets/index.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/using-the-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "beta-distributions",
+      "title": "Beta Distributions",
+      "kind": "example",
+      "summary": "Applet for exploring beta distributions",
+      "prerequisites": [
+        "mathlets"
+      ],
+      "outcomes": [
+        "understand beta distributions"
+      ],
+      "resources": [
+        {
+          "label": "Beta Distributions applet",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/using-the-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "linear-regression",
+      "title": "Linear Regression",
+      "kind": "example",
+      "summary": "Applet for exploring linear regression",
+      "prerequisites": [
+        "mathlets"
+      ],
+      "outcomes": [
+        "understand linear regression"
+      ],
+      "resources": [
+        {
+          "label": "Linear Regression applet",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/using-the-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-reading-questions",
+      "title": "R Reading Questions",
+      "kind": "concept",
+      "summary": "R reading questions tutorial",
+      "prerequisites": [
+        "r-basics"
+      ],
+      "outcomes": [
+        "understand-r-code"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "run-length-encoding",
+      "title": "Run Length Encoding",
+      "kind": "concept",
+      "summary": "RLE(X) in R for run length encoding",
+      "prerequisites": [
+        "r-basics"
+      ],
+      "outcomes": [
+        "understand-rle"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "rle-example",
+      "title": "RLE Example",
+      "kind": "example",
+      "summary": "Example of RLE in R",
+      "prerequisites": [
+        "run-length-encoding"
+      ],
+      "outcomes": [
+        "understand-rle-output"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "bernoulli-trials",
+      "title": "Bernoulli Trials",
+      "kind": "concept",
+      "summary": "Bernoulli trials in R",
+      "prerequisites": [
+        "r-basics"
+      ],
+      "outcomes": [
+        "simulate-bernoulli-trials"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "longest-run",
+      "title": "Longest Run",
+      "kind": "concept",
+      "summary": "Find longest run in Bernoulli trials",
+      "prerequisites": [
+        "bernoulli-trials",
+        "run-length-encoding"
+      ],
+      "outcomes": [
+        "find-longest-run"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "count-runs",
+      "title": "Count Runs",
+      "kind": "concept",
+      "summary": "Count runs of certain length in Bernoulli trials",
+      "prerequisites": [
+        "bernoulli-trials",
+        "run-length-encoding"
+      ],
+      "outcomes": [
+        "count-runs"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-run-length-encoding/index.html"
+        }
+      ]
+    },
+    {
+      "id": "writing-functions",
+      "title": "Writing Functions",
+      "kind": "concept",
+      "summary": "Introduction to writing functions in R",
+      "prerequisites": [
+        "built-in-functions"
+      ],
+      "outcomes": [
+        "create-simple-functions"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "built-in-functions",
+      "title": "Built-in Functions",
+      "kind": "concept",
+      "summary": "R has built-in functions like sin(x), exp(x), print(s)",
+      "prerequisites": [
+        "r-basics"
+      ],
+      "outcomes": [
+        "understand-built-ins"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-basics",
+      "title": "R Basics",
+      "kind": "concept",
+      "summary": "Basic concepts of R programming",
+      "prerequisites": [
+        "time-estimate"
+      ],
+      "outcomes": [
+        "understand-r-syntax"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "time-estimate",
+      "title": "Time Estimate",
+      "kind": "concept",
+      "summary": "Tutorial estimated to take 10 minutes",
+      "prerequisites": [
+        "tutorial-intro"
+      ],
+      "outcomes": [
+        "plan-tutorial-time"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "simple-functions",
+      "title": "Simple Functions",
+      "kind": "concept",
+      "summary": "Examples of simple functions in R",
+      "prerequisites": [
+        "writing-functions"
+      ],
+      "outcomes": [
+        "create-functions"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "square-function",
+      "title": "Square Function",
+      "kind": "example",
+      "summary": "Example of a function that squares its argument",
+      "prerequisites": [
+        "simple-functions"
+      ],
+      "outcomes": [
+        "understand-function-syntax"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "hello-function",
+      "title": "Hello Function",
+      "kind": "example",
+      "summary": "Example of a function that builds and prints a phrase",
+      "prerequisites": [
+        "simple-functions"
+      ],
+      "outcomes": [
+        "understand-function-inputs"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-functions/index.html"
+        }
+      ]
+    },
+    {
+      "id": "for-loops",
+      "title": "For Loops",
+      "kind": "concept",
+      "summary": "A for loop is a control structure that allows you to repeat a block of code for each element in a vector.",
+      "prerequisites": [
+        "vectors"
+      ],
+      "outcomes": [
+        "looping through vectors"
+      ],
+      "resources": [
+        {
+          "label": "R Tutorial",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "rep-function",
+      "title": "Rep Function",
+      "kind": "concept",
+      "summary": "The rep() function in R replicates a value or vector.",
+      "prerequisites": [
+        "vectors"
+      ],
+      "outcomes": [
+        "replicating vectors"
+      ],
+      "resources": [
+        {
+          "label": "R Documentation",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "looping-through-vectors",
+      "title": "Looping Through Vectors",
+      "kind": "concept",
+      "summary": "Looping through vectors allows you to perform operations on each element.",
+      "prerequisites": [
+        "for-loops",
+        "vectors"
+      ],
+      "outcomes": [
+        "performing operations on vectors"
+      ],
+      "resources": [
+        {
+          "label": "R Examples",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "estimating-probability",
+      "title": "Estimating Probability",
+      "kind": "concept",
+      "summary": "Estimating probability using simulations and for loops.",
+      "prerequisites": [
+        "for-loops",
+        "probability"
+      ],
+      "outcomes": [
+        "estimating probability"
+      ],
+      "resources": [
+        {
+          "label": "R Simulation",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "vectors",
+      "title": "Vectors",
+      "kind": "concept",
+      "summary": "A vector is a data structure in R.",
+      "prerequisites": [
+        "r-basics"
+      ],
+      "outcomes": [
+        "understanding vectors"
+      ],
+      "resources": [
+        {
+          "label": "R Tutorial",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "programming-basics",
+      "title": "Programming Basics",
+      "kind": "concept",
+      "summary": "Basic concepts in programming.",
+      "prerequisites": [
+        "algorithms"
+      ],
+      "outcomes": [
+        "understanding programming"
+      ],
+      "resources": [
+        {
+          "label": "Programming Tutorial",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-for-loops/index.html"
+        }
+      ]
+    },
+    {
+      "id": "random-numbers",
+      "title": "Random Numbers",
+      "kind": "concept",
+      "summary": "R generates pseudo-random numbers.",
+      "prerequisites": [
+        "basic-r"
+      ],
+      "outcomes": [
+        "understand-pseudo-random-numbers"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-b-random-numbers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "sample-function",
+      "title": "Sample Function",
+      "kind": "concept",
+      "summary": "The sample function generates a random permutation of k objects from a vector.",
+      "prerequisites": [
+        "random-numbers"
+      ],
+      "outcomes": [
+        "use-sample-function"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-b-random-numbers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "replacement",
+      "title": "Replacement",
+      "kind": "concept",
+      "summary": "The replace argument allows repeated elements in the sample function.",
+      "prerequisites": [
+        "sample-function"
+      ],
+      "outcomes": [
+        "understand-replacement"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-b-random-numbers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "matrix-function",
+      "title": "Matrix Function",
+      "kind": "concept",
+      "summary": "The matrix function generates an array of random values.",
+      "prerequisites": [
+        "sample-function"
+      ],
+      "outcomes": [
+        "use-matrix-function"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-b-random-numbers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "simulation",
+      "title": "Simulation",
+      "kind": "concept",
+      "summary": "Simulation using random numbers and sample function.",
+      "prerequisites": [
+        "sample-function",
+        "matrix-function"
+      ],
+      "outcomes": [
+        "perform-simulation"
+      ],
+      "resources": [
+        {
+          "label": null,
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-b-random-numbers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-r",
+      "title": "Introduction to R",
+      "kind": "concept",
+      "summary": "R is a full-featured statistics package and programming language.",
+      "prerequisites": [
+        "none"
+      ],
+      "outcomes": [
+        "understand R basics"
+      ],
+      "resources": [
+        {
+          "label": "Tutorial transcript",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-a-basics/index.html"
+        }
+      ]
+    },
+    {
+      "id": "starting-r",
+      "title": "Starting R",
+      "kind": "concept",
+      "summary": "Start RStudio and use the command window.",
+      "prerequisites": [
+        "introduction-to-r"
+      ],
+      "outcomes": [
+        "start RStudio"
+      ],
+      "resources": [
+        {
+          "label": "Tutorial transcript",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-a-basics/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-as-calculator",
+      "title": "R as a Calculator",
+      "kind": "concept",
+      "summary": "Basic operations: *, +, -, /, ^.",
+      "prerequisites": [
+        "starting-r"
+      ],
+      "outcomes": [
+        "perform calculations"
+      ],
+      "resources": [
+        {
+          "label": "Tutorial transcript",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-a-basics/index.html"
+        }
+      ]
+    },
+    {
+      "id": "using-variables",
+      "title": "Using Variables",
+      "kind": "concept",
+      "summary": "Store results in variables and use them in calculations.",
+      "prerequisites": [
+        "r-as-calculator"
+      ],
+      "outcomes": [
+        "use variables"
+      ],
+      "resources": [
+        {
+          "label": "Tutorial transcript",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-a-basics/index.html"
+        }
+      ]
+    },
+    {
+      "id": "vector-arithmetic",
+      "title": "Vector Arithmetic",
+      "kind": "concept",
+      "summary": "Perform arithmetic operations on vectors.",
+      "prerequisites": [
+        "vectors"
+      ],
+      "outcomes": [
+        "perform vector arithmetic"
+      ],
+      "resources": [
+        {
+          "label": "Tutorial transcript",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/r-tutorial-a-basics/index.html"
+        }
+      ]
+    },
+    {
+      "id": "mathlets-overview",
+      "title": "Mathlets Applets",
+      "kind": "concept",
+      "summary": "Mathlets applets from MIT Interactive Mathematics site",
+      "prerequisites": [
+        ""
+      ],
+      "outcomes": [
+        ""
+      ],
+      "resources": [
+        {
+          "label": "MIT Interactive Mathematics site",
+          "url": "https://mathlets.org/",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/mathlets-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "probability-distributions",
+      "title": "Gallery of Probability Distributions",
+      "kind": "concept",
+      "summary": "Gallery of probability distributions",
+      "prerequisites": [
+        "mathlets-overview"
+      ],
+      "outcomes": [
+        "understand probability distributions"
+      ],
+      "resources": [
+        {
+          "label": "Gallery of Probability Distributions",
+          "url": "https://mathlets.org/mathlets/probability-distributions/",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/mathlets-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "beta-distribution",
+      "title": "Beta Distribution",
+      "kind": "concept",
+      "summary": "Beta distribution details",
+      "prerequisites": [
+        "probability-distributions"
+      ],
+      "outcomes": [
+        "understand beta distribution"
+      ],
+      "resources": [
+        {
+          "label": "Beta Distribution",
+          "url": "https://mathlets.org/mathlets/beta-distribution/",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/mathlets-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "confidence-intervals",
+      "title": "Confidence Intervals",
+      "kind": "concept",
+      "summary": "Confidence intervals explained",
+      "prerequisites": [
+        "probability-distributions"
+      ],
+      "outcomes": [
+        "calculate confidence intervals"
+      ],
+      "resources": [
+        {
+          "label": "Confidence Intervals",
+          "url": "https://mathlets.org/mathlets/confidence-intervals/",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/mathlets-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "t-distributions",
+      "title": "T Distributions",
+      "kind": "concept",
+      "summary": "T distributions explained",
+      "prerequisites": [
+        "probability-distributions"
+      ],
+      "outcomes": [
+        "understand t distributions"
+      ],
+      "resources": [
+        {
+          "label": "T Distributions",
+          "url": "https://mathlets.org/mathlets/t-distribution/",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/mathlets-applets/index.html"
+        }
+      ]
+    },
+    {
+      "id": "introduction-to-probability-and-statistics",
+      "title": "Introduction to Probability and Statistics",
+      "kind": "concept",
+      "summary": "Course materials include lecture slides, in-class problems, and studio work in R.",
+      "prerequisites": [
+        "r-and-rstudio"
+      ],
+      "outcomes": [
+        "understanding-of-probability-and-statistics"
+      ],
+      "resources": [
+        {
+          "label": "Lecture Slides",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "In-class Problems",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/learning-and-teaching-with-r/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-and-rstudio",
+      "title": "R and RStudio",
+      "kind": "concept",
+      "summary": "R is a standard package for statistical work, free, and easy to use.",
+      "prerequisites": [
+        "statistical-computing"
+      ],
+      "outcomes": [
+        "statistical-analysis-skills"
+      ],
+      "resources": [
+        {
+          "label": "RStudio",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/learning-and-teaching-with-r/index.html"
+        }
+      ]
+    },
+    {
+      "id": "statistical-computing",
+      "title": "Statistical Computing",
+      "kind": "concept",
+      "summary": "Statistical computing involves using software for data analysis.",
+      "prerequisites": [
+        "basic-computer-skills"
+      ],
+      "outcomes": [
+        "data-analysis-skills"
+      ],
+      "resources": [
+        {
+          "label": "R",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/learning-and-teaching-with-r/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-language",
+      "title": "R Language",
+      "kind": "concept",
+      "summary": "R language allows students to write code for statistical analysis.",
+      "prerequisites": [
+        "programming-background"
+      ],
+      "outcomes": [
+        "statistical-programming-skills"
+      ],
+      "resources": [
+        {
+          "label": "R Language Documentation",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/learning-and-teaching-with-r/index.html"
+        }
+      ]
+    },
+    {
+      "id": "programming-background",
+      "title": "Programming Background",
+      "kind": "concept",
+      "summary": "Having a programming background is helpful for using R.",
+      "prerequisites": [
+        "basic-computer-skills"
+      ],
+      "outcomes": [
+        "programming-skills"
+      ],
+      "resources": [
+        {
+          "label": "Programming Tutorials",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/learning-and-teaching-with-r/index.html"
+        }
+      ]
+    },
+    {
+      "id": "18-02-multivariable-calculus",
+      "title": "Multivariable Calculus",
+      "kind": "concept",
+      "summary": "Prerequisite course for 18.05.",
+      "prerequisites": [
+        "/"
+      ],
+      "outcomes": [
+        "Eligibility for 18.05"
+      ],
+      "resources": [
+        {
+          "label": "Course Page",
+          "url": "https://draft.ocw.mit.edu/courses/mathematics/18-02sc-multivariable-calculus-fall-2010",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/instructor-insights/index.html"
+        }
+      ]
+    },
+    {
+      "id": "bachelors-or-masters-degree-in-computer-science",
+      "title": "Bachelor's or Master's degree in Computer Science",
+      "kind": "concept",
+      "summary": "Degree program that 18.05 can be applied to.",
+      "prerequisites": [
+        "introduction-to-probability-and-statistics"
+      ],
+      "outcomes": [
+        "/"
+      ],
+      "resources": [
+        {
+          "label": "Degree Requirements",
+          "url": "https://eecsis.mit.edu/degree_requirements.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/instructor-insights/index.html"
+        }
+      ]
+    },
+    {
+      "id": "minor-in-economics",
+      "title": "Minor in Economics",
+      "kind": "concept",
+      "summary": "Minor program that 18.05 can be applied to.",
+      "prerequisites": [
+        "introduction-to-probability-and-statistics"
+      ],
+      "outcomes": [
+        "/"
+      ],
+      "resources": [
+        {
+          "label": "Minor and Concentrations",
+          "url": "https://economics.mit.edu/academic-programs/undergraduate-program/minor-and-concentrations",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/instructor-insights/index.html"
+        }
+      ]
+    },
+    {
+      "id": "restricted-elective-in-science-and-technology",
+      "title": "Restricted Elective in Science and Technology",
+      "kind": "concept",
+      "summary": "General Institute Requirement satisfied by 18.05.",
+      "prerequisites": [
+        "introduction-to-probability-and-statistics"
+      ],
+      "outcomes": [
+        "/"
+      ],
+      "resources": [
+        {
+          "label": "General Institute Requirements",
+          "url": "https://catalog.mit.edu/mit/undergraduate-education/general-institute-requirements/#restrequirementtext",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/instructor-insights/index.html"
+        }
+      ]
+    },
+    {
+      "id": "flipped-classroom",
+      "title": "Flipped Classroom",
+      "kind": "concept",
+      "summary": "Teaching method with reversed lecture-homework format",
+      "prerequisites": [
+        "active-learning"
+      ],
+      "outcomes": [
+        "improved-student-engagement"
+      ],
+      "resources": [
+        {
+          "label": "Example materials",
+          "url": null,
+          "localRef": "supplementary-materials"
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/including-materials-for-teachers/index.html"
+        }
+      ]
+    },
+    {
+      "id": "class-1a-reading",
+      "title": "Class 1a Reading",
+      "kind": "example",
+      "summary": "Class 1a reading material",
+      "prerequisites": [
+        "introduction-to-probability-and-statistics"
+      ],
+      "outcomes": [
+        "understanding-of-class-1a-reading"
+      ],
+      "resources": [
+        {
+          "label": "Class 1a Reading",
+          "url": "../../resources/mit18_05_s22_class01-prep-a_pdf/index.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/classes-reading-and-in-class-materials/index.html"
+        }
+      ]
+    },
+    {
+      "id": "class-1b-reading",
+      "title": "Class 1b Reading",
+      "kind": "example",
+      "summary": "Class 1b reading material",
+      "prerequisites": [
+        "introduction-to-probability-and-statistics"
+      ],
+      "outcomes": [
+        "understanding-of-class-1b-reading"
+      ],
+      "resources": [
+        {
+          "label": "Class 1b Reading",
+          "url": "../../resources/mit18_05_s22_class01-prep-b_pdf/index.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/classes-reading-and-in-class-materials/index.html"
+        }
+      ]
+    },
+    {
+      "id": "r-tutorial",
+      "title": "R Tutorial",
+      "kind": "example",
+      "summary": "R tutorial material",
+      "prerequisites": [
+        "probability"
+      ],
+      "outcomes": [
+        "understanding-of-r-tutorial"
+      ],
+      "resources": [
+        {
+          "label": "R Tutorial",
+          "url": "../../pages/r-tutorial-a-basics/index.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/classes-reading-and-in-class-materials/index.html"
+        }
+      ]
+    },
+    {
+      "id": "active-learning",
+      "title": "Active Learning",
+      "kind": "concept",
+      "summary": "Educational approach that engages students actively",
+      "prerequisites": [
+        "learning-theory"
+      ],
+      "outcomes": [
+        "better-student-outcomes"
+      ],
+      "resources": [
+        {
+          "label": "TEAL format",
+          "url": "https://web.mit.edu/edtech/casestudies/teal.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "mitx-platform",
+      "title": "MITx Platform",
+      "kind": "concept",
+      "summary": "Online platform for content delivery and feedback",
+      "prerequisites": [
+        "technology"
+      ],
+      "outcomes": [
+        "rapid-feedback",
+        "content-delivery"
+      ],
+      "resources": [
+        {
+          "label": "MITx",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "teal-format",
+      "title": "TEAL Format",
+      "kind": "concept",
+      "summary": "Technology-Enhanced Active Learning format",
+      "prerequisites": [
+        "active-learning"
+      ],
+      "outcomes": [
+        "student-engagement"
+      ],
+      "resources": [
+        {
+          "label": "TEAL",
+          "url": "https://web.mit.edu/edtech/casestudies/teal.html",
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "18-05-revision",
+      "title": "Revision of 18.05",
+      "kind": "example",
+      "summary": "Revision of Introduction to Probability and Statistics",
+      "prerequisites": [
+        "active-learning",
+        "mitx-platform"
+      ],
+      "outcomes": [
+        "improved-student-outcomes"
+      ],
+      "resources": [
+        {
+          "label": "Course website",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "learning-theory",
+      "title": "Learning Theory",
+      "kind": "concept",
+      "summary": "Theoretical foundations of learning",
+      "prerequisites": [
+        "education"
+      ],
+      "outcomes": [
+        "effective-teaching"
+      ],
+      "resources": [
+        {
+          "label": "Educational research",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "better-student-outcomes",
+      "title": "Better Student Outcomes",
+      "kind": "concept",
+      "summary": "Improved student learning and engagement",
+      "prerequisites": [
+        "active-learning"
+      ],
+      "outcomes": [
+        "student-success"
+      ],
+      "resources": [
+        {
+          "label": "Research studies",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "title": "Technology",
+      "kind": "concept",
+      "summary": "Role of technology in education",
+      "prerequisites": [
+        "education"
+      ],
+      "outcomes": [
+        "enhanced-learning"
+      ],
+      "resources": [
+        {
+          "label": "MITx, cameras, computers, and screens",
+          "url": null,
+          "localRef": null
+        },
+        {
+          "label": "OCW Source",
+          "localRef": "ocw_course/pages/a-shift-to-active-learning/index.html"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "probability",
+      "target": "statistics",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "statistics",
+      "target": "applied-probability",
+      "type": "refines",
+      "weight": 1
+    },
+    {
+      "source": "probability-and-statistics",
+      "target": "statistics",
+      "type": "applies-to",
+      "weight": 1
+    },
+    {
+      "source": "statistics",
+      "target": "statistical-pitfalls",
+      "type": "related",
+      "weight": 1
+    },
+    {
+      "source": "open-course-ware",
+      "target": "mathlets",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "mathlets",
+      "target": "beta-distributions",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "mathlets",
+      "target": "linear-regression",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "r-reading-questions",
+      "target": "run-length-encoding",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "run-length-encoding",
+      "target": "rle-example",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "rle-example",
+      "target": "bernoulli-trials",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "bernoulli-trials",
+      "target": "longest-run",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "bernoulli-trials",
+      "target": "count-runs",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "run-length-encoding",
+      "target": "longest-run",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "run-length-encoding",
+      "target": "count-runs",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "writing-functions",
+      "target": "built-in-functions",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "built-in-functions",
+      "target": "r-basics",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "r-basics",
+      "target": "time-estimate",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "simple-functions",
+      "target": "writing-functions",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "square-function",
+      "target": "simple-functions",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "hello-function",
+      "target": "simple-functions",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "for-loops",
+      "target": "looping-through-vectors",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "rep-function",
+      "target": "for-loops",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "vectors",
+      "target": "for-loops",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "estimating-probability",
+      "target": "for-loops",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "r-basics",
+      "target": "vectors",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "programming-basics",
+      "target": "r-basics",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "random-numbers",
+      "target": "sample-function",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "sample-function",
+      "target": "replacement",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "sample-function",
+      "target": "matrix-function",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "sample-function",
+      "target": "simulation",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "matrix-function",
+      "target": "simulation",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "replacement",
+      "target": "simulation",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "introduction-to-r",
+      "target": "starting-r",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "starting-r",
+      "target": "r-as-calculator",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "r-as-calculator",
+      "target": "using-variables",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "using-variables",
+      "target": "vectors",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "vectors",
+      "target": "vector-arithmetic",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "mathlets-overview",
+      "target": "probability-distributions",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "probability-distributions",
+      "target": "beta-distribution",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "probability-distributions",
+      "target": "confidence-intervals",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "probability-distributions",
+      "target": "linear-regression",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "probability-distributions",
+      "target": "t-distributions",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "r-and-rstudio",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "r-and-rstudio",
+      "target": "statistical-computing",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "statistical-computing",
+      "target": "r-language",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "r-language",
+      "target": "programming-background",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "18-02-multivariable-calculus",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "bachelors-or-masters-degree-in-computer-science",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "minor-in-economics",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "restricted-elective-in-science-and-technology",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "flipped-classroom",
+      "type": "applies-to",
+      "weight": 1
+    },
+    {
+      "source": "open-course-ware",
+      "target": "introduction-to-probability-and-statistics",
+      "type": "refines",
+      "weight": 1
+    },
+    {
+      "source": "flipped-classroom",
+      "target": "open-course-ware",
+      "type": "related",
+      "weight": 1
+    },
+    {
+      "source": "introduction-to-probability-and-statistics",
+      "target": "open-course-ware",
+      "type": "applies-to",
+      "weight": 1
+    },
+    {
+      "source": "class-1a-reading",
+      "target": "introduction-to-probability-and-statistics",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "class-1b-reading",
+      "target": "introduction-to-probability-and-statistics",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "r-tutorial",
+      "target": "probability",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "class-1a-reading",
+      "target": "probability",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "class-1b-reading",
+      "target": "probability",
+      "type": "prereq",
+      "weight": 1
+    },
+    {
+      "source": "active-learning",
+      "target": "mitx-platform",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "mitx-platform",
+      "target": "teal-format",
+      "type": "refines",
+      "weight": null
+    },
+    {
+      "source": "teal-format",
+      "target": "18-05-revision",
+      "type": "applies-to",
+      "weight": null
+    },
+    {
+      "source": "active-learning",
+      "target": "better-student-outcomes",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "18-05-revision",
+      "target": "better-student-outcomes",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "learning-theory",
+      "target": "active-learning",
+      "type": "prereq",
+      "weight": null
+    },
+    {
+      "source": "technology",
+      "target": "mitx-platform",
+      "type": "applies-to",
+      "weight": null
+    }
+  ]
+}

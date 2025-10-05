@@ -4,11 +4,23 @@ import fs from 'fs';
 import path from 'path';
 import { JSDOM } from 'jsdom';
 import { htmlToText } from 'html-to-text';
-import glob from 'glob';
+import { globSync } from 'glob';
 import { extractGraphFromChunk } from '../llm/extractGraph.js';
 
 const OCW_DIR = process.argv[2] || './ocw_course'; // unzip target
 const OUT = './data/graph.json';
+const argv = process.argv.slice(3);
+
+function getArg(flag, fallback) {
+  const idx = argv.indexOf(flag);
+  if (idx !== -1 && argv[idx + 1]) return argv[idx + 1];
+  return fallback;
+}
+
+const scope = getArg('--scope', process.env.INGEST_SCOPE || 'pages'); // pages | all
+const limit = parseInt(getArg('--limit', process.env.INGEST_LIMIT || '40'), 10);
+const delayMs = parseInt(getArg('--delay-ms', process.env.INGEST_DELAY_MS || '1200'), 10);
+const maxRetries = parseInt(getArg('--retries', process.env.INGEST_MAX_RETRIES || '3'), 10);
 
 // naive HTML → text
 function strip(html) {
@@ -24,8 +36,35 @@ function mergeGraph(acc, part) {
   return acc;
 }
 
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function callWithBackoff(text, file) {
+  let attempt = 0;
+  let backoff = delayMs;
+  // basic retry for 429
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    try {
+      return await extractGraphFromChunk(text);
+    } catch (e) {
+      const message = String(e?.message || e);
+      const isRate = message.includes('429') || message.toLowerCase().includes('rate');
+      if (!isRate || attempt >= maxRetries) throw e;
+      attempt += 1;
+      const jitter = Math.floor(Math.random() * 200);
+      const waitFor = backoff + jitter;
+      console.warn(`Rate limited on ${file}. Retry ${attempt}/${maxRetries} after ${waitFor}ms`);
+      await sleep(waitFor);
+      backoff = Math.min(backoff * 2, 8000);
+    }
+  }
+}
+
 (async () => {
-  const files = glob.sync(path.join(OCW_DIR, '**/*.html'));
+  const pattern = scope === 'all'
+    ? path.join(OCW_DIR, '**/*.html')
+    : path.join(OCW_DIR, 'pages/**/*.html');
+  const files = globSync(pattern);
   const chunks = [];
   for (const file of files) {
     const html = fs.readFileSync(file, 'utf8');
@@ -34,19 +73,32 @@ function mergeGraph(acc, part) {
     const text = strip(main?.innerHTML || '');
     // rough chunking by headings
     const parts = text.split(/\n(?=[A-Z][^\n]{0,80}\n[-=]{3,})/g).filter(s => s.length > 300);
-    parts.forEach(p => chunks.push({ file, text: p.slice(0, 4000) })); // keep prompt size tame
+    parts.forEach(p => {
+      const trimmed = p.replace(/\s+/g, ' ').slice(0, 3000);
+      chunks.push({ file, text: trimmed });
+    }); // keep prompt size tame
   }
 
+  const selected = Number.isFinite(limit) && limit > 0 ? chunks.slice(0, limit) : chunks;
+  console.log(`Processing ${selected.length}/${chunks.length} chunks from ${files.length} files (scope=${scope}).`);
+
   let graph = { nodes: [], edges: [] };
-  for (const c of chunks) {
+  let processed = 0;
+  for (const c of selected) {
     try {
-      const partial = await extractGraphFromChunk(c.text);
+      const partial = await callWithBackoff(c.text, c.file);
       // add localRef where possible
-      partial.nodes.forEach(n => n.resources.push({ label: 'OCW Source', localRef: c.file }));
+      partial.nodes.forEach(n => {
+        if (!Array.isArray(n.resources)) n.resources = [];
+        n.resources.push({ label: 'OCW Source', localRef: c.file });
+      });
       graph = mergeGraph(graph, partial);
     } catch (e) {
       console.error('Chunk failed:', c.file, e.message);
     }
+    processed += 1;
+    if (delayMs > 0) await sleep(delayMs);
+    if (processed % 5 === 0) console.log(`Progress: ${processed}/${selected.length}`);
   }
 
   fs.writeFileSync(OUT, JSON.stringify(graph, null, 2));

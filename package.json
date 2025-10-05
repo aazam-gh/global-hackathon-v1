@@ -25,12 +25,15 @@
   "dependencies": {
     "@cerebras/cerebras_cloud_sdk": "^1.50.0",
     "body-parser": "^2.2.0",
+    "bottleneck": "^2.19.5",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "glob": "^11.0.3",
+    "gpt-tokenizer": "^3.0.1",
     "html-to-text": "^9.0.5",
-    "jsdom": "^27.0.0"
+    "jsdom": "^27.0.0",
+    "json5": "^2.2.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
