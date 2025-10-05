@@ -74,6 +74,7 @@
 </head>
 <body>
   <div id="toolbar">
+    <span id="courseTag" class="pill" title="Course source">Graphical Statistics Course by MIT</span>
     <input id="q" placeholder="Search concept…" class="pill"/>
     <button id="focus" class="pill">Focus</button>
     <button id="reset" class="pill">Reset</button>
@@ -150,12 +151,12 @@
       solver: 'barnesHut',
       stabilization: false,
       barnesHut: {
-        gravitationalConstant: -2000,
+        gravitationalConstant: -4000,
         centralGravity: 0.0005,
-        springLength: 200,
+        springLength: 240,
         springConstant: 0.015,
-        damping: 0.85,
-        avoidOverlap: 0
+        damping: 0.9,
+        avoidOverlap: 0.7
       },
       maxVelocity: 0.8,
       minVelocity: 0.0001,
@@ -168,12 +169,12 @@
       solver: 'barnesHut',
       stabilization: false,
       barnesHut: {
-        gravitationalConstant: -15000,
+        gravitationalConstant: -22000,
         centralGravity: 0.005,
-        springLength: 160,
+        springLength: 190,
         springConstant: 0.03,
-        damping: 0.5,
-        avoidOverlap: 0
+        damping: 0.6,
+        avoidOverlap: 0.7
       },
       maxVelocity: 5,
       minVelocity: 0.2,
@@ -182,6 +183,7 @@
     };
 
     const options = {
+      layout: { improvedLayout: true },
       interaction: { hover: true, multiselect: true, selectConnectedEdges: true },
       physics: fastPhysics,
       nodes: { shape: 'dot', size: 14, font: { size: 12 }, borderWidth: 1 },
@@ -203,9 +205,26 @@
 
     let graph;
     fetch('/graph').then(r => r.json()).then(g => {
-      graph = g;
-      nodes.add(g.nodes.map(n => ({ id: n.id, label: n.title, title: n.summary || '', group: n.kind })));
-      edges.add(g.edges.map(e => ({
+      // Filter to OCW-sourced nodes only
+      function isOcwNode(n) {
+        try {
+          const res = Array.isArray(n?.resources) ? n.resources : [];
+          return res.some(r => {
+            const label = String(r?.label || '').toLowerCase();
+            const local = String(r?.localRef || '');
+            const url = String(r?.url || '');
+            return label.includes('ocw') || local.startsWith('ocw_course/') || url.includes('ocw.mit.edu');
+          });
+        } catch { return false; }
+      }
+      const ocwNodes = Array.isArray(g?.nodes) ? g.nodes.filter(isOcwNode) : [];
+      const allowedIds = new Set(ocwNodes.map(n => n.id));
+      const ocwEdges = (Array.isArray(g?.edges) ? g.edges : []).filter(e => allowedIds.has(e.source) && allowedIds.has(e.target));
+
+      graph = { nodes: ocwNodes, edges: ocwEdges };
+
+      nodes.add(ocwNodes.map(n => ({ id: n.id, label: n.title, title: n.summary || '', group: n.kind })));
+      edges.add(ocwEdges.map(e => ({
         id: `${e.source}->${e.target}:${e.type}`,
         from: e.source,
         to: e.target,
