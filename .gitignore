@@ -55,3 +55,6 @@ temp/
 
 # Project data
 ocw_course/
+
+# Local Netlify folder
+.netlify

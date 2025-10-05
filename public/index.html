@@ -146,7 +146,7 @@
         if (params.nodes && params.nodes.length) {
           const id = params.nodes[0];
           const n = nodes.get(id);
-          alert(`${n.label}\n\n${n.title || ''}`);
+          showSuggestion(`${n.label}\n\n${n.title || ''}`);
         }
       });
     });

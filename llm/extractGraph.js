@@ -6,7 +6,17 @@ import JSON5 from 'json5';
 
 export async function extractGraphFromChunk(textChunk) {
   const sys = "You convert course text into a compact knowledge graph. Return only JSON that matches the schema; prefer 'prereq' edges.";
-  const user = `Extract a concept graph from this text. Use kebab-case ids. Summaries ≤ 40 words.\n\nTEXT:\n${textChunk}`;
+  const user = `Extract a concept graph from this course text. 
+Use kebab-case ids. Summaries ≤ 40 words.
+
+For each node, set:
+- difficulty: 1 (intro) to 5 (advanced)
+- domain: probability | statistics | r | meta-learning | other
+- 2–6 short learning objectives (verbs!)
+- 3–10 keywords (lowercase)
+
+TEXT:
+${textChunk}`;
 
   const completionAllowance = 800;
   const tokenCost = estimateTokens(sys + user) + completionAllowance;
@@ -51,7 +61,7 @@ export async function extractGraphFromChunk(textChunk) {
                   items: {
                     type: 'object',
                     additionalProperties: false,
-                    required: ['id','title','kind','summary','prerequisites','outcomes','resources'],
+                    required: ['id','title','kind','summary','prerequisites','outcomes','resources','difficulty','domain','objectives','keywords'],
                     properties: {
                       id: { type:'string' }, title:{ type:'string' },
                       kind:{ enum:['concept','skill','example','theorem'] },
@@ -61,7 +71,11 @@ export async function extractGraphFromChunk(textChunk) {
                       resources:{ type:'array', items:{
                         type:'object', additionalProperties:false,
                         properties:{ label:{type:'string'}, url:{type:'string'}, localRef:{type:'string'} }
-                      } }
+                        } },
+                        difficulty: { type: 'integer', minimum: 1, maximum: 5 },
+                        domain: { enum: ['probability','statistics','r','meta-learning','other'] },
+                        objectives: { type: 'array', items: { type: 'string' }, maxItems: 6 },
+                        keywords: { type: 'array', items: { type: 'string' }, maxItems: 10 }
                     }
                   }
                 },
@@ -105,6 +119,14 @@ export async function extractGraphFromChunk(textChunk) {
     parsed.nodes.forEach(n => {
       if (!Array.isArray(n.resources)) n.resources = [];
       n.resources = n.resources.slice(0, 5);
+      if (!Array.isArray(n.objectives)) n.objectives = [];
+      n.objectives = n.objectives.map(o => String(o)).slice(0, 6);
+      if (!Array.isArray(n.keywords)) n.keywords = [];
+      n.keywords = n.keywords.map(k => String(k).toLowerCase()).slice(0, 10);
+      if (!Number.isInteger(n.difficulty)) n.difficulty = 1;
+      n.difficulty = Math.min(5, Math.max(1, n.difficulty));
+      const allowedDomains = ['probability','statistics','r','meta-learning','other'];
+      if (!allowedDomains.includes(n.domain)) n.domain = 'other';
     });
     return { data: parsed, headers };
   }, tokenCost);
