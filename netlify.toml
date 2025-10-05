@@ -14,3 +14,13 @@
   from = "/ask"
   to = "/.netlify/functions/ask"
   status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/node"
+  to = "/.netlify/functions/node"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/askNode"
+  to = "/.netlify/functions/askNode"
+  status = 200

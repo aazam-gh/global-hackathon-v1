@@ -33,6 +33,41 @@
     .suggest-panel .actions { display:flex; gap:6px; }
     .suggest-body { white-space:pre-wrap; line-height:1.4; font-size:14px; color:#2c3e50; overflow:auto; max-height: 55vh; -webkit-overflow-scrolling: touch; }
     .suggest-panel .hint { margin-top:8px; font-size:12px; color:#888; }
+
+    /* Chat / node detail panel */
+    .chat-panel {
+      position: fixed;
+      top: 64px;
+      right: 12px;
+      width: 420px;
+      max-width: calc(100vw - 24px);
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      padding: 12px;
+      z-index: 11;
+      max-height: 78vh;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .chat-panel.hidden { display:none; }
+    .chat-header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+    .chat-title { font-weight:600; font-size:15px; }
+    .meta { font-size:12px; color:#666; display:flex; gap:6px; flex-wrap:wrap; }
+    .section { border-top: 1px solid #f0f0f0; padding-top:8px; }
+    .resources a { display:block; font-size:13px; margin:2px 0; color:#2c3e50; text-decoration: none; }
+    .resources a:hover { text-decoration: underline; }
+    .chat-messages { flex:1; overflow:auto; -webkit-overflow-scrolling: touch; background:#fafafa; border:1px solid #f0f0f0; border-radius:8px; padding:8px; }
+    .msg { margin:6px 0; }
+    .msg.user { color:#34495e; }
+    .msg.assistant { color:#2c3e50; }
+    .msg .role { font-weight:600; margin-right:6px; }
+    .chat-input { display:flex; gap:6px; align-items:flex-end; }
+    .chat-input textarea { flex:1; min-height:44px; max-height:120px; resize:vertical; padding:6px 8px; border:1px solid #ddd; border-radius:8px; font: inherit; }
+    .row { display:flex; align-items:center; gap:6px; }
+    .tag { background:#eef2f7; color:#2c3e50; font-size:12px; padding:2px 6px; border-radius:999px; }
   </style>
 </head>
 <body>
@@ -53,6 +88,29 @@
     </div>
     <div id="suggestText" class="suggest-body"></div>
     <div class="hint">Press N to ask again</div>
+  </div>
+  <div id="chatPanel" class="chat-panel hidden" role="region" aria-label="Node chat panel">
+    <div class="chat-header">
+      <div>
+        <div id="chatTitle" class="chat-title">Topic</div>
+        <div id="chatMeta" class="meta"></div>
+      </div>
+      <div class="row">
+        <button id="toggleKnown" class="pill" title="Mark as known">Mark known</button>
+        <button id="closeChat" class="pill" aria-label="Close">Close</button>
+      </div>
+    </div>
+    <div id="chatSummary" class="section" style="font-size:14px; color:#2c3e50;"></div>
+    <div class="row" style="flex-wrap:wrap; gap:4px">
+      <div id="chatKeywords"></div>
+    </div>
+    <div class="resources section hidden" id="chatResources"></div>
+    <!-- No user context size option by design -->
+    <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+    <form id="chatForm" class="chat-input">
+      <textarea id="chatQuestion" placeholder="Ask about this topic… (Shift+Enter for newline)"></textarea>
+      <button id="sendChat" class="pill" type="submit">Ask</button>
+    </form>
   </div>
   <div id="cy"></div>
 
@@ -142,11 +200,13 @@
         network.setOptions({ physics: slowPhysics });
       }, 1500);
 
+      // Render known ids on load
+      renderKnown();
+
       network.on('click', (params) => {
         if (params.nodes && params.nodes.length) {
           const id = params.nodes[0];
-          const n = nodes.get(id);
-          showSuggestion(`${n.label}\n\n${n.title || ''}`);
+          openChatForNode(id);
         }
       });
     });
@@ -159,6 +219,35 @@
     const $copySuggest = document.getElementById('copySuggest');
     const $closeSuggest = document.getElementById('closeSuggest');
     const $header = $panel.querySelector('.suggest-header');
+
+    // Chat panel els
+    const $chatPanel = document.getElementById('chatPanel');
+    const $chatTitle = document.getElementById('chatTitle');
+    const $chatMeta = document.getElementById('chatMeta');
+    const $chatSummary = document.getElementById('chatSummary');
+    const $chatKeywords = document.getElementById('chatKeywords');
+    const $chatResources = document.getElementById('chatResources');
+    const $chatMessages = document.getElementById('chatMessages');
+    const $chatForm = document.getElementById('chatForm');
+    const $chatQuestion = document.getElementById('chatQuestion');
+    // radius removed from UI; server uses fixed small context
+    const $toggleKnown = document.getElementById('toggleKnown');
+    const $closeChat = document.getElementById('closeChat');
+    let currentNodeId = null;
+    const chatHistoryByNode = new Map();
+    const knownKey = 'knownIds';
+    function getKnown() {
+      try { return new Set(JSON.parse(localStorage.getItem(knownKey) || '[]')); } catch { return new Set(); }
+    }
+    function saveKnown(set) {
+      localStorage.setItem(knownKey, JSON.stringify(Array.from(set)));
+    }
+    function renderKnown() {
+      const set = getKnown();
+      nodes.update(nodes.get().map(n => set.has(n.id)
+        ? { id: n.id, borderWidth: 3, color: { border: '#27ae60' } }
+        : { id: n.id, borderWidth: 1 }));
+    }
 
     function showSuggestion(text) {
       $suggestText.textContent = text;
@@ -305,6 +394,145 @@
         getSuggestion();
       }
     });
+
+    // Chat panel logic
+    function openChatForNode(id) {
+      currentNodeId = id;
+      $chatMessages.innerHTML = '';
+      $chatQuestion.value = '';
+      $chatPanel.classList.remove('hidden');
+      const localNode = graph?.nodes?.find(n => n.id === id);
+      if (localNode) {
+        $chatTitle.textContent = localNode.title || id;
+      } else {
+        $chatTitle.textContent = id;
+      }
+      $status.textContent = 'Loading topic…';
+      fetchNodeDetails(id).then(data => {
+        const node = data.node || localNode || { id };
+        $chatTitle.textContent = node.title || id;
+        $chatMeta.textContent = [node.kind, node.domain ? `domain: ${node.domain}` : null, node.difficulty ? `difficulty: ${node.difficulty}` : null].filter(Boolean).join(' • ');
+        $chatSummary.textContent = node.summary || '';
+        const kws = (node.keywords || []).slice(0, 10).map(k => `<span class="tag">${escapeHtml(k)}</span>`).join(' ');
+        $chatKeywords.innerHTML = kws;
+        $chatResources.innerHTML = '';
+        $chatResources.classList.add('hidden');
+        const set = getKnown();
+        const isKnown = set.has(id);
+        $toggleKnown.textContent = isKnown ? 'Known' : 'Mark known';
+        $toggleKnown.dataset.state = isKnown ? 'on' : 'off';
+        $status.textContent = '';
+      }).catch(err => {
+        $status.textContent = 'Failed to load topic.';
+        setTimeout(() => { $status.textContent = ''; }, 2000);
+      });
+    }
+
+    function fetchNodeDetails(id) {
+      return fetch('/.netlify/functions/node', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
+        .then(res => { if (!res.ok) throw new Error('server'); return res.json(); })
+        .catch(() => {
+          // Fallback compute locally if function not available (e.g., local express)
+          const nodesArr = graph?.nodes || [];
+          const edgesArr = graph?.edges || [];
+          const node = nodesArr.find(n => n.id === id);
+          const prerequisites = nodesArr.filter(n => node?.prerequisites?.includes(n.id));
+          const dependents = nodesArr.filter(n => n.prerequisites?.includes(id));
+          const neighbors = nodesArr.filter(n => dependents.some(d => d.id === n.id) || prerequisites.some(p => p.id === n.id));
+          const related = edgesArr.filter(e => e.source === id || e.target === id);
+          return { node, prerequisites, dependents, neighbors, edges: related };
+        });
+    }
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;' }[c]));
+    }
+    function escapeAttr(s) {
+      return String(s || '').replace(/[\s"']/g, '_');
+    }
+
+    $closeChat.onclick = () => { $chatPanel.classList.add('hidden'); };
+    $toggleKnown.onclick = () => {
+      if (!currentNodeId) return;
+      const set = getKnown();
+      if ($toggleKnown.dataset.state === 'on') {
+        set.delete(currentNodeId);
+      } else {
+        set.add(currentNodeId);
+      }
+      saveKnown(set);
+      renderKnown();
+      const isNow = set.has(currentNodeId);
+      $toggleKnown.textContent = isNow ? 'Known' : 'Mark known';
+      $toggleKnown.dataset.state = isNow ? 'on' : 'off';
+    };
+
+    $chatForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = ($chatQuestion.value || '').trim();
+      if (!text || !currentNodeId) return;
+      appendMsg('user', text);
+      $chatQuestion.value = '';
+      $status.textContent = 'Thinking…';
+      try {
+        const known = Array.from(getKnown());
+        const history = chatHistoryByNode.get(currentNodeId) || [];
+        const body = { focusId: currentNodeId, question: text, knownIds: known, history };
+        let res = await fetch('/.netlify/functions/askNode', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (!res.ok) throw new Error('Server error');
+        const data = await res.json();
+        const answer = data.answer || '';
+        appendMsg('assistant', answer, data);
+        $status.textContent = 'Ready.';
+      } catch (err) {
+        // Fallback to /ask if available
+        try {
+          const res2 = await fetch('/ask', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ question: text, knownIds: Array.from(getKnown()) }) });
+          const j = await res2.json();
+          appendMsg('assistant', j.answer || '');
+        } catch {}
+        $status.textContent = 'Answer may be limited.';
+      } finally {
+        setTimeout(() => { $status.textContent = ''; }, 1500);
+      }
+    });
+
+    function appendMsg(role, content, full) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + role;
+      const roleSpan = document.createElement('span');
+      roleSpan.className = 'role';
+      roleSpan.textContent = role === 'user' ? 'You:' : 'Tutor:';
+      const textSpan = document.createElement('span');
+      textSpan.textContent = content;
+      div.appendChild(roleSpan);
+      div.appendChild(textSpan);
+      // Citations intentionally omitted to avoid weak pointers
+      if (full && Array.isArray(full.suggestedNext) && full.suggestedNext.length) {
+        const s = document.createElement('div');
+        s.style.marginTop = '6px';
+        s.style.fontSize = '13px';
+        s.textContent = 'Suggested next:';
+        full.suggestedNext.forEach(item => {
+          const b = document.createElement('button');
+          b.className = 'pill';
+          b.style.margin = '4px 4px 0 0';
+          b.textContent = item.id;
+          b.onclick = () => {
+            network.selectNodes([item.id]);
+            network.focus(item.id, { scale: 1.5, animation: { duration: 500, easing: 'easeInOutQuad' } });
+            openChatForNode(item.id);
+          };
+          s.appendChild(b);
+        });
+        div.appendChild(s);
+      }
+      $chatMessages.appendChild(div);
+      $chatMessages.scrollTop = $chatMessages.scrollHeight;
+      const hist = chatHistoryByNode.get(currentNodeId) || [];
+      hist.push({ role, content });
+      chatHistoryByNode.set(currentNodeId, hist.slice(-10));
+    }
   </script>
 </body>
 </html>
