@@ -390,12 +390,50 @@
         setSuggestLoading(true);
         const selected = network.getSelectedNodes();
         $status.textContent = 'Asking for next step...';
-        const res = await fetch('/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question: 'What should I learn next?', knownIds: selected }) });
-        if (!res.ok) throw new Error('Server error ' + res.status);
-        const { answer } = await res.json();
-        showSuggestion(answer || 'No suggestion returned.');
-        $status.textContent = 'Suggestion ready.';
+        // Try streaming first
+        const body = JSON.stringify({ question: 'What should I learn next?', knownIds: selected });
+        let streamed = false;
+        try {
+          const res = await fetch('/ask/stream', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+          if (!res.ok || !res.body) throw new Error('no stream');
+          streamed = true;
+          $suggestText.textContent = '';
+          $panel.classList.remove('hidden');
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            let idx;
+            while ((idx = buffer.indexOf('\n\n')) !== -1) {
+              const chunk = buffer.slice(0, idx);
+              buffer = buffer.slice(idx + 2);
+              const lines = chunk.split('\n');
+              let ev = 'message';
+              let data = '';
+              for (const ln of lines) {
+                if (ln.startsWith('event:')) ev = ln.slice(6).trim();
+                else if (ln.startsWith('data:')) data += ln.slice(5).trim();
+              }
+              if (ev === 'token') {
+                $suggestText.textContent += data;
+              } else if (ev === 'done') {
+                try { const obj = JSON.parse(data); if (obj?.answer) $suggestText.textContent = obj.answer; } catch {}
+              }
+            }
+          }
+          $status.textContent = 'Suggestion ready.';
+        } catch (_) {}
+        if (!streamed) {
+          // Fallback to non-streaming
+          const res = await fetch('/ask', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+          if (!res.ok) throw new Error('Server error ' + res.status);
+          const { answer } = await res.json();
+          showSuggestion(answer || 'No suggestion returned.');
+          $status.textContent = 'Suggestion ready.';
+        }
       } catch (err) {
         showSuggestion('There was an error fetching a suggestion. ' + (err && err.message ? err.message : err));
         $status.textContent = 'Failed to get suggestion.';
@@ -664,13 +702,69 @@
       try {
         const known = Array.from(getKnown());
         const history = chatHistoryByNode.get(currentNodeId) || [];
-        const body = { focusId: currentNodeId, question: text, knownIds: known, history };
-        let res = await fetch('/.netlify/functions/askNode', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (!res.ok) throw new Error('Server error');
-        const data = await res.json();
-        const answer = data.answer || '';
-        appendMsg('assistant', answer, data);
-        $status.textContent = 'Ready.';
+        const payload = { focusId: currentNodeId, question: text, knownIds: known, history };
+        // Try streaming locally first
+        let streamed = false;
+        try {
+          const res = await fetch('/askNode/stream', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+          if (!res.ok || !res.body) throw new Error('no stream');
+          streamed = true;
+          const live = appendStreamedMsg('assistant');
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = '';
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+            buffer += decoder.decode(value, { stream: true });
+            let idx;
+            while ((idx = buffer.indexOf('\n\n')) !== -1) {
+              const chunk = buffer.slice(0, idx);
+              buffer = buffer.slice(idx + 2);
+              const lines = chunk.split('\n');
+              let ev = 'message';
+              let data = '';
+              for (const ln of lines) {
+                if (ln.startsWith('event:')) ev = ln.slice(6).trim();
+                else if (ln.startsWith('data:')) data += ln.slice(5).trim();
+              }
+              if (ev === 'token') {
+                live.append(data);
+              } else if (ev === 'done') {
+                try {
+                  const obj = JSON.parse(data);
+                  live.finish(obj.answer || live.text());
+                  if (Array.isArray(obj.suggestedNext) && obj.suggestedNext.length) {
+                    // Render suggested next buttons
+                    const div = document.createElement('div');
+                    div.style.marginTop = '6px';
+                    div.style.fontSize = '13px';
+                    div.textContent = 'Suggested next:';
+                    obj.suggestedNext.forEach(item => {
+                      const b = document.createElement('button');
+                      b.className = 'pill';
+                      b.style.margin = '4px 4px 0 0';
+                      b.textContent = item.id;
+                      b.onclick = () => { network.selectNodes([item.id]); network.focus(item.id, { scale: 1.5, animation: { duration: 500, easing: 'easeInOutQuad' } }); openChatForNode(item.id); };
+                      div.appendChild(b);
+                    });
+                    live.root.appendChild(div);
+                  }
+                } catch {}
+              }
+            }
+          }
+          $status.textContent = 'Ready.';
+        } catch (_) {}
+        if (!streamed) {
+          // Fallback to Netlify function (non-streaming)
+          let res = await fetch('/.netlify/functions/askNode', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+          if (!res.ok) throw new Error('Server error');
+          const data = await res.json();
+          const answer = data.answer || '';
+          appendMsg('assistant', answer, data);
+          $status.textContent = 'Ready.';
+        }
       } catch (err) {
         // Local concise fallback: synthesize a compact answer or example from node metadata
         const node = graph?.nodes?.find(n => n.id === currentNodeId) || {};
@@ -729,6 +823,34 @@
       const hist = chatHistoryByNode.get(currentNodeId) || [];
       hist.push({ role, content });
       chatHistoryByNode.set(currentNodeId, hist.slice(-10));
+    }
+
+    function appendStreamedMsg(role) {
+      const div = document.createElement('div');
+      div.className = 'msg ' + role;
+      const roleSpan = document.createElement('span');
+      roleSpan.className = 'role';
+      roleSpan.textContent = role === 'user' ? 'You:' : 'Tutor:';
+      const textSpan = document.createElement('span');
+      textSpan.textContent = '';
+      div.appendChild(roleSpan);
+      div.appendChild(textSpan);
+      $chatMessages.appendChild(div);
+      $chatMessages.scrollTop = $chatMessages.scrollHeight;
+      const hist = chatHistoryByNode.get(currentNodeId) || [];
+      hist.push({ role, content: '' });
+      chatHistoryByNode.set(currentNodeId, hist.slice(-10));
+      return {
+        root: div,
+        append(chunk) {
+          textSpan.textContent += chunk;
+          $chatMessages.scrollTop = $chatMessages.scrollHeight;
+        },
+        finish(finalText) {
+          textSpan.textContent = finalText || textSpan.textContent;
+        },
+        text() { return textSpan.textContent; }
+      };
     }
   </script>
 </body>

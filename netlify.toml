@@ -16,6 +16,11 @@
   status = 200
 
 [[redirects]]
+  from = "/ask/stream"
+  to = "/.netlify/functions/askStream"
+  status = 200
+
+[[redirects]]
   from = "/.netlify/functions/node"
   to = "/.netlify/functions/node"
   status = 200
@@ -23,6 +28,16 @@
 [[redirects]]
   from = "/.netlify/functions/askNode"
   to = "/.netlify/functions/askNode"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/askNodeStream"
+  to = "/.netlify/functions/askNodeStream"
+  status = 200
+
+[[redirects]]
+  from = "/askNode/stream"
+  to = "/.netlify/functions/askNodeStream"
   status = 200
 
 [[redirects]]
