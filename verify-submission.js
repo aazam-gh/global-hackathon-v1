@@ -9,9 +9,9 @@
  * Run before submitting: node verify-submission.js
  */
 
-const { execSync } = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { execSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
 
 // Hackathon timing (CET timezone)
 const HACKATHON_START = new Date('2025-10-04T12:00:00+02:00'); // Oct 4, 12:00 CET

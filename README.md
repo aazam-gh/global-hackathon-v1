@@ -1,119 +1,145 @@
-# 🚀 ACTA Global Hackathon
+# Graph-Based Learning Tutor (MIT OCW Edition)
 
-**24 hours to build something impressive.**
+Turn a linear course into an interactive knowledge graph you can explore, chat with, and quiz yourself on — powered by Cerebras inference.
 
-## ⏰ Timeline
+This project ingests content from MIT OpenCourseWare, builds a compact concept graph, and serves a delightful UI to learn non‑linearly: jump between related concepts, ask “what should I learn next?”, get a focused explanation of a node, and generate MCQ quizzes grounded in the node’s neighborhood.
 
-- **Start**: Oct 4, 2025 at 12:00 CET
-- **End**: Oct 5, 2025 at 12:00 CET
-- **Duration**: 24 hours
+Live demo: https://acta-hack-aazam.netlify.app/
 
-## 🏆 Prizes
+## Features
 
-1. **1st**: One week in Cape Town (flights + hotel)
-2. **2nd**: €300 + fast-tracked interview
-3. **3rd**: Raspberry Pi + fast-tracked interview
+- Interactive knowledge graph (vis‑network) filtered to OCW‑sourced nodes
+- “What’s next?” tutor using the graph as context (`/ask`, streaming at `/ask/stream`)
+- Node chat with streaming responses and optional 1 example (`/askNode/stream`)
+- Auto‑generated, strictly MCQ quizzes for any node (`/quiz` and Netlify `/.netlify/functions/quiz`)
+- Local progress tracking: mark nodes Known; quiz correctness saved in browser
+- Built‑in OCW snapshot served locally at `/ocw` for fast, private browsing
 
-## 💡 What to Build
+## Quick start
 
-**Option 1: Build anything you wish existed** (open format - truly anything!)
-
-**Option 2: Choose one of these problem statements:**
-
-### 1. Memory Keeper for Grandparents
-Interactive AI conversations that capture grandparents' life memories and turn them into blog posts for family members. Think Duolingo but for preserving family stories and wisdom.
-
-### 2. Graph-Based Learning System
-Transform linear course content (like [MIT's Statistics course](https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/)) into an interactive graph-based learning experience. Organize concepts as nodes/connections to match how the brain actually learns - accelerating comprehension through visualization and non-linear exploration.
-
-### 3. Agent Orchestration Layer
-Build the n8n for AI agents - an orchestration platform for vertical agents to create AI-native companies. Solve context engineering and enable swarm intelligence across agent networks.
-
-**Note**: These are extensive problems - MVPs are perfectly fine and expected!
-
-## 🎯 Rules
-
-- Solo or duo teams
-- Greenfield projects only
-- Any tech stack
-- Must be buildable in 24 hours
-- Read [RULES.md](./RULES.md) for anti-cheating requirements
-
-## 🚀 Quick Start
+Prerequisites: Node.js 20+ (tested on Node 22), a Cerebras API key.
 
 ```bash
-# 1. Clone this repo
 git clone <your-fork-url>
 cd global-hackathon-v1
+npm install
 
-# 2. Create timestamp (REQUIRED for anti-cheating)
-date > .hackathon-start
-git add .hackathon-start
-git commit -m "Starting hackathon - $(date)"
-git push
+# Required: Cerebras API key for LLM features
+export CEREBRAS_API_KEY=sk-...  # macOS/Linux
+# setx CEREBRAS_API_KEY "sk-..."  # Windows PowerShell
 
-# 3. Build your project here
-# 4. Commit regularly (minimum 5 commits)
+# Start local server (serves UI + local APIs)
+npm run dev
+# open http://localhost:3000
 ```
 
-## 📤 Submission
+UI tips:
+- Search a node by title or id, press Enter to cycle matches.
+- Click a node to open the right chat panel; press “Quiz” to generate a quiz.
+- Press “N” to stream “What’s next?” suggestions.
+- Use “Mark known” to track progress; “Focus” to filter the current neighborhood; “Reset” to see the whole graph again.
 
-**Deadline**: Oct 5, 2025 at 12:00 CET
+## Environment
 
-**Submit at**: [https://forms.acta.so/r/wMobdM](https://forms.acta.so/r/wMobdM)
+- `CEREBRAS_API_KEY` (required): used by `lib/cerebras.js` to call the Cerebras SDK.
+- Port: fixed to `3000` in `server.js` (customize if desired).
 
-**You need**:
-1. Public GitHub repo URL
-2. 60-second demo video (Loom/YouTube - must be public)
-3. Live demo URL (deployed app)
-4. Your email and name
+## Data model
 
-## ✅ Before Submitting
+The app reads the graph from `data/graph.json`. Nodes and edges follow the schema in `data/schema.ts` (high‑level):
+- Node: `id`, `title`, `kind` (concept|skill|example|theorem), `summary`, `prerequisites[]`, `objectives[]`, `keywords[]`, `resources[]`, `difficulty` (1–5), `domain`
+- Edge: `source`, `target`, `type` (`prereq|refines|applies-to|related`)
+
+Only nodes with OCW‑matching resources are shown in the UI (see resource filters in `public/index.html`).
+
+## Local API (Express)
+
+Base URL: `http://localhost:3000`
+
+- GET `/graph`
+  - Returns the full graph JSON.
+- POST `/ask`
+  - Body: `{ question: string, knownIds?: string[] }`
+  - Returns: `{ answer: string }`
+- POST `/ask/stream` (SSE‑like chunked)
+  - Body: `{ question: string, knownIds?: string[] }`
+  - Emits `event: token` with text chunks, and `event: done` with `{ answer }`.
+- POST `/quiz`
+  - Body: `{ nodeId: string }`
+  - Returns: `{ nodeId, items: MCQ[] }` where each item has `{ id, nodeId, type: 'mcq', question, options[4], answer, explanation, sources[] }`.
+- POST `/askNode/stream` (SSE‑like chunked)
+  - Body: `{ focusId: string, question: string, knownIds?: string[], history?: {role:'user'|'assistant',content:string}[] }`
+  - Emits `event: token` with text chunks, and `event: done` with `{ answer, suggestedNext: {id,reason}[] }`.
+
+Examples:
 
 ```bash
-# Run verification
-node verify-submission.js
+# Ask for next steps (non-streaming)
+curl -sX POST http://localhost:3000/ask \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What should I learn next?","knownIds":["probability-basics"]}'
+
+# Streamed suggestion
+curl -N -sX POST http://localhost:3000/ask/stream \
+  -H 'Content-Type: application/json' \
+  -d '{"question":"What should I learn next?","knownIds":[]}'
+
+# Streamed node chat
+curl -N -sX POST http://localhost:3000/askNode/stream \
+  -H 'Content-Type: application/json' \
+  -d '{"focusId":"bayes-theorem","question":"brief example"}'
+
+# Generate a quiz
+curl -sX POST http://localhost:3000/quiz \
+  -H 'Content-Type: application/json' \
+  -d '{"nodeId":"normal-distribution"}'
 ```
 
-Check:
-- [ ] GitHub repo is public
-- [ ] 60s video is public and accessible
-- [ ] Live demo works in incognito window
-- [ ] Made 5+ commits during the 24 hours
-- [ ] README updated with project info
+## Production API (Netlify functions)
 
-## 🎬 Judging
+This repo ships with Netlify redirects (`netlify.toml`) so the same routes work in production:
+- `/graph` → `/.netlify/functions/graph`
+- `/ask` → `/.netlify/functions/ask`
+- `/ask/stream` → `/.netlify/functions/askStream`
+- `/askNode/stream` → `/.netlify/functions/askNodeStream`
+- `/.netlify/functions/quiz` (and others used by the UI)
 
-**Top 25 submissions** will be ranked 1-10 on each criterion:
+Netlify functions use the same Cerebras client and the same graph JSON.
 
-### Craft (1-10)
-Quality of execution, code quality, attention to detail, polish. Does it work smoothly? Is it well-built? A simple feature done exceptionally well scores higher than complex features done poorly.
+## Ingestion (optional)
 
-### Novelty (1-10)
-Originality and innovation. Is this a fresh take? Does it approach the problem differently? Bonus points for ideas that make judges think "why doesn't this exist yet?"
+The graph can be regenerated from course text in chunks using the LLM:
+- `llm/extractGraph.js` defines a JSON‑schema constrained extraction call to Cerebras.
+- `ingest/ingest_ocw.js` can be adapted to fetch/prepare text.
+- The OCW snapshot is under `ocw_course/`; a postbuild step copies it into `public/ocw` for hosting.
 
-### Utility (1-10)
-Practical usefulness and real-world value. Would people actually use this? Does it solve a genuine problem? Could this become a real product?
+Tip: keep nodes concise (summaries ≤ 40 words), prefer `prereq` edges, and cap node/edge counts to keep the UI snappy.
 
-### Taste (1-10)
-Design sensibility, user experience, aesthetic choices. Is it intuitive? Does it feel good to use? Great taste shows in the details - from UI design to interaction patterns to copy writing.
+## Deployment
 
-**Final scores** are calculated by summing all four dimensions. Highest total wins.
+### Netlify (recommended)
+1. Connect your GitHub repo on Netlify.
+2. In Site settings → Environment variables, add `CEREBRAS_API_KEY`.
+3. Build settings are provided by `netlify.toml` (`publish = public`, `functions = netlify/functions`).
+4. Deploy. The UI will be served from `public/`, OCW snapshot at `/ocw`, and functions will power the API.
 
-## 💡 Tips
+### Self‑host
+```bash
+npm ci
+export CEREBRAS_API_KEY=sk-...
+npm start   # runs server.js on http://localhost:3000
+```
+Behind a reverse proxy, route traffic to port 3000. Static assets are served from `public/`.
 
-- Start simple, iterate
-- Commit often (proves authenticity)
-- Deploy early (Vercel, Netlify, Railway)
-- Record demo showing actual functionality
-- Read [RULES.md](./RULES.md) to avoid disqualification
+## Troubleshooting
 
-## 📞 Support
+- Missing `CEREBRAS_API_KEY`: API calls will fail; set it in your environment.
+- SSE seems blocked: some proxies buffer responses; try locally or ensure streaming pass‑through.
+- Quiz has odd options: the server sanitizes items to 4 options and ensures the answer is present.
+- Graph is empty: confirm `data/graph.json` exists and contains OCW‑sourced nodes.
 
-- **Discord**: [Join](https://discord.gg/9KbH3f5M2a)
-- **Instagram**: [@acta.so](https://instagram.com/acta.so)
-- **Web**: [acta.so/hackathon](https://www.acta.so/hackathon)
+## License
 
----
+MIT — see `LICENSE`.
 
-**Good luck! 🎉**
+Credits: MIT OpenCourseWare for the underlying course content; Cerebras for fast inference.

@@ -883,11 +883,20 @@
     function renderResources(node) {
       try {
         const items = Array.isArray(node?.resources) ? node.resources.slice(0, 8) : [];
-        const links = items.map(r => {
-          const href = localOcwHref(r) || String(r.url || '');
-          const label = String(r.label || r.localRef || r.url || 'resource');
-          return href ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>` : '';
-        }).filter(Boolean);
+        // Keep ONLY OCW-mappable resources and deduplicate by resolved href
+        const seen = new Set();
+        const ocwItems = items.filter(r => {
+          const href = localOcwHref(r);
+          if (!href) return false;
+          if (seen.has(href)) return false;
+          seen.add(href);
+          return true;
+        });
+        const links = ocwItems.map(r => {
+          const href = localOcwHref(r);
+          const label = String(r.label || r.localRef || 'OCW resource');
+          return `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
+        });
         if (links.length) {
           $chatResources.innerHTML = `<div style="font-weight:600; margin-bottom:4px;">Resources</div>` + links.join('');
           $chatResources.classList.remove('hidden');
