@@ -9,6 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json({ limit: '2mb' }));
 app.use(express.static('public'));
+// Serve OCW content locally under /ocw for development
+app.use('/ocw', express.static('ocw_course'));
 
 app.get('/graph', (req, res) => {
   const g = JSON.parse(fs.readFileSync('./data/graph.json', 'utf8'));

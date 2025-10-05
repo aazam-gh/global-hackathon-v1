@@ -76,6 +76,7 @@
     <button id="focus" class="pill">Focus</button>
     <button id="reset" class="pill">Reset</button>
     <button id="suggest" class="pill" title="Ask AI what to learn next (shortcut: N)">What's next?</button>
+    <span id="progress" class="pill" title="Overall progress"></span>
     <span id="status"></span>
   </div>
   <div id="suggestPanel" class="suggest-panel hidden" role="region" aria-label="Suggestion panel">
@@ -94,6 +95,7 @@
       <div>
         <div id="chatTitle" class="chat-title">Topic</div>
         <div id="chatMeta" class="meta"></div>
+        <div id="chatProgress" class="meta"></div>
       </div>
       <div class="row">
         <button id="toggleKnown" class="pill" title="Mark as known">Mark known</button>
@@ -216,6 +218,7 @@
 
       // Render known ids on load
       renderKnown();
+      updateOverallProgress();
 
       network.on('click', (params) => {
         if (params.nodes && params.nodes.length) {
@@ -266,6 +269,20 @@
       nodes.update(nodes.get().map(n => set.has(n.id)
         ? { id: n.id, borderWidth: 3, color: { border: '#27ae60' } }
         : { id: n.id, borderWidth: 1 }));
+      updateOverallProgress();
+    }
+
+    function updateOverallProgress() {
+      try {
+        const total = (graph && Array.isArray(graph.nodes)) ? graph.nodes.length : 0;
+        const known = getKnown();
+        const count = known.size;
+        const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+        const el = document.getElementById('progress');
+        if (el) {
+          el.textContent = `Known: ${count}/${total} (${pct}%)`;
+        }
+      } catch {}
     }
 
     function showSuggestion(text) {
@@ -469,11 +486,11 @@
         const node = data.node || localNode || { id };
         $chatTitle.textContent = node.title || id;
         $chatMeta.textContent = [node.kind, node.domain ? `domain: ${node.domain}` : null, node.difficulty ? `difficulty: ${node.difficulty}` : null].filter(Boolean).join(' • ');
+        renderNodeProgress(id);
         $chatSummary.textContent = node.summary || '';
         const kws = (node.keywords || []).slice(0, 10).map(k => `<span class="tag">${escapeHtml(k)}</span>`).join(' ');
         $chatKeywords.innerHTML = kws;
-        $chatResources.innerHTML = '';
-        $chatResources.classList.add('hidden');
+        renderResources(node);
         const set = getKnown();
         const isKnown = set.has(id);
         $toggleKnown.textContent = isKnown ? 'Known' : 'Mark known';
@@ -622,6 +639,7 @@
         fb.textContent = correct ? `✅ Correct. ${item.explanation || ''}` : `❌ Try again. ${item.explanation || ''}`;
         fb.style.color = correct ? '#2e7d32' : '#c62828';
       }
+      renderNodeProgress(nodeId);
     }
 
     async function openQuiz(force = false) {
@@ -632,6 +650,7 @@
         renderQuiz(currentNodeId, quiz);
         $quizPanel.classList.remove('hidden');
         $status.textContent = 'Quiz ready.';
+        renderNodeProgress(currentNodeId);
       } catch (e) {
         // As a last resort, show a minimal heuristic quiz
         const offline = await fetchQuiz(currentNodeId, true).catch(() => null);
@@ -690,6 +709,8 @@
       const isNow = set.has(currentNodeId);
       $toggleKnown.textContent = isNow ? 'Known' : 'Mark known';
       $toggleKnown.dataset.state = isNow ? 'on' : 'off';
+      renderNodeProgress(currentNodeId);
+      updateOverallProgress();
     };
 
     $chatForm.addEventListener('submit', async (e) => {
@@ -823,6 +844,78 @@
       const hist = chatHistoryByNode.get(currentNodeId) || [];
       hist.push({ role, content });
       chatHistoryByNode.set(currentNodeId, hist.slice(-10));
+    }
+
+    function renderResources(node) {
+      try {
+        const items = Array.isArray(node?.resources) ? node.resources.slice(0, 8) : [];
+        const links = items.map(r => {
+          const href = localOcwHref(r) || String(r.url || '');
+          const label = String(r.label || r.localRef || r.url || 'resource');
+          return href ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>` : '';
+        }).filter(Boolean);
+        if (links.length) {
+          $chatResources.innerHTML = `<div style="font-weight:600; margin-bottom:4px;">Resources</div>` + links.join('');
+          $chatResources.classList.remove('hidden');
+        } else {
+          $chatResources.innerHTML = '';
+          $chatResources.classList.add('hidden');
+        }
+      } catch {
+        $chatResources.innerHTML = '';
+        $chatResources.classList.add('hidden');
+      }
+    }
+
+    function localOcwHref(resource) {
+      try {
+        let localRef = String(resource?.localRef || '').trim();
+        // Normalize
+        localRef = localRef.replace(/^\/+/, '');
+        if (localRef.startsWith('ocw_course/')) localRef = localRef.slice('ocw_course/'.length);
+        if (localRef) return `/ocw/${localRef}`;
+
+        const url = String(resource?.url || '').trim();
+        if (!url) return '';
+        try {
+          const u = new URL(url);
+          if (u.hostname.includes('ocw.mit.edu')) {
+            // Try to map to local snapshot by keeping from /pages/... onward
+            const m = u.pathname.match(/\/(pages\/.*)$/);
+            if (m && m[1]) return `/ocw/${m[1]}`;
+          }
+        } catch {}
+        return '';
+      } catch { return ''; }
+    }
+
+    function renderNodeProgress(nodeId) {
+      try {
+        const el = document.getElementById('chatProgress');
+        if (!el) return;
+        const known = getKnown();
+        if (known.has(nodeId)) {
+          el.textContent = 'Progress: Known';
+          return;
+        }
+        const results = getResults(nodeId);
+        let correct = 0;
+        let total = 0;
+        const cached = getQuizFromCache(nodeId);
+        if (cached && Array.isArray(cached.items)) {
+          total = cached.items.length;
+          correct = cached.items.reduce((acc, it) => acc + (results[it.id]?.correct ? 1 : 0), 0);
+        } else {
+          const keys = Object.keys(results || {});
+          total = keys.length;
+          correct = keys.reduce((acc, k) => acc + (results[k]?.correct ? 1 : 0), 0);
+        }
+        if (total > 0) {
+          el.textContent = `Quiz progress: ${correct}/${total} correct`;
+        } else {
+          el.textContent = 'Quiz progress: —';
+        }
+      } catch {}
     }
 
     function appendStreamedMsg(role) {

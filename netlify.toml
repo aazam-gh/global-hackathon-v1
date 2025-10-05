@@ -1,5 +1,6 @@
 [build]
   publish = "public"
+  command = "npm run postbuild"
 
 [functions]
   directory = "netlify/functions"
