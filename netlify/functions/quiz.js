@@ -43,15 +43,15 @@ export const handler = async (event) => {
       resources: Array.isArray(focus.resources) ? focus.resources.slice(0, 4) : []
     };
 
-    const sys = 'You are a tutor that writes small, high-quality quizzes grounded strictly in the given node context and its immediate neighborhood.';
+    const sys = 'You are a tutor that writes high-quality MULTIPLE-CHOICE quizzes grounded strictly in the given node context and its immediate neighborhood.';
     const user = `Create a compact quiz for the focus node.
 Focus node: ${JSON.stringify(nodeDetails)}
 Neighborhood: ${JSON.stringify(subgraph).slice(0, 10000)}
 
 Rules:
 - 3 to 5 items total.
-- Include 2-4 multiple choice items and 1-2 short answer items.
-- For multiple choice, provide exactly 4 options and one correct answer.
+- ALL QUESTIONS MUST BE MULTIPLE CHOICE (no short answers).
+- Provide EXACTLY 4 options and one correct answer for each item.
 - Keep questions concise and unambiguous, aligned with the node's objectives.
 - Explanations must justify why the correct answer is right.
 - sources should reference focus.resources where available (label or localRef); otherwise keep empty.
@@ -77,13 +77,13 @@ Return JSON only.`;
                 maxItems: 5,
                 items: {
                   type: 'object', additionalProperties: false,
-                  required: ['id','nodeId','type','question','answer','explanation','sources'],
+                  required: ['id','nodeId','type','question','options','answer','explanation','sources'],
                   properties: {
                     id: { type:'string' },
                     nodeId: { type:'string' },
-                    type: { enum:['mcq','short'] },
+                    type: { enum:['mcq'] },
                     question: { type:'string' },
-                    options: { type:'array', items:{ type:'string' }, minItems: 0, maxItems: 4 },
+                    options: { type:'array', items:{ type:'string' }, minItems: 4, maxItems: 4 },
                     answer: { type:'string' },
                     explanation: { type:'string' },
                     sources: { type:'array', items:{ type:'string' }, maxItems: 4 }
@@ -112,19 +112,26 @@ Return JSON only.`;
     // Normalize and sanitize
     const items = Array.isArray(payload.items) ? payload.items : [];
     const safeItems = items.map((it, idx) => {
-      const typ = it?.type === 'mcq' ? 'mcq' : (it?.type === 'short' ? 'short' : (idx % 3 === 0 ? 'short' : 'mcq'));
-      const opts = Array.isArray(it?.options) ? it.options.slice(0, 4).map(s => String(s || '').slice(0, 300)) : [];
+      let opts = Array.isArray(it?.options) ? it.options.slice(0, 4).map(s => String(s || '').slice(0, 300)) : [];
+      let answer = String(it?.answer || '').slice(0, 300);
+      // Ensure 4 options
+      while (opts.length < 4) opts.push('');
+      opts = opts.slice(0, 4);
+      // Ensure answer is among options
+      if (answer && !opts.includes(answer)) {
+        opts[0] = answer;
+      }
       return {
         id: String(it?.id || `${id}::q${idx + 1}`).slice(0, 160),
         nodeId: id,
-        type: typ,
+        type: 'mcq',
         question: String(it?.question || '').slice(0, 500),
-        options: typ === 'mcq' ? (opts.length === 4 ? opts : opts.concat(Array(Math.max(0, 4 - opts.length)).fill(''))).slice(0,4) : [],
-        answer: String(it?.answer || '').slice(0, 300),
+        options: opts,
+        answer,
         explanation: String(it?.explanation || '').slice(0, 600),
         sources: Array.isArray(it?.sources) ? it.sources.slice(0, 4).map(s => String(s || '').slice(0, 200)) : []
       };
-    }).filter(q => q.question);
+    }).filter(q => q.question && q.options.length === 4);
 
     // If model failed, create a tiny heuristic quiz
     const finalItems = safeItems.length ? safeItems : [

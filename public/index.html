@@ -28,6 +28,8 @@
       display: flex;
       flex-direction: column;
     }
+    /* Ensure quiz panel is above chat and suggestion panels */
+    #quizPanel { z-index: 20; }
     .suggest-panel.hidden { display: none; }
     .suggest-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; cursor: move; }
     .suggest-panel .actions { display:flex; gap:6px; }
@@ -148,11 +150,11 @@
       solver: 'barnesHut',
       stabilization: false,
       barnesHut: {
-        gravitationalConstant: -800,
-        centralGravity: 0.001,
-        springLength: 120,
-        springConstant: 0.02,
-        damping: 0.9,
+        gravitationalConstant: -2000,
+        centralGravity: 0.0005,
+        springLength: 200,
+        springConstant: 0.015,
+        damping: 0.85,
         avoidOverlap: 0
       },
       maxVelocity: 0.8,
@@ -166,11 +168,11 @@
       solver: 'barnesHut',
       stabilization: false,
       barnesHut: {
-        gravitationalConstant: -5000,
-        centralGravity: 0.02,
-        springLength: 90,
-        springConstant: 0.05,
-        damping: 0.4,
+        gravitationalConstant: -15000,
+        centralGravity: 0.005,
+        springLength: 160,
+        springConstant: 0.03,
+        damping: 0.5,
         avoidOverlap: 0
       },
       maxVelocity: 5,
@@ -258,6 +260,8 @@
     let currentNodeId = null;
     const chatHistoryByNode = new Map();
     const knownKey = 'knownIds';
+    // Reset known progress on each page load/refresh
+    try { localStorage.removeItem(knownKey); } catch {}
     function getKnown() {
       try { return new Set(JSON.parse(localStorage.getItem(knownKey) || '[]')); } catch { return new Set(); }
     }
@@ -553,17 +557,16 @@
           return data2;
         }
       } catch {}
-      // Heuristic offline quiz
+      // Heuristic offline quiz (MCQ-only)
       const node = graph?.nodes?.find(n => n.id === nodeId) || {};
       const title = node.title || String(nodeId);
       const summary = (node.summary || '').trim() || 'A course concept.';
-      const obj = Array.isArray(node.objectives) && node.objectives.length ? node.objectives[0] : '';
       const kw = Array.isArray(node.keywords) && node.keywords.length ? node.keywords[0] : '';
       const heuristic = {
         nodeId,
         items: [
           { id: `${nodeId}::h1`, nodeId, type: 'mcq', question: `Which best describes ${title}?`, options: [summary, 'An unrelated topic', 'A historical anecdote', 'A UI component'], answer: summary, explanation: 'Matches the node summary.', sources: [] },
-          { id: `${nodeId}::h2`, nodeId, type: 'short', question: `Name one key idea of ${title}.`, options: [], answer: obj || kw || title, explanation: 'Based on objectives/keywords.', sources: [] },
+          { id: `${nodeId}::h2`, nodeId, type: 'mcq', question: `Which is a key idea of ${title}?`, options: [kw || 'concept', 'football', 'astronomy', 'cooking'], answer: kw || 'concept', explanation: 'Based on keywords.', sources: [] },
           { id: `${nodeId}::h3`, nodeId, type: 'mcq', question: `Which keyword relates to ${title}?`, options: [kw || 'concept', 'football', 'astronomy', 'cooking'], answer: kw || 'concept', explanation: 'From node keywords.', sources: [] }
         ]
       };
@@ -574,7 +577,10 @@
     function renderQuiz(nodeId, quiz) {
       $quizBody.innerHTML = '';
       const results = getResults(nodeId);
-      (quiz.items || []).forEach((item, idx) => {
+      const items = (quiz.items || [])
+        .map(it => sanitizeMcqItem(it))
+        .filter(it => Array.isArray(it.options) && it.options.length === 4 && it.question);
+      items.forEach((item, idx) => {
         const wrap = document.createElement('div');
         wrap.style.borderTop = '1px solid #eee';
         wrap.style.paddingTop = '8px';
@@ -583,34 +589,24 @@
         q.textContent = `${idx + 1}. ${item.question}`;
         wrap.appendChild(q);
         const key = item.id;
-        if (item.type === 'mcq') {
-          const opts = document.createElement('div');
-          item.options.forEach((opt, i) => {
-            const id = `${key}__${i}`;
-            const label = document.createElement('label');
-            label.style.display = 'block';
-            const radio = document.createElement('input');
-            radio.type = 'radio';
-            radio.name = key;
-            radio.value = opt;
-            radio.checked = results[key]?.answer === opt;
-            radio.onchange = () => grade(nodeId, item, opt);
-            label.appendChild(radio);
-            const span = document.createElement('span');
-            span.textContent = ' ' + opt;
-            label.appendChild(span);
-            opts.appendChild(label);
-          });
-          wrap.appendChild(opts);
-        } else {
-          const input = document.createElement('input');
-          input.type = 'text';
-          input.style.width = '100%';
-          input.placeholder = 'Type your answer';
-          input.value = results[key]?.answer || '';
-          input.onchange = () => grade(nodeId, item, input.value);
-          wrap.appendChild(input);
-        }
+        const opts = document.createElement('div');
+        (item.options || []).forEach((opt, i) => {
+          const id = `${key}__${i}`;
+          const label = document.createElement('label');
+          label.style.display = 'block';
+          const radio = document.createElement('input');
+          radio.type = 'radio';
+          radio.name = key;
+          radio.value = opt;
+          radio.checked = results[key]?.answer === opt;
+          radio.onchange = () => grade(nodeId, item, opt);
+          label.appendChild(radio);
+          const span = document.createElement('span');
+          span.textContent = ' ' + opt;
+          label.appendChild(span);
+          opts.appendChild(label);
+        });
+        wrap.appendChild(opts);
         const feedback = document.createElement('div');
         feedback.id = `${key}__fb`;
         feedback.style.fontSize = '13px';
@@ -622,6 +618,16 @@
         wrap.appendChild(feedback);
         $quizBody.appendChild(wrap);
       });
+    }
+
+    function sanitizeMcqItem(it) {
+      const question = String(it?.question || '').slice(0, 500);
+      let options = Array.isArray(it?.options) ? it.options.map(s => String(s || '').slice(0, 300)) : [];
+      let answer = String(it?.answer || '').slice(0, 300);
+      options = (options || []).slice(0, 4);
+      while (options.length < 4) options.push('');
+      if (answer && !options.includes(answer)) options[0] = answer;
+      return { ...it, type: 'mcq', question, options: options.slice(0, 4), answer };
     }
 
     function grade(nodeId, item, userAnswer) {
@@ -646,6 +652,15 @@
       if (!currentNodeId) return;
       try {
         $status.textContent = force ? 'Regenerating quiz…' : 'Loading quiz…';
+        if (force) {
+          // Clear cached quiz and results for this node to ensure regeneration
+          const cache = getCache(quizCacheKey);
+          delete cache[currentNodeId];
+          setCache(quizCacheKey, cache);
+          const results = getCache(quizResultKey);
+          delete results[currentNodeId];
+          setCache(quizResultKey, results);
+        }
         const quiz = await fetchQuiz(currentNodeId, force);
         renderQuiz(currentNodeId, quiz);
         $quizPanel.classList.remove('hidden');

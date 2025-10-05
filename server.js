@@ -115,8 +115,8 @@ app.post('/quiz', async (req, res) => {
       resources: Array.isArray(focus.resources) ? focus.resources.slice(0, 4) : []
     };
 
-    const sys = 'You are a tutor that writes small, high-quality quizzes grounded strictly in the given node context and its immediate neighborhood.';
-    const user = `Create a compact quiz for the focus node.\nFocus node: ${JSON.stringify(nodeDetails)}\nNeighborhood: ${JSON.stringify(subgraph).slice(0, 10000)}\n\nRules:\n- 3 to 5 items total.\n- Include 2-4 multiple choice items and 1-2 short answer items.\n- For multiple choice, provide exactly 4 options and one correct answer.\n- Keep questions concise and aligned with the node objectives.\n- Explanations must justify why the correct answer is right.\n- sources should reference focus.resources where available (label or localRef); otherwise keep empty.\n- Do not include markdown or code fences in fields.\n\nReturn JSON only.`;
+    const sys = 'You are a tutor that writes high-quality MULTIPLE-CHOICE quizzes grounded strictly in the given node context and its immediate neighborhood.';
+    const user = `Create a compact quiz for the focus node.\nFocus node: ${JSON.stringify(nodeDetails)}\nNeighborhood: ${JSON.stringify(subgraph).slice(0, 10000)}\n\nRules:\n- 3 to 5 items total.\n- ALL QUESTIONS MUST BE MULTIPLE CHOICE (no short answers).\n- Provide EXACTLY 4 options and one correct answer.\n- Keep questions concise and aligned with the node objectives.\n- Explanations must justify why the correct answer is right.\n- sources should reference focus.resources where available (label or localRef); otherwise keep empty.\n- Do not include markdown or code fences in fields.\n\nReturn JSON only.`;
 
     const out = await cb.chat.completions.create({
       model: 'llama-4-scout-17b-16e-instruct',
@@ -133,10 +133,10 @@ app.post('/quiz', async (req, res) => {
               items: {
                 type: 'array', minItems: 3, maxItems: 5,
                 items: { type: 'object', additionalProperties: false,
-                  required: ['id','nodeId','type','question','answer','explanation','sources'],
+                  required: ['id','nodeId','type','question','options','answer','explanation','sources'],
                   properties: {
-                    id: { type:'string' }, nodeId: { type:'string' }, type: { enum:['mcq','short'] },
-                    question: { type:'string' }, options: { type:'array', items:{ type:'string' }, minItems:0, maxItems:4 },
+                    id: { type:'string' }, nodeId: { type:'string' }, type: { enum:['mcq'] },
+                    question: { type:'string' }, options: { type:'array', items:{ type:'string' }, minItems:4, maxItems:4 },
                     answer: { type:'string' }, explanation: { type:'string' }, sources: { type:'array', items:{ type:'string' }, maxItems:4 }
                   }
                 }
@@ -154,19 +154,24 @@ app.post('/quiz', async (req, res) => {
     try { payload = JSON.parse(out?.choices?.[0]?.message?.content || '{}'); } catch { payload = { items: [] }; }
     const items = Array.isArray(payload.items) ? payload.items : [];
     const safeItems = items.map((it, idx) => {
-      const typ = it?.type === 'mcq' ? 'mcq' : (it?.type === 'short' ? 'short' : (idx % 3 === 0 ? 'short' : 'mcq'));
-      const opts = Array.isArray(it?.options) ? it.options.slice(0, 4).map(s => String(s || '').slice(0, 300)) : [];
+      let opts = Array.isArray(it?.options) ? it.options.slice(0, 4).map(s => String(s || '').slice(0, 300)) : [];
+      let answer = String(it?.answer || '').slice(0, 300);
+      while (opts.length < 4) opts.push('');
+      opts = opts.slice(0, 4);
+      if (answer && !opts.includes(answer)) {
+        opts[0] = answer;
+      }
       return {
         id: String(it?.id || `${nodeId}::q${idx + 1}`).slice(0, 160),
         nodeId,
-        type: typ,
+        type: 'mcq',
         question: String(it?.question || '').slice(0, 500),
-        options: typ === 'mcq' ? (opts.length === 4 ? opts : opts.concat(Array(Math.max(0, 4 - opts.length)).fill(''))).slice(0,4) : [],
-        answer: String(it?.answer || '').slice(0, 300),
+        options: opts,
+        answer,
         explanation: String(it?.explanation || '').slice(0, 600),
         sources: Array.isArray(it?.sources) ? it.sources.slice(0, 4).map(s => String(s || '').slice(0, 200)) : []
       };
-    }).filter(q => q.question);
+    }).filter(q => q.question && q.options.length === 4);
 
     const finalItems = safeItems.length ? safeItems : [
       {
