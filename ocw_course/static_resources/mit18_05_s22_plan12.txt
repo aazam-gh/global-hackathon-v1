@@ -1,0 +1,95 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class12-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 12: Prediction and Odds
+
+Jen
+  Slide 1: 
+
+  Slide 2: Announcements/Agenda (2 minutes)
+
+  Slide 3: Probabilistic prediction ( 2 minutes)
+    Basically just read the slide
+
+  Slides 4-5: Words of estimative probability (3 minutes)
+     This is a small digression
+     Main point: for policy making translate numbers to words
+     BUT use words with a clear meaning.
+     Avoid vague statements like: might, could, possibly.
+     NOTE: the Bin Laden memo says 'determined to strike in US'
+
+  Slide 6: Predictive probabilities (3 minutes)
+     We saw this on Tuesday.
+     Main point: make clear that we now use prior and posterior in two contexts.
+
+  Slide 7: CLICKER question  3 Coins (4 minutes)
+     Guess the predictive probability 
+     Discussion: no calculation --why does the data move the prior towards
+     the .5 coin
+     This is just a warm up for the board question
+
+  Slide 8. BOARD question (Work 10 minutes, discussion 5 minutes)
+     Compute the predictive probability for 3 coins
+     If every group got it, we'll skip the discussion
+     If not, use one of group's work
+
+  Slide 9: CLICKER question (4 minutes)
+     Order doesn't matter
+     Can use one of the update tables in student work to see the factor of 5 choose 1 won't change the posterior
+     Avoid the temptation to repeat the explanation. It doesn’t work for this type of calculation. Tell them to ask us for clarification during the next board question
+
+Jerry
+  Slide 10:  Odds summary (2 minutes)
+     Definition of odds.
+     Point out the key formula. Don't try to prove it here. 
+     We discuss it on the next slides
+
+  Slide 11:  Odds examples (2 minutes)
+     Highlight P(E) \approx O(E) if E is rare
+
+  Slide 12 Marfan prior and posterior probability (3 minutes)
+     We can point out the prior and likelihood values in the table.
+     The Bayes numerator and posterior are just the usual arithmetic
+     Point out that the posterior probability of M is still small, but
+     a factor of 10 larger than the prior.
+
+  Slides 13-14: Marfan prior and posterior odds (4 minutes)
+     Slide 13: Everything is on the slide. But I think it's still worth writing the entire posterior odds equation and explaining each step. 
+     Slide 14: With the formula from 13 on the board you can circle the Bayes factor and the prior odds. 
+     Be sure to use the term likelihood ratio also
+
+  Slide 15 BOARD question: screening, (Work 8 minutes, discussion 5 minutes)
+     This should be relatively easy for them. 
+     Discussion 
+      Probably no need to redo the calculation
+      Fast calculation: True positive rate \approx 1. False pos. rate = 0.05
+      --> likelihood ratio \approx 20. 
+     Prior prob = 0.005 is small, so prior odds \approx 0.005
+     So posterior odds \approx 20\time 0.005 = 0.1  
+     (4) The evidence is strong, but not conclusive
+
+  Slide 16,17  BOARD question CSI blood types (Work 10 min., discussion 5 min.)
+     Show hint slide 17 while they work
+     Discussion
+       The tricky part is getting the likelihoods. 
+       Look at solutions: it's easy to miss the factor of 2 in the denominator 
+
+PROBABLY WON'T GET BEYOND HERE
+  Slide 18 Updating again and again (3 minutes)
+     Do this if more than 5 minutes left else skip to slide 19
+     Do not try to explain the independence. If anyone asks we can go through it after class. (We have already assumed this when we did repeated updating in class 11)
+
+  Slide 19 Legal thoughts (3 minutes)
+     Interesting to poll peoples instinctive reaction to this.
+      less than 5 minutes left
+
+  Slide 20 Marfans more symptoms (3 minutes) 
+     Repeated updating example

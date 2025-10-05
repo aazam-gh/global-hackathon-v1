@@ -1,0 +1,49 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class20-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 20 Bayes vs Frequentist
+
+Jerry
+  Slide 1:
+
+  Slide 2: Announcements/Agenda (2 minutes)
+
+  Slide 3: Comparison of Bayes and Frequentist (6 minutes)
+    Class discussion: good and bad aspects of requiring a full specification of the experiment.
+     -- + avoid experimenter bias
+     -- + plan carefully
+     -- - not flexible
+     -- - can lead to silly situations --see stopping rules
+     Key point: Should not view NHST as proving something. It just gives evidence and suggests further experiments. Only with time and an overwhelming amount of accumulated evidence can we declare something proved..
+     
+Jen
+  Slides 4: Concept question. (6 minutes)
+     Significance is not total probability of error
+
+  Slide 5:  BOARD question  STOP I: (work: 12 minutes, discussion 6 minutes)
+     This is similar to a pset question.
+     In discussion:
+       Start with updating with conjugate priors: B(1,1) --> B(5,2)
+       Then show them how we got this from the table.
+       Remind them carefully that hypotheses are all of the form theta = some value.
+
+Jerry
+  Slide 6 Board question  STOP II: frequentist p values (work: 15 minutes, discussion: 6 minutes)
+     They may find 2 and 3 confusing to set up. 
+     For experiment 2: Use a tree (missing in the solutions)
+   
+  Slides 7-9: Class 18 type one errors (6 minutes)
+     The point is that the fraction of type one errors among all rejections, i.e. P(H0 | reject) can be anywhere from 0 to 1 depending on the prior.
+
+Jen
+  Slide 10: Class 19 Board question: chi-square test for independence (work 10 minutes, discussion 5 minutes)
+      There should be plenty of time. If not, we can just make sure each group gets through the problem.
+      As always, the hard part is using H0 and the data to get the probabilities needed to compute expected counts.

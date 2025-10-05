@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Graph Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { margin:0; font: 16px system-ui, -apple-system, Segoe UI, Roboto; }
+    #toolbar { padding: 8px 12px; border-bottom: 1px solid #eee; display:flex; gap:8px; align-items:center; }
+    #cy { width: 100vw; height: calc(100vh - 56px); }
+    .pill { padding:4px 8px; border:1px solid #ddd; border-radius:999px; }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <input id="q" placeholder="Search concept…" class="pill"/>
+    <button id="focus" class="pill">Focus</button>
+    <button id="reset" class="pill">Reset</button>
+    <button id="suggest" class="pill">What next?</button>
+    <span id="status"></span>
+  </div>
+  <div id="cy"></div>
+
+  <script src="https://unpkg.com/cytoscape@3.28.1/dist/cytoscape.min.js"></script>
+  <script>
+    const cy = cytoscape({ container: document.getElementById('cy'), elements: [], layout: { name:'cose' },
+      style: [
+        { selector: 'node', style: { 'label': 'data(title)', 'font-size': 12, 'background-color': '#9cc' } },
+        { selector: 'edge', style: { 'target-arrow-shape': 'triangle', 'curve-style': 'bezier', 'width': 1 } },
+        { selector: 'edge[type = "prereq"]', style: { 'line-style':'solid' } },
+        { selector: 'edge[type = "refines"]', style: { 'line-style':'dotted' } },
+        { selector: 'edge[type = "applies-to"]', style: { 'line-style':'dashed' } }
+      ]
+    });
+
+    let graph;
+    fetch('/graph').then(r=>r.json()).then(g => {
+      graph = g;
+      const elements = [
+        ...g.nodes.map(n => ({ data: { id:n.id, title:n.title, kind:n.kind, summary:n.summary } })),
+        ...g.edges.map(e => ({ data: { id:`${e.source}->${e.target}:${e.type}`, source:e.source, target:e.target, type:e.type } }))
+      ];
+      cy.add(elements); cy.layout({ name:'cose' }).run();
+      cy.on('tap', 'node', evt => {
+        const n = evt.target.data();
+        alert(`${n.title}\n\n${n.summary}`);
+      });
+    });
+
+    const $q = document.getElementById('q');
+    document.getElementById('focus').onclick = () => {
+      const term = $q.value.trim().toLowerCase();
+      const match = cy.nodes().filter(n => n.data('title').toLowerCase().includes(term) || n.id().includes(term));
+      if (match.length) {
+        cy.elements().addClass('faded');
+        match.neighborhood().add(match).removeClass('faded');
+        cy.fit(match.neighborhood(), 50);
+      }
+    };
+    document.getElementById('reset').onclick = () => { cy.elements().removeClass('faded'); cy.fit(cy.elements(), 50); };
+
+    document.getElementById('suggest').onclick = async () => {
+      const selected = cy.$('node:selected').map(n => n.id());
+      const res = await fetch('/ask', { method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ question: 'What should I learn next?', knownIds: selected }) });
+      const { answer } = await res.json();
+      alert(answer);
+    };
+  </script>
+</body>
+</html>

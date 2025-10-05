@@ -1,0 +1,68 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class6b-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+class 6b CLT
+   
+Jerry
+   Slide 2  (2 minutes)
+     CLT super important, since many phenomena are the sum or average of my 
+     We should have time to introduce joint distributions from class 7.
+
+   Slide 3  Standard deviation of an average  (3 minutes)
+     Just a reminder: this is from last Thursday
+
+   Slide 4  Standardization definition (2 min)
+     Go over the points:
+     Z has mean 0 and std dev 1: This is in the next table question
+     Dimensionless: enough to note X and sigma have same dimension
+     
+   Slide 5  Table question: standardization (Work: 5 min, discuss 5 min)
+     For repetition's sake: give the definition again
+     How much detail in discussion depends on how the tables did.
+
+   Slide 6  CLT statement (5 min)
+     Go slowly. 
+     Emphasize that in X_n-bar approx N(mu, sigma^2/n), mu and sigma^2/n are precisely the mean and variance of X_n-bar, likewise for S_n and Z_n
+     
+   Slide 7  CLT statement summary (1 minute)
+
+   Slides 8-11 Pictures of CLT (3 minutes)
+       (As close as we'll come to a proof)
+       Note: exponential distr. is asymmetric -- takes longer to converge
+
+Jen
+   Slide 12 CQ Normal distributions (5 minutes)
+       Point is to think in terms of standard deviations for normal distr.
+       (Has pause)
+       (a) Softball - answer is in the figure
+       (b) Slightly harder
+
+   Slide 13 Board question CLT (work: 10 minutes work, discussion: 8 minutes)
+      (a) We should make sure they all get this during work --skip discussion
+      (b) In discussion just present a model solution so they see how to organize and present such problems.
+         Define test stat Xbar = fraction who support the team
+         Identify probability asked for P(Xbar > .55)
+         Identify individual X_i, with their mean (0.5) and variance (0.25)
+         For test stat Xbar give mean (0.5) and variance (0.25/400)
+         Standardize and use CLT: ... P(Z > 2) = 0.025
+      (c) Do the same but a little faster
+ 
+   Slide 14 Table question: using the clt to approximate N(0,1) (Work: 6 minutes: discussion: 5 minutes)
+      FOR DISCUSSION: Show figure on slide 15
+       
+   Slide 15 Figure for solution to table question
+
+   Slides 16, 17 Continuity correction (5 minutes)
+      Don't belabor. 
+      In R, certain tests that rely on the CLT will are an argument to set the continuity correction to true or false.
+
+   Slide 18 Bonus question
+      SKIP

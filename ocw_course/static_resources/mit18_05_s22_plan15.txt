@@ -1,0 +1,86 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class15-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 15 Beta distributions, Conjugate priors
+# Class 15 in spring 2022 is a combination of previous years' class14 and class15. We skipped general continuous-continuous updating and only do the normal-normal as a conjugate pair
+
+Jen
+  Slide 1: One key point of today --don't actually compute integrals (1 minute)
+
+  Slide 2: Agenda/Announcements (1 minute)
+
+  Slide 3: Advertisement: (2 minutes)
+   What is this good for.
+   
+  Slide 4:  Beta distribution (5 minutes)
+    Use board to write c\theta^{a-1}(1-\theta)^{b-1}
+    Show applet for left-right and spikiness 
+
+  Slide 5: Observation (2 minutes)
+    We've made this point many times.
+    It's worth pointing out that it is the key to avoiding computing integrals.
+
+  Slide 6: Flat prior (2 minute)
+    Point is Beta(1,1) is special
+    
+  Slide 7: PREAMBLE to board question (1 minute)
+
+  Slide 8: BOARD QUESTION beta-binomial update (Work 10 minutes, discuss 5 minutes)
+     Discussion: This is just what we did in the last class. What's new is we now have a name for the distribution and a formula for the normalizing factor.
+     The point of (b) is that the presence or absence of the binomial coefficient doesn't change the posterior.
+
+  Slide 9: Conjugate priors (2 minutes)
+    This is just a reminder of the use of the term in the reading
+    and what they just saw.
+    Don't dwell on this. The next concept question covers it again.
+
+  Slide 10: CONCEPT QUESTION Binomial/Beta updating (5 minutes)
+    Beta prior; beta posterior
+    This is just for attendance. Everyone should get it.
+
+Jerry
+  Slide 11: CONCEPT QUESTION Strong priors (5 minutes)
+    Moral: If your prior is 0, no amount of data will change your mind. Always leave some probability for things you think are unlikely.
+    
+  Slides 12,13: normal/normal formulas (4 minutes)
+    Do not go over the formulas. They will work with them on the next board question.
+    Just note: this follows by a mess of algebra involving completing the square. Don't attempt to explain this.
+    With the stronger groups we can explain it by waving our hands at the formula they have in part b of the next board question 
+
+  Slide 14: BOARD QUESTION normal-normal (Work 10 minutes, discussion 5 minutes)
+     They will find the updating easy.
+     We should push them to put in the formula for the normal pdf in the table in part b
+     Discussion: Hardest part is keeping the terms straight
+
+  Slides 15, 16: Concept questions on normal-normal updating (6 minutes: 4,2)
+     Key point for normal-normal updating: 
+         mu_post is between u_prior and xbar
+         sigma_post < sigma_prior (variance decreases)
+     SKIP DISCUSSION of part (b) if no time. 
+     (Can point them to posted solutions or office hours)
+     Key to (b): xbar = 8, so mu_post between 6 and 8
+
+  Slide 17: BOARD QUESTION: Normal-normal (Work 8 minutes, discussion 2 minute)
+     This is normal-normal updating.
+     The hard part is identifying the parts.
+     With help they all should get it. No need to finish the calculations
+
+Only if time:
+
+Slide 18: Class discussion: Likelihood principle (6 minutes)
+        (All the inferential information from the data is in the likelihood function)
+
+
+Slide 19 Conjugate priors --table of pairs
+        ***Careful explanation for TWO-- NOT ALL-- pairs. 
+
+Slide 20 CLASS DISCUSSION question conjugate priors
+         DISCUSSION -use board

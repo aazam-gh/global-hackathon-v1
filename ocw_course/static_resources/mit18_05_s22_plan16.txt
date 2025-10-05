@@ -1,0 +1,87 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class16-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 16 Choosing priors. Probability Intervals
+
+NOTE: The slides will show in class have more slides than the posted version. They include some of the tables in the solution to the first board question.
+
+Jerry
+  Slide 1
+
+  Slide 2: Announcements/Agenda (2 minutes)
+
+  Slide 3-8 Two parameter tables Malaria (6 minutes)
+      QUICKLY: Point out this is a review from reading.
+      Go through the mechanics of 2 param. tables
+      Next board question covers the same ground
+
+  Slide 9:  continuous 2 parameter example (2 minutes)
+      Don't over explain
+      In practice, if we use the computer we'll discretize
+
+  Slides 10,11:  BOARD QUESTION Respiratory failure (Work 15 minutes, discussion 6 minutes)
+       Make  flat and informed priors and likelihood table,
+       The computation for this is long. We should get them to see what they have to do, but not finish the calculation
+       Discussion goes with next slides which show tables
+
+  *** These 3 slides are not in the posted slides. We'll have them in class to show if it seems better
+  Slide 1: Solution priors (part of Board question discussion)
+       Describe rationale for informed prior
+  Slide 2: Likelihood
+       Formula is on the slide. The exponents come from the data
+  Slide 3: Posteriors
+       P(theta_E > theta_C | Harvard data) = 0.94 for both posterios
+       Point out that posteriors are similar --robustness to choice of prior is good.
+       DISCUSSION
+
+Jen
+  Slide 12  Probability intervals (2 minutes)
+
+  Slide 13  Prob. intervals in Bayesian updating (2 minutes)
+      NOTE: We wanted them to see these. But we won't do much more with them.
+      They are useful for helping to create subjective priors
+
+  Slides 14 Normal prob. intervals (2 minutes)
+      Note: uncentered intervals tend to be longer than centered ones for the same value.
+      
+  Slide 15 Beta intervals (1 minute)
+      Just show, no need to spend any time -- similar to normal
+
+  Slide 16 Concept Question --how to increase p (4 minutes)
+
+  Slides 17-21  Reading question subjective prob. intervals (5 minutes)
+      For airline: some people may have answered for average yearly deaths.
+      No need to talk about any but the first
+      Used data from 2022
+      These are good examples of the difficulty in taking data.
+      Notes --People interpreted questions differently
+           e.g. question 1, it looks like some people gave an answer for average yearly # of deaths.
+            --A good percentage didn't do them
+            -- Some people clearly didn't take them seriously
+            -- Beliefs vary greatly
+      Given how many intervals don't cover the true value, we may want to learn to widen our intervals.
+
+  Slides 22, 23 Citations for the numbers quoted in above slides (1 minute)
+     Just point out these exist and that they give references for where we got the true values.
+
+For ocw don't have these images See if can reproduce heat maps. Use xkcd for discussion
+
+  If have time:
+  Slide 24 Meteor intro
+
+  Slide 25-27 Board questions --subjective priors and probability intervals
+     We'll keep them standing as we change the slides. Discussion at end
+
+  Slide 28: Answer to direction question
+     Lesson: We're easily swayed by incorrect interpretations of pictures
+     The second heat map shows the number of calls corresponds to population centers29
+
+  Slide   XKCD commentary

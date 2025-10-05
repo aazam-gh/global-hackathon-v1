@@ -1,0 +1,70 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class22-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 22 Confidence intervals for normal data
+
+Jen
+  Slide 1: 
+
+  Slide 2: Announcements/Agenda (3 minutes)
+
+  Slide 3: Review of critical values (2 minutes)
+    Quickly --done before, on pset, in reading
+
+  Slide 4ab: Concept question critical values (6 minutes)
+     This is review. Give the answer clearly but don't dwell on it.
+     1. Within 2 std dev = 95% --> 0.025 in each tail --> z_0.25 \approx 2
+     2. Within 1 std dev = 68% --> 0.16 in each tail --> -z_0.16 \approx -1
+
+  Slide 5: Formulas for confidence intervals (3 minutes)
+      z, t, chisq for variance
+      Tell them we will talk about the rationale later
+      Key point: each gives a range of values for the unknown parameter
+    
+  Slide 6: Rule of thumb (95\% = 2 \sigma) (3 minutes)
+      Enough to write down that alpha = 0.5 and
+      Precise: z_0.25 = 1.96
+      rule of thumb z_0.25 = 2.
+
+  Slide 7: Board question: computing confidence intervals (Work 12 minutes, discuss: 5 minutes)
+      Reminder: \Chi^2 stat for variance is (n-1)s^2/sigma^2 --> 
+      CI is [(n-1)s^2/c_alpha/2, (n-1)s^2/c_{1-\alpha/2}
+  DISCUSSION
+      Avoid the temptation to rederive or explain formulas
+      Go through each one using the formula.
+       a-c quickly
+       (d) X^2 CI for sigma:  Reassure them that taking the square root of #3
+          is okay
+       (e) rule of thumb: this is a z thing, but 
+         t(99)\approx z so can use t_{.25} \approx 2.(In fact it = 1.98) 
+Jerry
+  Slide 8: Conceptual view (4 minutes)
+     Don't dwell on the connection to NHST. We will look more carefully at this in class 23.
+     Suggest they look at the applet outside of class. --We won't look at it.
+
+  Slide 9: Table discussion: what affects the width of the interval (4 minutes)
+     Write down formula [xbar - z_alpha/2*sigma/\sqrt{n}, xbar + ...] on board
+   
+  Slide 10: Intervals and pivoting (5 minutes)
+     --Key points --don't dwell --this is the next board question
+      alpha non-rejection region and 1-alpha conf. interval have the same width.
+      The confidence interval = all mu_0 so that we wouldn't reject H0: mu=mu_0 with the data xbar
+
+  Slides 11: BOARD question  non-rejection and CI (Work 8 minutes, discussion: 4 minutes, go over solution slide.)
+  Slide 12: solution
+     We want to help them get to the picture
+     Again the key is both intervals have the same radius z_alpha/2 * sigma/sqrt(n)
+ 
+  Slide 13 Polling CIs (3 minutes)
+     Explain the term proportion: theta is the proportion, i.e. fraction, of trials that result in successes.
+    1/sqrt(n) is what the media call the margin of error in political polls
+    
+  Slide 14 BOARD question polling (Work 6 minutes. If 5 minutes left, we can discuss.)

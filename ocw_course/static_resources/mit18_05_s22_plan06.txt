@@ -1,0 +1,83 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class6-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+class 6 Continuous expectation, variance; quantiles; LoLN, CLT
+
+Jen
+  Slide 1
+ 
+  Slide 2 Agenda and announcements (3 min)
+
+  Slide 3 Expected value (2 min.)
+     This is a quick review of the reading. No need for long explanations
+     Main point is x*f(x)dx is value time prob.
+    
+  Slide 4 Var and std dev (2 min.)
+     This is a quick review of the reading. No need for long explanations
+
+  Slide 5 Properties (2 min.)
+     This is a quick review of the reading. No need for long explanations
+
+  Slide 6 BOARD question compute mean, var, std dev of average (work 10 min. discuss 5 min.)
+    Discussion
+    Solution. Do a-e. Tell them (f) is on the posted solutions.
+
+  Slide 7  Quantiles (3 min.)
+    Special ones: median, quartiles, deciles, percentiles
+    Inverse of the cdf,
+    R: qnorm, qexp etc
+
+  Slide 8 Greatest median 1 (4 min.)
+    Have pdf with solution figure ready
+
+  Slide 9 Greatest median 1 (4 min.)
+    This is a puzzle.
+    Have pdf with solution figure ready
+    Let them guess and try to explain.
+    Check time: if after 3:15 just point them to solutions
+
+Jerry
+  Slide 10  Histograms (1 minute)
+    Define types of histograms  -- saw this in studio
+
+  Slide 11 Example equal bin width (2 min)
+    Tell them this will be short since they are about to do a board question
+    Key points: look the same, density is a true density function
+
+  Slide 12 Example unequal bin width (2 min)
+    Tell them this will be short since they are about to do a board question
+    Key points: On slide
+
+  Slide 13:  BOARD question: histograms (work 10 minutes, discuss 3 minutes)
+    Let's get them through this so discussion is not needed
+     
+  Slide 14 LoLN (4 min.)
+    We all know this intuitively
+    Don't belabor this. It is in the reading
+    The basic idea is simple: with high probability the sample average is close to the mean.
+    The LoLN is a theorem that formalizes it. 18.05 doesn't do proofs, but it's nice to know there is one. It is in the optional appendix to the class 6 reading.
+
+  Slide 15 CQ Desperation (6 min.)
+    Paused slide
+    This is the plot of the movie Rounders, starring Cambridge's own Matt Damon.
+    If time is short, let's just do a show of hands.
+
+    KEY POINT: in the long run the LoLN says you achieve the expected average
+    You have to decide if this is a good thing or not.
+
+  Slide 16: LoLN histogram (2 min.)
+    Rule of thumb: LoLN ---> histogram matches the density 
+
+  If extra time: Go through problem 3 in the problems
+     Explain that p = pnorm(x) --: x = qnorm(p)
+     i.e. p = probability, x = possible value, 
+          F(x) = p = probability, quantile(p) = x = value
+     Do part b imprecisely, just eyeballing areas.

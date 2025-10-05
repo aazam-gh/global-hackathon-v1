@@ -1,0 +1,64 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class2-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 2
+
+--------
+Before class: set up MITx for clickers
+Give out dice bags
+
+---------
+Jerry 
+ Slides 1,2  Hello, Announcements/Agenda (3 minutes)
+
+ Slide 3  Poker board question (Work: 8 minutes, discuss 5 minutes)
+  -- Solution to board question --only do combinations approach
+  -- Note solutions posted with slides give a permutations approach
+  -- Remind them that the solution will be on the published slides
+  -- Tell them these also give a solution found by counting permutations.
+
+ Slides 4-7  Probability cast: (5 minutes)
+  -- Experiment, sample space, prob. function, events 
+
+ Slide 8  Clicker test (4 minutes)
+  -- If it's easy project histogram
+
+ Slides 9-12  Event clicker questions (10 minutes)
+  --there are 4 questions so don't dwell too long on each or the class will get tired of the questions.
+
+Jen
+ Slides 13-14: Probability rules. (4 minutes)
+
+ Slide 15: Table question on inclusion exclusion (Work 4 minutes, discuss 4 minutes)
+  --Give them a few minutes to come to an answer
+  --Give solution
+
+ Slide 16A Table activity (Work 10 minutes, discuss 4 minutes)
+  --Hand out dice to those who need them
+ Slide 16b Compute true prob.
+  --Give solution --ask how many experiments gave this answer
+  --Combine all the class data and compare
+
+ Slide 17: Non-transitive dice (2 minutes)
+    --ask students which one they would pick
+    --Don't answer --this is the board question on the next slide.
+    
+ Slide 18: Board question (Work 12 minutes, discuss 5 minutes)
+    --Will probably run out of time for discussion. If so, we'll let them finish the class working on the problem.
+    --If there's time give solution,
+    --Maybe show the tables from the written solutions
+
+Slides 19-20 if time
+  PLAN ON SKIPPING THESE next slides unless there are 10 minutes left.
+ Slide 20: Lucky Lucy --NO CLICKER-- just ask them to discuss at table
+ Slide 21: Board question Lucky Lucy
+
+ANNOUNCE: For tomorrow do the R tutorial and bring computers

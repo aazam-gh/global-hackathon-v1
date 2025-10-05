@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Readings on MIT OpenCourseWare</title>
+    <link>/resources/readings/</link>
+    <description>Recent content in Readings on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>All Probability Reading</title>
+      <link>/resources/mit18_05_s22_probability_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_probability_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>All Statistics Reading</title>
+      <link>/resources/mit18_05_s22_statistics_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_statistics_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 10a: Introduction to Statistics</title>
+      <link>/resources/mit18_05_s22_class10-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class10-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 10b: Maximum Likelihood Estimates</title>
+      <link>/resources/mit18_05_s22_class10-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class10-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 11: Bayesian Updating with Discrete Priors</title>
+      <link>/resources/mit18_05_s22_class11-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class11-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 12a: Bayesian Updating: Probabilistic Prediction</title>
+      <link>/resources/mit18_05_s22_class12-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class12-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 12b: Bayesian Updating: Odds</title>
+      <link>/resources/mit18_05_s22_class12-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class12-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 13a: Bayesian Updating with Continuous Priors</title>
+      <link>/resources/mit18_05_s22_class13-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class13-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 13b: Notational conventions</title>
+      <link>/resources/mit18_05_s22_class13-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class13-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 14: Continuous Data with Continuous Priors</title>
+      <link>/resources/mit18_05_s22_class14-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class14-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 15: Conjugate priors: Beta and normal</title>
+      <link>/resources/mit18_05_s22_class15-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class15-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 16a: Choosing priors</title>
+      <link>/resources/mit18_05_s22_class16-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class16-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 16b: Probability intervals</title>
+      <link>/resources/mit18_05_s22_class16-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class16-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 17a: The Frequentist School of Statistics</title>
+      <link>/resources/mit18_05_s22_class17-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class17-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 17b: Null Hypothesis Significance Testing I</title>
+      <link>/resources/mit18_05_s22_class17-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class17-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 18: Null Hypothesis Significance Testing II</title>
+      <link>/resources/mit18_05_s22_class18-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class18-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 19: Null Hypothesis Significance Testing III</title>
+      <link>/resources/mit18_05_s22_class19-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class19-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 1a: Introduction</title>
+      <link>/resources/mit18_05_s22_class01-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class01-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 1b: Counting and Sets</title>
+      <link>/resources/mit18_05_s22_class01-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class01-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 2: Probability: Terminology and Examples</title>
+      <link>/resources/mit18_05_s22_class02-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class02-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 20: Comparison of frequentist and Bayesian inference</title>
+      <link>/resources/mit18_05_s22_class20-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class20-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 22: Confidence intervals based on normal data</title>
+      <link>/resources/mit18_05_s22_class22-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class22-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 23a: Confidence Intervals: Three Views</title>
+      <link>/resources/mit18_05_s22_class23-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class23-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 23b: Confidence Intervals for the Mean of Non-normal Data</title>
+      <link>/resources/mit18_05_s22_class23-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class23-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 24: Bootstrap confidence intervals</title>
+      <link>/resources/mit18_05_s22_class24-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class24-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 26: Linear regression</title>
+      <link>/resources/mit18_05_s22_class26-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class26-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 3: Conditional Probability, Independence and Bayes&#39; Theorem</title>
+      <link>/resources/mit18_05_s22_class03-prep_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class03-prep_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 4a: Discrete Random Variables</title>
+      <link>/resources/mit18_05_s22_class04-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class04-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 4b: Discrete Random Variables: Expected Value</title>
+      <link>/resources/mit18_05_s22_class04-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class04-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 5a: Variance of Discrete Random Variables</title>
+      <link>/resources/mit18_05_s22_class05-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 5b: Continuous Random Variables</title>
+      <link>/resources/mit18_05_s22_class05-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 5c: Gallery of Continuous Random Variables</title>
+      <link>/resources/mit18_05_s22_class05-prep-c_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05-prep-c_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 5d: Manipulating Continuous Random Variables</title>
+      <link>/resources/mit18_05_s22_class05-prep-d_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05-prep-d_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 6a: Expectation, Variance and Standard Deviation for Continuous Random Variables</title>
+      <link>/resources/mit18_05_s22_class06-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 6b: Central Limit Theorem and the Law of Large Numbers</title>
+      <link>/resources/mit18_05_s22_class06-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 6c: Appendix</title>
+      <link>/resources/mit18_05_s22_class06-prep-c_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06-prep-c_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 7a: Joint Distributions, Independence</title>
+      <link>/resources/mit18_05_s22_class07-prep-a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class07-prep-a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Reading 7b: Covariance and Correlation</title>
+      <link>/resources/mit18_05_s22_class07-prep-b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class07-prep-b_pdf/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

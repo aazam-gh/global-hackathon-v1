@@ -1,0 +1,29 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class-exam1-review.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms}.
+#
+#---------------------------------------------------------
+In-class  Review for Exam 1
+
+Slide 1 
+
+Slide 2 Announcements for Friday (1 minute)
+
+Slide 3 Exam details (2 minutes)
+
+Slide 4 Normal table (1 minute)
+    They need to be able to read this.
+    They will be given a copy on the exam.
+
+Slide 5 Agenda (1 minute)
+
+Slide 6 Real-life correlations (6 minutes)
+    --See discussion in class7-problems-qa
+
+Slide 7 Correlation is not causation. (1 minute)

@@ -1,0 +1,66 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class24-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 24 Bootstrap
+
+
+Jerry
+  Slide 1: Intro
+  
+  Slide 2: Announcements/Agenda (3 minutes)
+     Exam comments: Class ave 90, std dev 9. Will publish results on gradescope soon. 
+     Announcements/Agenda 3 minutes
+
+  Slide 3: Empirical distribution (2 minutes)
+     Example 2: the histogram is made with n = 100 samples
+     
+  Slide 4: Review of resampling (3 minutes)
+  
+  Slide 5: Bootstrap principle for the mean (3 minutes)
+      Don't dwell: tell them they will get board practice for this
+      
+  Slide 6: Empirical percentile bootstrap CI (4 minutes)
+      Don't dwell: tell them they will get board practice for this
+       
+  Slide 7: Empirical basic bootstrap CI  (1 minute)
+      This is in notes, we won't do this in class.
+      Just say words 'algebraic pivot'
+      Will discuss that with parametric bootstrap
+      Empirical Percentile CI is more important for us
+      
+  Slide 8: Which empirical is is best? (2 minutes)
+     We'll emphasize the percentile bootstrap
+     
+  Slide 9: CONCEPT QUESTION (5 minutes)
+     Emphasize can be used for any statistic
+     
+Jen
+  Slide 10: BOARD QUESTION (Work: 10 minutes, discuss 6 minutes
+     Median: Interpolation: How quantile() works: There are 8 values, the first is at quantile 0, the second is at quantile 1/7 etc. So the .1 quantile is .1/(1/7) of the way from the first element to the second. That is xbar^*_{0.1} = 2.83 + (.1/(1/7))*(4.00-2.83) = 2.83 + .7*(1.17) = 3.65
+
+     Median is similar
+
+  Slide 11: Percentile bootstrapping in R (4 minutes)
+     Point out it's essentially 5 lines of working code
+     
+  Slide 12: Parametric bootstrap ( 4 minutes)
+     Similar: generate the samples from parametrized distribution
+          estimate variation -delta_start
+          pivot to get confidence interval --like algebraic pivot for z CI etc
+	  
+  Slide 13: R code (4 minutes)
+     **Quickly
+     Same code except data generation line and use of delta_star
+     Note theta_hat requires division by n since mean of binomial is n*theta
+     Note pivot in last line
+     
+  Slide 14: BOARD QUESTION (Work: 10 minutes, Discussion 5 minutes)
+    Discussion: (If time) show code from previous slide

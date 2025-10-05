@@ -1,0 +1,111 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class4-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 4
+
+Jerry
+  Slide 1  
+
+  Slide 2 Agenda/Announcements.   (12 minutes)
+    Finish squirrel problem
+    Have slides from last time ready
+    Give them 6 minutes to work --announce this with problem
+
+  Slide 3 Review (2 minutes)
+    Just state. They will get practice in concept questions and later
+    Note: We the cdf will be much more prominent when we do continuous distributions
+
+  Slide 4 Example random variable as payoff function    (5 minutes)
+    --Story: roll 4-sided die: pay -2, -1, 0, 4 for 1,2,3,4
+    Discuss notation X=a, X<=a
+    THERE IS A PAUSE IN THIS SLIDE.
+    Do question about F(a) and p(a) as call and response
+    Show answers after pause 
+
+  Slide 5 Properties of PMF and CDF (2 minutes)
+    0 <= pdf <=1, sums to 1
+    cdf: increasing from 0 to 1
+
+  Slide 6 Plot of pmf and cdf (1 minute)
+    Just note the properties
+
+  Slide 7  CONCEPT questions, cdf, pdf  (1 minute each.)
+    PAUSED slide
+    There are 2 of them separated by a PAUSE
+    DON'T DWELL ON THESE
+    For problem 2: can write on board: P(X=3) = F(3) - F(1) --but don't dwell
+
+  Slide 8 Meaning of expected value (6 minutes)
+    Slide is crammed with text. This is for reading outside of class.
+    Let the class know this is for reading later.
+    Do not go through the preliminary 5 experiment example.
+    Go through the expected part carefully
+
+  Slide 9 Expected value definition (3 minutes)
+    Definition and properties
+    Just note that the properties follow easily from the definition and are in the reading.
+
+  Slide 10 Expected value examples (6 minutes)
+    PAUSED SLIDE (6 slides)
+    Do these as table questions 
+    ex 1. Just have them say what they would compute
+          e.g. 3*1/4 + 4*1/2 + 5*1/8 + 6*1/8
+    ex 2. They should compute to answer
+          ** Important result DON'T DWELL. This is also a later board question
+    ex 3. Ask for numerical answer
+
+If after 3:15 skip this in favor of helping them through the similar board question.
+  Slide 11 E[h(X)] example   (2 minutes)
+    Several pauses in this slide (3 slides)
+    Do E(X) as table question
+    Show answer 
+    Do E(X^2+X) as a table question
+    Show answer -- point out line 5 comment
+
+Jerry: introduce, Jen: discussion
+ Slide 12, 13 BOARD questions (15 minutes: 10 work, 5 discussion
+   DO BOTH BEFORE DISCUSSING
+   Stay standing for next problem.
+   10 minutes for work, 5 minutes discussion.
+   Take display off full screen so can show both
+   ** No need to discuss 1 if they all get it.
+   ** For 2, no need to compute the expected payouts. Just discuss the framing bias
+
+Jen
+  Slide 14 BOARD question (10 minutes: 5 work, 5 discussion)
+    Discussion:
+    Do by linearity of expectation. 
+    Notes: A permutation where no one ends up in the correct position is called a derangment
+
+  Slides 15-17  Deluge of distributions (3 minutes)
+
+    Emphasize importance of understanding Bernoulli
+    Describing Binom as a sum of Bernoulli  -- this is where the time will be spent.
+    No repetition! Assure them that we will have lots of practice with these distributions
+    Don't dwell on geometric --we'll see plenty of it in the future
+
+
+Realistically we might not get here
+  Slide 18 Board questions  (10 minutes)
+    Do the problems. Solutions on Tuesday
+
+---------------------
+There won't be time
+Slides 19-20 Fallacies
+   Monte Carlo 1913 --came up black 26 times in a row
+   By #15 people were betting big on red. Doubling and tripling bets
+   in belief that red was more and more likely 
+   House made a lot of money
+   HOT HAND --maybe
+
+Slide 21 Amnesia
+   ONLY IF TIME (HAHA)
+   Prove this for them.

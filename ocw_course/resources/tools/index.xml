@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on MIT OpenCourseWare</title>
+    <link>/resources/tools/</link>
+    <description>Recent content in Tools on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mit18_05_s22_class06-prep-b.r</title>
+      <link>/resources/mit18_05_s22_class06-prep-b_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06-prep-b_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class07-jointPDF.r</title>
+      <link>/resources/mit18_05_s22_class07-jointpdf_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class07-jointpdf_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class07-prep.r</title>
+      <link>/resources/mit18_05_s22_class07-prep_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class07-prep_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class19.r</title>
+      <link>/resources/mit18_05_s22_class19_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class19_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class24-empiricalbootstrap.r</title>
+      <link>/resources/mit18_05_s22_class24-empiricalbootstrap_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class24-empiricalbootstrap_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class24-parametricbootstrap.r</title>
+      <link>/resources/mit18_05_s22_class24-parametricbootstrap_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class24-parametricbootstrap_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class7-jointPDF.r</title>
+      <link>/resources/mit18_05_s22_class7-jointpdf_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class7-jointpdf_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_class7-prep.r</title>
+      <link>/resources/mit18_05_s22_class7-prep_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class7-prep_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_clearall.r</title>
+      <link>/resources/mit18_05_s22_clearall_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_clearall_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_colMatches.r</title>
+      <link>/resources/mit18_05_s22_colmatches_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_colmatches_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_display_all_colors.r</title>
+      <link>/resources/mit18_05_s22_display_all_colors_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_display_all_colors_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_mathtext.r</title>
+      <link>/resources/mit18_05_s22_mathtext_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_mathtext_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_oldfaithful-data.txt</title>
+      <link>/resources/mit18_05_s22_oldfaithful-data_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_oldfaithful-data_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_oldfaithful.r</title>
+      <link>/resources/mit18_05_s22_oldfaithful_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_oldfaithful_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps01_sol.r</title>
+      <link>/resources/mit18_05_s22_ps01_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps01_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps01.r</title>
+      <link>/resources/mit18_05_s22_ps01_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps01_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps02_exact_prob_of_runs.r</title>
+      <link>/resources/mit18_05_s22_ps02_exact_prob_of_runs_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps02_exact_prob_of_runs_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps02_sol.r</title>
+      <link>/resources/mit18_05_s22_ps02_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps02_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps03_sol.r</title>
+      <link>/resources/mit18_05_s22_ps03_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps03_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps03prob2-data.r</title>
+      <link>/resources/mit18_05_s22_ps03prob2-data_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps03prob2-data_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps04_sol.r</title>
+      <link>/resources/mit18_05_s22_ps04_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps04_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps05_sol.r</title>
+      <link>/resources/mit18_05_s22_ps05_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps05_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps06_sol.r</title>
+      <link>/resources/mit18_05_s22_ps06_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps06_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps07_sol.r</title>
+      <link>/resources/mit18_05_s22_ps07_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps07_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps08_sol.r</title>
+      <link>/resources/mit18_05_s22_ps08_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps08_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps09_sol.r</title>
+      <link>/resources/mit18_05_s22_ps09_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps09_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps1_sol.r</title>
+      <link>/resources/mit18_05_s22_ps1_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps1_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps1.r</title>
+      <link>/resources/mit18_05_s22_ps1_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps1_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps10_sol.r</title>
+      <link>/resources/mit18_05_s22_ps10_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps10_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps11_sol.r</title>
+      <link>/resources/mit18_05_s22_ps11_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps11_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps2_exact_prob_of_runs.r</title>
+      <link>/resources/mit18_05_s22_ps2_exact_prob_of_runs_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps2_exact_prob_of_runs_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps2_sol.r</title>
+      <link>/resources/mit18_05_s22_ps2_sol_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps2_sol_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_ps3prob2-data.r</title>
+      <link>/resources/mit18_05_s22_ps3prob2-data_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_ps3prob2-data_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_r_hist_tut.r</title>
+      <link>/resources/mit18_05_s22_r_hist_tut_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_r_hist_tut_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_r_which_tut.r</title>
+      <link>/resources/mit18_05_s22_r_which_tut_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_r_which_tut_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_sampleplotting.r</title>
+      <link>/resources/mit18_05_s22_sampleplotting_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_sampleplotting_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_shading_curve_polygon.r</title>
+      <link>/resources/mit18_05_s22_shading_curve_polygon_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_shading_curve_polygon_r/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

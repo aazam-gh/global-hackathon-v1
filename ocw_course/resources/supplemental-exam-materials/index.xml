@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Supplemental Exam Materials on MIT OpenCourseWare</title>
+    <link>/resources/supplemental-exam-materials/</link>
+    <description>Recent content in Supplemental Exam Materials on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/supplemental-exam-materials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exam 1 Review List</title>
+      <link>/resources/mit18_05_s22_exam1_rev_list_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam1_rev_list_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 1 Review: In-class: Problem Solutions</title>
+      <link>/resources/mit18_05_s22_exam1_rev_pset_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam1_rev_pset_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 1 Review: In-class: Problems</title>
+      <link>/resources/mit18_05_s22_exam1_rev_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam1_rev_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 2 Review: In-class: Problem Solutions</title>
+      <link>/resources/mit18_05_s22_exam2_rev_pset_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam2_rev_pset_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 2 Review: In-class: Problems</title>
+      <link>/resources/mit18_05_s22_exam2_rev_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam2_rev_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Final Exam Review: in-class problems: problems</title>
+      <link>/resources/mit18_05_s22_classfinal_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_classfinal_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Final Exam Review: in-class problems: solutions</title>
+      <link>/resources/mit18_05_s22_classfinal_pset_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_classfinal_pset_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Final Exam Review: In-class: Problem Solutions</title>
+      <link>/resources/mit18_05_s22_examf_rev_pset_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_examf_rev_pset_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Final Exam Review: In-class: Problems</title>
+      <link>/resources/mit18_05_s22_examf_rev_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_examf_rev_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Normal Probability Table</title>
+      <link>/resources/mit18_05_s22_exam1_sn_table_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam1_sn_table_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability Tables</title>
+      <link>/resources/mit18_05_s22_exam2_table_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam2_table_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>R Quiz</title>
+      <link>/resources/mit18_05_s22_rquiz-instructions_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_rquiz-instructions_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>R Quiz Practice</title>
+      <link>/resources/mit18_05_s22_rquizpractice-instructions_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_rquizpractice-instructions_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Summary of NHST</title>
+      <link>/resources/mit18_05_s22_exam2_nhst_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam2_nhst_pdf/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

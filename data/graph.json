@@ -1,0 +1,14 @@
+{
+    "nodes": [
+      { "id":"sample-probability", "title":"Probability Basics", "kind":"concept",
+        "summary":"Sample spaces, events, and axioms.", "prerequisites":[], "outcomes":["bayes-theorem"],
+        "resources":[{"label":"MIT OCW 18.05 (home)"}] },
+      { "id":"bayes-theorem", "title":"Bayes' Theorem", "kind":"theorem",
+        "summary":"Posterior = (likelihood × prior) / evidence.", "prerequisites":["sample-probability"], "outcomes":["naive-bayes"],
+        "resources":[{"label":"MIT OCW 18.05 (Bayes)"}] }
+    ],
+    "edges": [
+      { "source":"sample-probability","target":"bayes-theorem","type":"prereq" }
+    ]
+  }
+  

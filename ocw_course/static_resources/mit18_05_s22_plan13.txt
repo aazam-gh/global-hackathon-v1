@@ -1,0 +1,70 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class13-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Continuous priors
+
+
+Jerry
+  Slide 1: 
+  Slide 2: Announcements/Agenda (2 minutes)
+  From last time: CSI blood types (5 minutes)
+    Show slide
+    Go through solution
+
+Jen
+  Slide 3: Examples of continuous range of hypotheses (2 minutes)
+  Slide 4: Example review (5 minutes)
+    Use notatation theta_.25 etc
+    See solutions: go through this carefully
+    **Point out how each piece of Bayes formula is in the tables
+    Point out P(data) is the prior predictive prob. of the data 
+  Slides 5-9: More coins --leading to need for some notation (2 minutes)
+  Slide 10: Notation to eliminate the number of rows  (3 minutes)
+
+  Slide 11: Big and little letters (2 minutes)
+
+  Slide 12: f(x)dx = probability (1 minute)
+    This is just a reminder. Present it that way. Don't go into any detail.
+   
+  Slide 13: Coin as example of continuous hypotheses (2 minutes)
+    Point out that the coin is our way of describing a situation
+    with success or failure, e.g. medical treatment
+      
+  Slide 14: Law of total probability (2 minutes)
+
+  Slide 15: TABLE QUESTION: (work 6 minutes, discussion 5 minutes)
+    Total probability
+    Discussion
+      
+  Slide 16: CONCEPT QUESTION (4 minutes)
+    discrete or continuous
+
+Jerry
+  Slide 17: Bayes theorem with densities (2 minutes)
+
+  Slide 18: Bayesian update tables. (3 minutes)
+     
+  Slide 19: BOARD QUESTION 1, Bayesian update (work 8 minutes, discussion 5 minutes)
+    Students should get this. So the discussion should center on showing how to present the solution carefully and efficiently.
+    I'll have the graphs in the slides we present in class. (Students can find them in the posted solutions.)
+
+  Slide 20: BOARD QUESTION 2, Bayesian update (work 8 minutes, discussion 5 minutes)
+    The point here is that once you have the likelihood it's just a routine, if tedious, computation to get the posterior. This is preliminary to discussing conjugate priors.
+
+  Slide 21: Plots for BQ2
+    This shows that the data is making us more certain of the value of theta
+     
+ONLY IF TIME
+Jerry
+  Slide 22 Beta distribution
+    This is looking forward to class 14
+    --define 
+    --Show applet

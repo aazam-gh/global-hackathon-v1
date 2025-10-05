@@ -1,0 +1,68 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class19-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 19 Gallery of NHST
+
+Jerry
+  Slide 1:
+
+  Slide 2: Announcements/Agenda (2 minutes)
+
+  Slides 3,4: Discussion of studio 7 (5 minutes)
+     Usual point: frequentist methods cannot give P(hypothesis)
+     Simulating probabilities means counting occurences
+
+  Slide 5: Concept question: t-test odds (5 minutes)
+     Significance is not probability of hypotheses
+
+  Slide 6: review of NHST (2 minutes)
+    Quickly
+
+  Slide 7-9: chi-square example (6 minutes)
+     Note this is a chi-square test because the test stat is (approximately) chi-square. The reason for this is straightforward but complicated. We won't give it.
+     NOT TO SAY IN CLASS: Note: G is called the likelihood ratio statistic. It is actually exp(G) which is the likelihood ratio --see the book by Rice.
+
+
+Jen
+  Slide 10, 11: BQs (Khans restaurant and genetic linkage (Work 15 minutes, discuss 8 minutes)
+     Have them do both before discussing
+     Have the fast groups open the slides on MITx and do the second problem.
+     DISCUSSION Khan
+       Can look at which cells didn't match.
+       In this case, M,S,T are the three biggest contributers to the X2 stat.
+     DISCUSSION Genes-- Someone will be able to explain the biology
+       (The genes are close together on the same chromosome. So they tend to be inherited together)
+
+  Slide 12,13:  the F distribuion, F-test (4 minutes)
+     Briefly: Can look this up. In the reading.
+     All we need to know is that it is the null distribution for an F-test and has mean \approx 1.
+     I found an online reference that says that when the counts are equal this is robust to differences in the variances.
+
+  Slide 14:  ANOVA  (Work 8 minutes, discuss 5 minutes)
+     DISCUSSION: Assume: recovery times follow a normal distribution with same variance.
+     After that: plug and chug
+
+  Slide 15ab  Concept questions (two of them)  Multiple testing (6 minutes)
+     The second question is tricky because the pairs are not independent.
+     The short answer is, that even with dependence, 15 different
+     comparisons gives a probability much greater than 0.05.
+     An R simulation with normal data puts the prob of at least one rejection at about 0.36
+
+     DON'T DO THIS IN CLASS: One low estimate is:
+     There are at least 3 independent pairs of tests so
+     P(at least one rejection) > 1 - pbinom(0,3,.05) = .14
+
+  Slide 16ab Discussion: (2 minutes)
+     There is a pause in this slide
+     For the CQ: we have the F-test to test if all are the same
+
+Only if time.
+  Slide 17:  chi-square for independence (Work to end of class)

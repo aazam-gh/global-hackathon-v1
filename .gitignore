@@ -53,3 +53,5 @@ coverage/
 temp/
 *.bak
 
+# Project data
+ocw_course/

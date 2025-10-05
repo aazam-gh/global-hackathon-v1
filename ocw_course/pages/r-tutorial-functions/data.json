@@ -1,0 +1,6 @@
+
+{
+  "title":"R Tutorial: Functions",
+  "content":" Time We estimate this tutorial will take 10 minutes. It consists of two simple examples of writing functions.\nWrite your own functions # R has many built in functions like sin(x), exp(x), print(s). Generally speaking, you won\u0026rsquo;t write functions on the command line. Rather, they will be put in source files, or in the source pane in R Studio. # Here we will give two simple examples of writing our own function.\n# You should paste this code into the source window and then choose \u0026lsquo;Source\u0026rsquo; under the \u0026lsquo;Code\u0026rsquo; menu. Then practice\n#Here\u0026rsquo;s a simple function that squares its argument. square_me = function(n) { x = n*n return(x) } # Now you can call this function from the command line \u0026gt; square_me(4) [1] 16 Here\u0026rsquo;s a function that builds and prints a phrase from some input strings. hello_there = function(name, adjective) { phrase = paste(\u0026#34;Hello \u0026#34;, name, \u0026#34;! You look \u0026#34;, adjective,\u0026#34;.\u0026#34;, sep=\u0026#34;\u0026#34;) print(phrase) } \u0026gt; hello_there(\u0026#34;Jerry\u0026#34;, \u0026#34;fuzzy\u0026#34;) [1] \u0026#34;Hello Jerry ! You look fuzzy .\u0026#34; "}
+
+

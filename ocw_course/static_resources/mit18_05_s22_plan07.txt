@@ -1,0 +1,113 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class7-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 7 Joint distributions, independence, covariance, correlation
+
+There is a fair amount here. We'll need to be strict with time.
+
+Jen
+  Slide 1
+
+  Slide 2  Announcements/Agenda for exam (3 minutes)
+    There may be questions about the exam 
+    BE BRIEF
+
+  Slide 3  Joint distributions (1 minute)
+  
+  Slide 4-5 Joint pmf examples (1 for 4, 2 minutes for 5)
+    For X,T show why p(4,2) = 0 and p(1,7) = 1/36
+
+  Slide 6  Continuous joint distributions (2 minutes)
+     This is conceptually just like one random variable
+     Don't belabor
+
+  Slide 7  Properties of pmf, pdf (2 minutes)
+     Basically the same as before
+
+  Slide 8  18.02 in 18.05 (3 minutes)
+     We won't expect a lot.
+     There may be some questions: BE BRIEF
+
+  Slide 9  Discrete events (3 minutes)
+     (paused slide) Solution on the second half.
+     Walk through the white and orange squares in the first row.
+     Use the board to write, e.g. Y=1, X=1, Y-X = 0 not >= 2. 
+     Use words to say why this means the (1,1) cell is white.
+     Don't have to write for each cell.
+
+  Slide 10 Continuous events (2 minutes)
+     (paused slide) Solution on the second half.
+
+  Slide 11 Continuous CDF (2 minutes)
+
+  Slide 12 Marginal distributions (5 minutes)
+     Take enough time to do this for the example
+     They will see it for continuous densities on the board problem
+
+Jerry
+  Slides 13-14 Board question (Work 12 minutes: discussion 6 minutes)
+     Turn off full screen mode and try to show both slides
+     Go through each part
+     Highlight f(x,y) > 0, integral is 1
+     Discuss F_X(x) = F(x,1)
+     For (e) get the marginal pdf as the derivative of the cdf. Give it also as the integral of the joint pdf --but don't compute it out.
+
+  Slide 15 Independence (1 minute)
+
+  Slide 16-18 CQ Independence (5 minutes)
+      IN CQ II point out that the 0's are giveaways that it is not a product.
+      In CQ III choice iii is a bit of a joke. Many students won't see this as a product.
+      These should be relatively quick. 
+      The key point is that independence means the cells are the 
+      products of the marginals
+
+  Slide 19 Covariance definition (2 minutes)
+      Note how just like variance it is defined as an expected value
+
+ Slide 20 Properties. (2 minutes)
+      Don't belabor
+      Highlight 3 and 4
+
+  Slide 21 Table question Cov = 0, not independent (4 minutes)
+      (paused slide)
+      Take the time to compute the covariance explicitly use E[XY] - E[X]E[Y]
+      Copy the table to the board, so you can point to the cells as you multiply and add XYp(x,y)
+
+  Slide 22  Correlation definition (4 minutes)
+
+  Slide 23  Board Question (Work 10 minutes, Discussion 6 minutes)
+
+-----------------------------------
+Anything after this is a bonus
+
+Slide 24 Correlation is not causation (5 minutes)
+   Discussion is in the solutions
+   Probably just choose 2 to discuss. One should be HRT and CHD.
+
+Slide 25 Correlation is not causation (1 minute)
+   This is the lesson of the previous slides
+
+Slide 26 Sums of overlapping uniform
+   SKIP THIS. For the plots it's enough to see how the correlation affects the spread
+   This is in the reading as are the plots.
+
+Slide 27 Scatter plots (2 minutes)
+   Show as corr goes to 1, the scatter plot becomes thinner.
+   The axes are centered on the means. Positive correlation means more of the scatter is in 1st and 3rd quadrants.
+
+Slide 28 Intuiton check
+   If by any chance we get here: note this is the studio for tomorrow
+   Covariance stays at 1/4, correlation decreases as n increases.
+
+Slide 29 Board question 
+   Do the problem in slide 28.
+   Won't get to this. 
+   We'll simulate it studio on Friday

@@ -1,0 +1,76 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class23-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 23 Confidence intervals
+
+
+Jen
+  Slide 1:  
+  Slide 2: Announcement/Agenda (2 minutes)
+
+  Slide 3: R Quiz notes (4 minutes)
+
+  Slide 4: Polling confidence interval:  (2 minutes)
+      conservative 
+      rule-of-thumb -(is a conservative CI)
+
+  Slide 5: Binomial proportion. (2 minutes)
+      Note: binomial proportion means the probability in the Bernoulli RV. That is, the proportion of heads/yeses/successes
+
+  Slide 6: 1. BOARD question polling (work: 9 minutes, discuss 6 minutes)
+     They should get these pretty well. For (c) they might give the exact or the rule-of-thumb 95% interval
+     Go through the answers carefully to show how to organize them. It shouldn't require any derivations. E.g.
+     (b) Margin of error = z_{0.1}/2\sqrt{n} = 0.01
+     z_{0.1} = qnorm(0.9) = 1.2816.
+     So, 50*1.2816 = \sqrt{n}
+     So, n = 4106
+
+  Slide 7: CLICKER QUESTION How many in the poll (5 minutes)
+     Ans (1/.04)^2 = 625
+     I expect this will be easy, so can quickly walk through the computation
+    
+  Slide 8ab: Discussion question polling (6 minutes)
+     What are some problems with overnight polling
+     DISCUSSION:
+       --Samples are not representative 
+       --Adjustments are easy to get wrong
+       
+  Slide 9: large sample confidence intervals (2 minutes)
+     Brief description we do not have a question on it
+     Key: CLT
+
+  Slide 10: Review slide (2 min)
+     From last time: No explanations.
+     We are going to revisit these formulas in a few slides
+
+Jerry
+  Slide 11: Three views (2 minutes)
+     This is in the reading
+     
+  Slides 12, 13: standardized statistics (5 minutes)
+     Go through the pivot for z
+     DO NOT show them pivot for t and chi-square
+     If time after next BQ can show it then
+
+  Slide 14: View 2 hypothesis tests (5 minutes)
+     Emphasize CI is a range of theta, rejection region is a range of x
+     Illustrate this on a x-theta plane.
+     
+  Slide 15-17: BOARD question: Confidence intervals and non-rejection regions (work: 12 minutes, discussion 6 minutes)
+   DISCUSSION
+   Key: non-rejection regions horizontal: i.e. range of xbar
+      confidence intervals vertical: i.e. range of mu
+      Both run between same guides, so 
+      xbar in non-reject for mu <--> mu in CI for xbar
+	
+  Slide 18: Formal definition (3 minutes)
+     Show and make one comment --it formalizes what we did in view 2.
+     It's not essential that they know this.

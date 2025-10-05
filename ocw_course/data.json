@@ -1,0 +1,28 @@
+{
+  "course_title":"Introduction to Probability and Statistics",
+  "course_description":"This course provides an elementary introduction to probability and statistics with applications. Topics include basic combinatorics, random variables, probability distributions, Bayesian inference, hypothesis testing, confidence intervals, and linear regression.\n\nThese same course materials, including interactive components (online reading questions and problem checkers) are available on MIT’s [Open Learning Library](https://openlearninglibrary.mit.edu/courses/course-v1:MITx+18.05r_10+2022_Summer/about), which is free to use. You have the option to enroll and track your progress, or you can view and use the materials without enrolling.",
+  "course_description_html":"<p>This course provides an elementary introduction to probability and statistics with applications. Topics include basic combinatorics, random variables, probability distributions, Bayesian inference, hypothesis testing, confidence intervals, and linear regression.</p>\n<p>These same course materials, including interactive components (online reading questions and problem checkers) are available on MIT’s <a href=\"https://openlearninglibrary.mit.edu/courses/course-v1:MITx&#43;18.05r_10&#43;2022_Summer/about\" target=\"_blank\" rel=\"noopener\">Open Learning Library</a>, which is free to use. You have the option to enroll and track your progress, or you can view and use the materials without enrolling.</p>\n",
+  "site_uid":"5c8e7edf-85b3-4365-8a0c-ce24f816baca",
+  "legacy_uid":"","instructors": [{
+    "first_name":"Jeremy",
+    "last_name":"Orloff",
+    "middle_initial":"",
+    "salutation":"Dr.",
+    "title":"Dr. Jeremy Orloff"},{
+    "first_name":"Jennifer",
+    "last_name":"Kamrin",
+    "middle_initial":"French",
+    "salutation":"Dr.",
+    "title":"Dr. Jennifer French Kamrin"}],"department_numbers":["18"],
+  "learning_resource_types":["Lecture Notes","Problem Sets with Solutions","Exams with Solutions","Readings","Activity Assignments with Examples","Supplemental Exam Materials","Tools","Instructor Insights"],
+  "topics":[["Mathematics","Discrete Mathematics"],["Mathematics","Probability and Statistics"]],
+  "mit_learn_topics":null,
+  "primary_course_number":"18.05",
+  "extra_course_numbers":"",
+  "term":"Spring",
+  "year":"2022",
+  "level":["Undergraduate"],
+  "hide_download":false,
+  "image_src":"./static_resources/mit18_05_s22_chp.jpg",
+  "course_image_metadata":{"body":"","content_type":"resource","draft":false,"file":"/courses/18-05-introduction-to-probability-and-statistics-spring-2022/mit18_05_s22_chp.jpg","file_size":54214,"file_type":"image/jpeg","image_metadata":{"caption":"Jon has three six-sided dice with unusual numbering. A game consists of two players each choosing a die. They roll once and the highest number wins. Which die would you choose? (Image from class slides.)","credit":"","image-alt":"Three six-sided dice with all sides showing in a plane."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","resourcetype":"Image","title":"mit18_05_s22_chp.jpg","uid":"32b6cfb9-b02d-42d6-94e9-ef2de233b8af","video_files":{"archive_url":"","video_captions_file":"","video_thumbnail_file":"","video_transcript_file":""},"video_metadata":{"video_speakers":"","video_tags":"","youtube_description":"","youtube_id":""}}}
+

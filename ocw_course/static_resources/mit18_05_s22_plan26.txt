@@ -1,0 +1,76 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class26-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 26 Linear Regression
+
+Jerry
+  Slide 1: Intro and thanks (3 minutes)
+  Slide 2: Announcements/Agenda (3 minutes)
+  Slide 3: RQuiz (4 minutes)
+  Slides 4-9:  Review ( 6 minutes)
+   Don't go into lots of details. 
+   The board question is the place for that.
+
+Jen
+  Slide 10:  BOARD Question: Compute and set up several least squares (Work 12 minutes, discussion 8 minutes)
+    DISCUSSION 
+    a and b: Go through setup and derivatives. 
+      DO NOT do the algebra to solve, just give the numbers
+    c. Take log and stop
+    d. Set up sum of squares
+
+  Slide 11: What is linear about linear regression (2 minutes)
+     This will have been pointed out in the discussion above,
+     so can cover it quickly
+     
+  Slides 12-13: Homo and heteroscedacicity (3 minutes)
+     Amusing name
+     
+  Slide 14: Formulas for simple linear regression (2 minutes)
+     These are in the reading and on the next slide.
+     Only highlight the warning
+     
+Jerry
+  Slide 15: BOARD question: Use the formulas, MLE connection (work 10 minutes, discussion 6 minutes)
+     Work: Don't let the groups do (d)
+     Discussion --do not attempt to prove or justify the formulas in any way     
+      They can find the derivation in the reading.
+      They will get all the computations so no need to say anything about them except that formulas make things easy.
+      Give warning again
+      To point out: (c) is a useful thing to know
+      (d) Theoretical underpinnings. Finding the MLE is just calculus, but a bit tedious
+
+  Slide 16:  Measuring the fit R^2 (3 minutes)
+     They are not responsible for this on the final
+     Don't dwell: key is we have a measure for goodness of fit.
+     Will talk about fit/complexity trade-off in demos
+
+  Slide 17:  Overfitting, demo with R (6 minutes)
+     Have it cued up and ready to go --See comment in slides.tex on this
+     R demonstration!  % Uses class26-prep.r. Set doOverFittingExample = 1, and from the console, up arrow to source the file. This will show the data points. Then it will do one at a time: plot data, m=1, fit, m=2 fit, m = 9 fit. Each fit also prints the R^2 value, which jumps from m=1 to m=2 and goes to 1.0 at m=9
+
+  Slide 18: Outliers (6 minutes)
+     Use linear regression applet:
+       Clear data, 
+       Set to add data mode
+       Show best fit line
+       Add a series of points in the first quadrant --slope about -1
+       After 10 points add a point in the third quadrant 
+      and watch the line jump
+     
+***We probably won't get to slides 19 and 20
+
+  Slide 19: Regression to the mean
+      Point them to the reading for technical details
+      Spend time on the education example
+     
+  Slide 20: Multiple linear regression
+      Point is it's very similiar looking to bivariate linear regression.

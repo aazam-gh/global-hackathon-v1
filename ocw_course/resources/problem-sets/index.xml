@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Problem Sets on MIT OpenCourseWare</title>
+    <link>/resources/problem-sets/</link>
+    <description>Recent content in Problem Sets on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/problem-sets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Class 01: Problems</title>
+      <link>/resources/mit18_05_s22_class01_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class01_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 02: Problems</title>
+      <link>/resources/mit18_05_s22_class02_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class02_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 03: Problems</title>
+      <link>/resources/mit18_05_s22_class03_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class03_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 04: Problems</title>
+      <link>/resources/mit18_05_s22_class04_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class04_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 05a: Problems</title>
+      <link>/resources/mit18_05_s22_class05a_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05a_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 05b: Problems</title>
+      <link>/resources/mit18_05_s22_class05b_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class05b_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 06a: Problems</title>
+      <link>/resources/mit18_05_s22_class06a_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06a_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 06b: Problems</title>
+      <link>/resources/mit18_05_s22_class06b_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class06b_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 07: Problems</title>
+      <link>/resources/mit18_05_s22_class07_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class07_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 10: Problems</title>
+      <link>/resources/mit18_05_s22_class10_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class10_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 11: Problems</title>
+      <link>/resources/mit18_05_s22_class11_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class11_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 12: Problems</title>
+      <link>/resources/mit18_05_s22_class12_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class12_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 13: Problems</title>
+      <link>/resources/mit18_05_s22_class13_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class13_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 15: Problems</title>
+      <link>/resources/mit18_05_s22_class15_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class15_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 16: Problems</title>
+      <link>/resources/mit18_05_s22_class16_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class16_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 17: Problems</title>
+      <link>/resources/mit18_05_s22_class17_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class17_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 18: Problems</title>
+      <link>/resources/mit18_05_s22_class18_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class18_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 19: Problems</title>
+      <link>/resources/mit18_05_s22_class19_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class19_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 20: Problems</title>
+      <link>/resources/mit18_05_s22_class20_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class20_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 22: Problems</title>
+      <link>/resources/mit18_05_s22_class22_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class22_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 23: Problems</title>
+      <link>/resources/mit18_05_s22_class23_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class23_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 24: Problems</title>
+      <link>/resources/mit18_05_s22_class24_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class24_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 26: Problems</title>
+      <link>/resources/mit18_05_s22_class26_pset_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_class26_pset_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 01</title>
+      <link>/resources/mit18_05_s22_pset01_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset01_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 02</title>
+      <link>/resources/mit18_05_s22_pset02_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset02_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 03</title>
+      <link>/resources/mit18_05_s22_pset03_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset03_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 04</title>
+      <link>/resources/mit18_05_s22_pset04_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset04_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 05</title>
+      <link>/resources/mit18_05_s22_pset05_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset05_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 06</title>
+      <link>/resources/mit18_05_s22_pset06_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset06_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 07</title>
+      <link>/resources/mit18_05_s22_pset07_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset07_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 08</title>
+      <link>/resources/mit18_05_s22_pset08_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset08_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 09</title>
+      <link>/resources/mit18_05_s22_pset09_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset09_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 10</title>
+      <link>/resources/mit18_05_s22_pset10_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset10_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Problem Set 11</title>
+      <link>/resources/mit18_05_s22_pset11_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_pset11_pdf/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

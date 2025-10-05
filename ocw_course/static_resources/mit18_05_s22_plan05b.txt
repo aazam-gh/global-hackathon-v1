@@ -1,0 +1,56 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class5b-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 5b
+
+Jerry
+  Slide 1,2. Agenda (1 min.)
+
+  Slide 3. Exponential random variables (2 min.)
+    Define and note that knowing f(x) gives all the information about the random variable.
+
+  Slide 4 Board question (work 9 min. discuss 4 minutes) 
+
+  Slide 5 Uniform (2 min)
+    Define. 
+    Uniform because constant in its range
+
+  Slide 6 Normal (5 min)
+    Formula is shown. 
+    Note, symmetry about mean.
+    Show applet: vary mu = location, sigma = shape
+
+Jen
+  Slide 7. Table question (work 8 min., discuss 4 min)
+    Play with applet.
+    Encourage them to do part (d) both with the pdf and cdf
+    Discussion: just get the class answers to a,b,c --will discuss on next slide
+       For (d) show applet using cdf.
+
+  Slide 8. Normal probabilities  (4 min.)
+    Note: Consistently will use Z for standard normal RV
+     
+  Slide 9. Manipulating random var (5 min)
+    Paused slide
+    Acknowledge this is tricky
+    Emphasize need to use cdf
+    Go through solution carefully before showing solution on second half of the slide
+
+  Slide 10. Board question (work 10 min., discussion 10 min.)
+    Discussion: Only go through the ones that gave people trouble
+
+  Slide 11. Histograms (2 min)
+    Brief: Note studio will be about histograms
+    Just that there are two types and R can make them
+    Vertical scales are different
+    Look the same for equal width bins, not otherwise.
+           
+  Slide 12. Board question: Finish class doing this

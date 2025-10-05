@@ -1,0 +1,93 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class5-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 5
+
+Jerry
+  Slides 1,2 (1 minute)
+     Agenda: Variance of discrete RV start continuous RV
+
+  Slide 3 Studio 2 comments   (4 minutes)
+     Decide on the fly whether to work the example or suggest they do on their own.
+
+Jen
+  Slide 4 variance and standard deviation (4 minutes)
+     Highlight it's defined as the expected value of something
+     Discuss units
+
+  Slide 5 CLICKER question, order by variance (3 minutes)
+     Short discussion based on spread
+
+  Slide 6 CLICKER question, Var(X) = 0 ... (3 minutes)
+     Discussion: variance = sum of non-negative terms. If one is nonzero then so is variance.
+     Avoid the urge to keep talking about this
+
+  Slide 7 Variance example (paused slide) (6 minutes)
+     Work example -- directly, use board
+     Paused slide:
+     For E(X^2) - E(X)^2 formula.
+        --Work this quickly by adding to X^2 to the table
+        --Do not try to prove it. 
+        --Remind class: It's in the reading, proof is easy
+
+  Slide 8 Clicker question & Table question (CQ: 1 minute, Table Q: 4 minutes:)
+     Paused slide
+     No discussion move right to table question
+     TABLE question: compute variance --staff should help them
+       Discussion -- scale matters,
+       Don't do the computation 
+
+  Slide 9 Algebra of variance (2 minutes)
+     No proofs
+     Board questions will provide examples
+
+  Slide 10 BOARD questions: Var of bernoulli, binomial etc (Work 10 min. discussion 4 min.)
+     Discussion
+     They will have gotten these, so no need to go through solutions
+     Mention that using linearity requires independence
+       
+  Slide 11  Continuous RVs intro (1 min)
+
+Jerry
+  Slide 12  Calculus warmup (3 min)
+      Assume they have seen this --even if it's not fresh in their minds
+      Do not dwell on it. 
+      Assure them we won't do hard integrals (though we may ask Wolfram Alpha to do them for us)
+      Thinking of integrals conceptually as sums is the key
+
+  Slide 13  Continuous random variables: range, pdf, cdf (3 min)
+      Emphasize f(x) is a density and f(x)dx is a probability
+
+  Slide 14 Visualization (2 min)
+      They will see pictures like these a lot --they should get good at understanding them.
+      Probabilities are computed by integration
+
+  Slide 15 Properties of CDF (3 min)
+      Same as discrete
+      Highlight F' = f
+
+  Slide 16 BOARD questions --pdf f(x) = cx^2 on [0,2] (Work 9 min. Discuss 5 min.)
+      Judge by how they do whether this requires much discussion.
+
+  Slide 17 Table discussion questions P(X=a) --NOT WITH CLICKERS  (3 min)
+      (2 pauses)
+      Resist the urge to keep explaining
+
+  Slide 18 Table discussion questions valid cdf --NOT WITH CLICKERS (3 min)
+      Discussion
+
+*** If we have time: ***
+*** These slides will be repeated in class5b on the assumption that we won't get to them in class5.
+  Slide 19 Exponential distr. review (1 min.)
+      Just say this is the density. If is often used to model waiting times.
+
+  Slide 20 BOARD question Finish class
+      Discussion next time (maybe)

@@ -1,0 +1,80 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class1-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 1
+
+Jerry
+  Slides 1-2  (6 minutes)
+    greet the class and each of us can introduce ourselves.  
+
+  Slides 3-9 (10 minutes)
+    ADMIN: go through the slides up to 'For Next Time'  10 minutes
+    NOTE: Solutions to in-class problems  will be posted after class
+
+  Slide 10 (1 minute)
+    Platonic dice: We don't have dice yet, so just describe them.
+
+  Slide 11  (5 minutes)
+    Prob vs stats: give some examples
+    Prob: prob. of 14 heads in 20 tosses of a fair coin
+    Stats: Is a coin that produced 14 heads in 20 tosses fair
+    Stats: Is a drug that does slightly better than a placebo in a trial actually helpful
+    DISCUSS TOY EXAMPLES
+
+  Slide 12 (2 minutes)
+    SIMPLE COUNTING prob of exactly 1 head in 3 tosses
+    Write out all possiblilities count to get prob
+    Why we want to learn to count: Prob  of exactly 4 heads in 12 tosses
+
+  Slide 13,14 (2 minutes)
+    POKER HANDS: Somewhat complicated. Make a guess at CQ: answer tomorrow
+
+  Slides 15-19
+   (1 minute) Slides: ASSUME FAMILIAR WITH: Sets, Venn, products
+   (4 minutes) Discuss inclusion exclusion
+   (8 minutes) Do Board Question on band — THIS IS PRACTICE STARTING BOARD QUESTIONS
+   (3 minutes) DISCUSS the solution
+      It is worth giving a careful solution so they'll see that that's what we do.
+
+  Slides 20-21 (21 has a pause) (3 minutes)
+    The rule of product 
+     --For the DNA concept question we'll do it by having them show 1-4 fingers
+       and eyeball the distribution.
+     --Remind them that we'll do this with phone/computers in the future
+     Give answers: emphasize that the second problem is still the rule of product -need narrative.
+
+JO give problems. JF give solutions 
+  Slides 22-24  I'll introduce, (Work 12 minutes, discuss 8 minutes)
+    Board questions 2 and 3: do both board question (olympics, clothes) at once   
+    (Look at the tree I've put in the slides for the solution to the shirt/pants/sweaters problem. Students will find many ways to do this.)
+    Go through solutions 
+       —olympics problem one minute
+       -clothes problem: use solution slide
+
+Jem 
+  Slides 25 - 28 (7 minutes)
+    permutations and combinations
+    -- This and the rule of product are usually very difficult for students
+      to retain and know when to use later in the semester. 
+    -- Ask them to talk through listing permutations of 3 from a set of 4
+       Then show next slide (26) with them all listed
+    -- combinations of 3 things our of 4
+
+  Slides 29-30  (5 minutes)
+    Formulas and notations
+    PROBABLY SKIP EXPLANATION FOR TIME: Show rule of product argument for permutations.
+    Slide 29 is an example
+
+  Slide 31
+    IF TIME: Give the last board question. 
+    IF TIME: Give solution if time.
+
+Announce NEXT TIME WE START WITH THE POKER HANDS QUESTION

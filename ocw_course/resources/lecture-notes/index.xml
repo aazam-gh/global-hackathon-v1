@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Notes on MIT OpenCourseWare</title>
+    <link>/resources/lecture-notes/</link>
+    <description>Recent content in Lecture Notes on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/lecture-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Class 01 Slides: Introduction, Counting, and Sets</title>
+      <link>/resources/mit18_05_s22_lec01_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec01_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 02 Slides: Probability Basics</title>
+      <link>/resources/mit18_05_s22_lec02_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec02_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 03 Slides: Conditional Probability, Independence, and Bayes&#39; Theorem</title>
+      <link>/resources/mit18_05_s22_lec03_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec03_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 04 Slides: Discrete Random Variables: Expected Value</title>
+      <link>/resources/mit18_05_s22_lec04_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec04_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 05a Slides: Variance and Continuous Random Variables</title>
+      <link>/resources/mit18_05_s22_lec05a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec05a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 05b Slides: Gallery of Continuous Variables, Histograms</title>
+      <link>/resources/mit18_05_s22_lec05b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec05b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 06a Slides: Continuous Expectation and Variance, Quantiles, and Law of Large Numbers</title>
+      <link>/resources/mit18_05_s22_lec06a_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec06a_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 06b Slides: Central Limit Theorem</title>
+      <link>/resources/mit18_05_s22_lec06b_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec06b_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 07 Slides: Joint Distributions, Independence, Covariance and Correlation</title>
+      <link>/resources/mit18_05_s22_lec07_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec07_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 08 Slides: Exam 1 Review</title>
+      <link>/resources/mit18_05_s22_lec08_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec08_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 10 Slides: Introduction to Statistics; Maximum Likelihood Estimates</title>
+      <link>/resources/mit18_05_s22_lec10_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec10_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 11 Slides: Bayesian Updating with (Known) Discrete Priors</title>
+      <link>/resources/mit18_05_s22_lec11_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec11_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 12 Slides: Bayesian Updating: Probabilistic Prediction; Odds</title>
+      <link>/resources/mit18_05_s22_lec12_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec12_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 13 Slides: Bayesian Updating with Continuous Priors, Discrete Data</title>
+      <link>/resources/mit18_05_s22_lec13_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec13_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 15 Slides: Conjugate Priors: Beta and Normal</title>
+      <link>/resources/mit18_05_s22_lec15_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec15_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 16 Slides: Choosing Priors; Probability Intervals</title>
+      <link>/resources/mit18_05_s22_lec16_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec16_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 17 Slides: The Frequentist School of Statistics; NHST I</title>
+      <link>/resources/mit18_05_s22_lec17_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec17_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 18 Slides: NHST II</title>
+      <link>/resources/mit18_05_s22_lec18_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec18_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 19 Slides: NHST III</title>
+      <link>/resources/mit18_05_s22_lec19_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec19_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 20 Slides: Comparison of Frequentist and Bayesian Inference</title>
+      <link>/resources/mit18_05_s22_lec20_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec20_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 21 Slides: Exam 2 Review</title>
+      <link>/resources/mit18_05_s22_lec21_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec21_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 22 Slides: Confidence Intervals Based on Normal Data</title>
+      <link>/resources/mit18_05_s22_lec22_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec22_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 23 Slides: Confidence Intervals: Three Views; Non-normal Data</title>
+      <link>/resources/mit18_05_s22_lec23_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec23_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 24 Slides: Bootstrap Confidence Intervals</title>
+      <link>/resources/mit18_05_s22_lec24_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec24_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Class 26 Slides: Linear Regression</title>
+      <link>/resources/mit18_05_s22_lec26_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_lec26_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan01.txt</title>
+      <link>/resources/mit18_05_s22_plan01_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan01_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan02.txt</title>
+      <link>/resources/mit18_05_s22_plan02_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan02_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan03.txt</title>
+      <link>/resources/mit18_05_s22_plan03_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan03_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan04.txt</title>
+      <link>/resources/mit18_05_s22_plan04_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan04_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan05.txt</title>
+      <link>/resources/mit18_05_s22_plan05_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan05_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan05b.txt</title>
+      <link>/resources/mit18_05_s22_plan05b_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan05b_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan06.txt</title>
+      <link>/resources/mit18_05_s22_plan06_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan06_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan06b.txt</title>
+      <link>/resources/mit18_05_s22_plan06b_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan06b_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan07.txt</title>
+      <link>/resources/mit18_05_s22_plan07_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan07_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan08.txt</title>
+      <link>/resources/mit18_05_s22_plan08_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan08_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan10.txt</title>
+      <link>/resources/mit18_05_s22_plan10_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan10_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan11.txt</title>
+      <link>/resources/mit18_05_s22_plan11_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan11_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan12.txt</title>
+      <link>/resources/mit18_05_s22_plan12_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan12_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan13.txt</title>
+      <link>/resources/mit18_05_s22_plan13_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan13_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan15.txt</title>
+      <link>/resources/mit18_05_s22_plan15_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan15_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan16.txt</title>
+      <link>/resources/mit18_05_s22_plan16_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan16_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan17.txt</title>
+      <link>/resources/mit18_05_s22_plan17_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan17_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan18.txt</title>
+      <link>/resources/mit18_05_s22_plan18_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan18_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan19.txt</title>
+      <link>/resources/mit18_05_s22_plan19_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan19_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan20.txt</title>
+      <link>/resources/mit18_05_s22_plan20_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan20_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan22.txt</title>
+      <link>/resources/mit18_05_s22_plan22_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan22_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan23.txt</title>
+      <link>/resources/mit18_05_s22_plan23_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan23_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan24.txt</title>
+      <link>/resources/mit18_05_s22_plan24_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan24_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_plan26.txt</title>
+      <link>/resources/mit18_05_s22_plan26_txt/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_plan26_txt/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Studio 1: Birthday Matches</title>
+      <link>/resources/mit18_05_s22_studio1_slides_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_studio1_slides_pdf/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

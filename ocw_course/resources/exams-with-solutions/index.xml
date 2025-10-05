@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exams With Solutions on MIT OpenCourseWare</title>
+    <link>/resources/exams-with-solutions/</link>
+    <description>Recent content in Exams With Solutions on MIT OpenCourseWare</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="/resources/exams-with-solutions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exam 1 Review: All Questions: Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam01_all_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam01_all_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 1 Review: Practice 1: Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam01a_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam01a_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 1 Solutions</title>
+      <link>/resources/mit18_05_s22_exam01_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam01_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Exam 2 Solutions</title>
+      <link>/resources/mit18_05_s22_exam02_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam02_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Final Exam Solutions</title>
+      <link>/resources/mit18_05_s22_exam_final_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_exam_final_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_RQuiz-solutions.r</title>
+      <link>/resources/mit18_05_s22_rquiz-solutions_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_rquiz-solutions_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>mit18_05_s22_RQuizPractice-solutions.r</title>
+      <link>/resources/mit18_05_s22_rquizpractice-solutions_r/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_rquizpractice-solutions_r/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Exam 1b Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam01b_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam01b_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Exam 2a Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam02a_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam02a_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Exam 2b Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam02b_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam02b_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Final Exam Probability Unit Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam_final_probability_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam_final_probability_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Final Exam Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam_final_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam_final_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Practice Post Exam 2 Solutions</title>
+      <link>/resources/mit18_05_s22_prac_exam02_post_sol_pdf/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/resources/mit18_05_s22_prac_exam02_post_sol_pdf/data.json</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

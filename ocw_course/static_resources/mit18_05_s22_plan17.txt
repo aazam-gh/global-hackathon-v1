@@ -1,0 +1,97 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class17-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 17 Frequentist stats. NHST
+
+Jerry
+  Slide 1:
+
+  Slide 2 Announcements/Agenda (2 minutes)
+
+  Slide 3 Frequentist school (2 minutes)
+
+  Slide 4-6 Fork in the road (4-6) (4 minutes)
+     For slides 5 and 6, don't focus on the numbers
+     The key point is the missing prior in slide 6
+
+  Slide 7 CONCEPT QUESTION: (5 minutes)
+     What would a frequentist accept
+     We are going to say roughly a million times: Frequentists don't compute probabilities of hypotheses.
+
+  Slide 8 What is a stat (2 minutes)
+     We did this earlier in an earlier class
+     Many people are bothered by this definition when they first
+     hear it, but I think it is a good working definition.
+     It correpsonds to the physics notion of an observable.
+
+  Slide 9 DISCUSSION QUESTIONS  (4 minutes)
+    Start the repetition that Frequentists don't compute prob. of hypoth.
+    Series of 4 questions: is it a stat?
+   Just
+
+  Slide 10  Cards: (6 minutes)
+     The goal here is to illustrate Fisher's insight into using 5% as a standard significance level.
+     I will bring a deck of cards with all red cards but the cellophane wrapping intact
+     In class, I'll say that's it's a new deck and give it to Jen to open.
+     I'll explain the game:
+       Jen will let random people draw a card.
+       If it's black I'll put a dollar in the kitty. \
+       If it's red she'll put a dollar in the kitty.
+       The game ends when one of us quits
+     By the 3rd table there will be some grumbling. By the 4th people will strongly suspect the game is rigged and by the 5th they're sure
+
+     At this point Jen will quit and we can discuss likelihood.
+
+     Compute likelihood P(5 red cards | deck is fair) = 1/32 < 0.05
+     This is one of Fisher's insights and in another context the origin of the use of 0.05 as the threshold for significance
+
+  Slide 11 NHST ingredients (2 minutes)
+     Review of the region
+     Note that p values are not in the list.
+
+Jen
+  Slide 12 Choosing rejection regions (2 minutes)
+     They'll find this pretty abstract
+     Don't explain it here. We'll do that in the context of the following example.
+
+
+  Slide 13 TABLE QUESTION: significance and rejection regions  (work 5 minutes, discussion 5 minutes)
+  Slide 14 Solution and  DISCUSSION
+     Emphasize: rejection region is a range of values of the test stat
+     Emphasise it's chosen to be more likely under the alternative hypothesis
+
+  Slide 15 Concept Question: (5 minutes)
+     Which region represents significance
+     Again we can point out that the rejection region is on the side of H_A
+     Encourage them to really learn to read pictures like this. The pictures have a lot of explanatory power and we will use them frequently.
+     They should ask -and keep asking- if anything is unclear.
+
+  Slide 16,17 z-tests p-values (4 minutes)
+      Walk through slide 16 slowly. State what these things are, but don't repeat and don't worry about being fully understood. Let them know the next slide and board questions are designed to reinforce this.
+      The point of 17 is that it's identical except for the choice of rejection region is guided by the one-sided H_A
+       Move to next slide:
+
+  Slide 18 visualization (5 minutes)
+      Use the board to explain that the p-value means the probability of seeing the data or data more extreme --do this for right-sided H_A since it's easier to work with. Extreme is measured relative to H_A.
+       Our take is that the p-value is just a numerical gadget to tell you if the test statistic is in the rejection region, i.e. 2.4 is in the rejection region is the same as the p-value (blue striped are) is < alpha (orange area)
+
+       Define critical values z_{0.05} (right-sided version of quantiles) etc
+
+  Slide 19-21 BOARD question z-test (Work 12, discussion 6)
+      make sure they draw and label a picture
+      Our goal is for them to understand the role of all the pieces
+  Slides 20,21 Solution
+      DISCUSSION Use the solution slides
+      Note we are using the more precise z_0.25 = 1.96 for standard normal
+
+We stand a chance of getting here depending on the time we can just finish the class with them working on this.
+  Slide 22 BOARD question NHST for 2 coins
+      DISCUSSION

@@ -1,0 +1,83 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class3-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 3
+
+---------
+Jerry
+  Slide 1: 
+
+  Slides 2: Announcements/Agenda, (4 minutes)
+    ** Note a number of super important concepts today
+
+  Slide 3: Studio 1 recap (2 minutes)
+  
+  Slide 4: sample space confusion (3 minutes)
+    --see slide. This is a very common problem. You ask a student to
+      describe the sample space and they give you its size
+
+  Slide 5: conditional probability (2 minutes)
+    --**Stress importance** --USED IN ALMOST EVERYTHING WE DO TODAY
+    --give red, heart, examples P(H) = 1/4, P(H|Red) = 1/2, P(H | 4)=1/4
+    -- Coin flip figure is A = 3 heads, B = first flip is heads
+
+Jen
+  Slide 6: Table/concept question -- P(B|A) \ne P(A|B) (5 minutes)
+     P(A|B) = 1/8, P(B|A) = 1/5
+     POINT: not the same
+
+  Slide 7 Multiplication rule, Total probability (3 minutes)
+    --**Important
+    --derive from formula for conditional prob.
+    --discuss law of total probability.
+
+  Slides 8 Trees and Multiplication Rule (3 minutes)
+   -- tree EXAMPLE is from reading
+   -- Go through example
+      NOTE: multiplying probabilities along a path is the multiplication rule
+
+  Slides 9-12: Concept questions on trees (4 minutes)
+    --Do these carefully but try not to spend a lot of time
+
+
+  Slide 13, 14  Monty Hall Concept question and board question (Work: 8 minutes, discuss 6 minutes)
+    Do concept question by show of hands
+    Discussion, walk through tree computation.
+    (Don't worry about other possible methods yet. We will get to them
+     when we do Bayesian updating.)
+
+  Slide 15: Independence (2 minutes)
+    --Note symmetry and use mult. rule.
+    --Use formula P(A|B) = P(A and B)P(B)/P(A) to see P(A and B) = P(A)P(B)
+
+  Slide 16: Table question (Work 4 minutes, discuss 4 minutes)
+    --Answer by show of fingers
+    --Emphasize that the thought process is checking if knowing B
+    --changes the probability of A, i.e. compare P(A|B) and P(A)
+    --Walk through computation on board:
+        P(A) = 1/6 P(A|B)= 1/5, P(A|C) = 1/6
+        Can discuss in words why B tells you something about the first die but C doesn't
+
+Jerry
+  Slide 17 Bayes (4 minutes)
+    --****Stress importance
+    --Prove by comparing conditional probability formulas
+
+  Slides 18-19 Board question -squirrels (Work 10 minutes, discuss on next slides)
+
+  Slides 20-21 (6 minutes -- may run out of time - do next time)
+    Discussion of squirrels
+    Prob a random test is correct != prob. a pos test is correct
+    --Give algebraic version of Bayes
+    --Only discuss table or tree solution if time
+
+  Slide 22 Board question  More Bayes 
+    --Only if time (haha), they can work at the board with answer given on Thursday. This is foreshadowing class 11.

@@ -1,0 +1,72 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class11-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 11  Bayesian updating with discrete priors
+
+GET DICE OUT
+
+NOTE: 3 board questions today. If time, do fourth introducing topic 12
+
+Jerry
+  Slide 1: XKCD
+    Challenge: give a technical explanation of comic
+    (Just issue the challenge. Key: P(shell and near ocean)/P(shell) \approx 1
+    GOAL UNDERSTAND BAYESIAN UPDATE TABLES COMPLETELY
+
+ Slide 2: Announcements/Agenda (2 minute)
+
+ Slide 3: CLICKER QUESTION (5 minutes)
+    PAUSED SLIDE
+    Which treatment?
+    Main point: Base rates matter
+    If we know the base rates this is a probability problem. If not, it's a statistics problem.
+
+ Slide 4: Which die is it demo (6 minutes)
+    PAUSED SLIDE 
+    Do the demo of rolling the die
+       Make sure to choose the 4-sided die: roll e.g. 3, 2, 3, 3
+    Go to second part.
+    Main point: base rates matter
+
+ Slide 5: Terminology, trees, tables (7 minutes)
+    We need to reinforce many times what is meant by hypotheses and how they are used.
+   
+ Slide 6: BOARD QUESTION Screening tests (Work 10 minutes, discuss 5 minutes)
+    This is in the reading
+    Don't expect it to be easy for many students
+    We should be quick to intervene and help groups get going.
+    Bring together to discuss solution
+
+ Slide 7-10 BOARD QUESTION Dice (Work 12 minutes, discuss 6 minutes)
+    They should do much better at this one
+    Slides 8-10 have the update tables --go through at most 1 carefully
+    Amount of writing and detail given should depend on how they did.
+
+Jen
+ Slides 11-12 (5 minutes)
+    Iterated updates example
+    Key points 
+      posterior to data 1 = prior to data 2
+      Can do in either order or all together --same answer
+      no need to normalize until the end
+
+ Slide 13-15 BOARD QUESTION Iterated update (Work 10 minutes, discuss 6 minutes)
+      Problem on slide 13
+      Solution on slides 14-15
+      Gauge how much to say.
+
+ The next slides are just in case there's time. They introduce class 12
+
+ Slide 16 BOARD QUESTION predictive probabilities
+     This is just to foreshadow class 12.
+     Only do if time
+ Slide 17 
+     Solution

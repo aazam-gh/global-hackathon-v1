@@ -1,0 +1,89 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class10-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 10: Intro to statistics; MLE
+
+Jerry
+  Slide 1  Intro
+
+  Slide 2  Announcements agenda (2 min.)
+
+  Slide 3: Statistics Intro (5 min.)
+   Statistics is an art.
+   Phases of statistical work
+
+  Slides 4 Inference questions (1 min.)
+   Given data what can you say  
+
+ Slide 5 Inference questions (3 min.)
+   PAUSED SLIDE
+   Discuss not knowing underlying parameter
+   Subtle point:
+     Can't compute anything that requires you KNOW the parameter
+     Can compute if you hypothesize a value of the parameter
+     Use of P(data | mu = 0) notation and idea
+     Abstraction: P(data | mu=mu_0)
+     Underlying issue of not knowing is what makes statistics
+     an art and causes the convoluted way of expressing ideas and results
+
+ Slide 6: What is a statistic. (2 min.)
+   This is a KEY point
+
+ Slide 7: CLICKER question: what is a statistic (4 min.)
+   This is an easy but key point: statistics are computed from 
+   data.
+   We can only hypothesize values of unknown parameters
+   
+ Slides 8: Notation (1 min.)
+   Big X, little x
+
+ Slides 9: Bayes theorem (4 min.)
+    Harp on what we mean by hypothesis
+    We'll use this a lot. It's the key to our view of stats
+    Give examples of hypotheses.
+  
+Jen 
+ Slides 10: Estimating a parameter (2 min.)
+   Cilantro
+   Continue to harp on the notion that we don't know p and can only hypothesize values for it.
+
+ Slide 11: Parameters of interest (1 min)
+    e.g. cilantro
+
+ Slide 12: likelihood (2 min)
+    Discuss P(data | p): Data is fixed and we compute this for a given p
+    Discuss how likelihood is a terrible name for this.
+   --Fisher considered this choice of words one of his biggest blunder. The likelihood of p is regularly mistaken for the probability of p instead of the data given p.
+
+ Slide 13: MLE (2 min.)
+   Methods
+   Be brief. We will get to this in the board questions
+
+Slides 14: Cilantro MLE (1 min.)
+   Answer is with solutions for today
+   Say nothing more
+
+Slides 15: Cilantro MLE with log likelihood (2 min.)
+  Briefly discuss set up but don't do the computation -- they will see this in the second board question
+  Point out notation p-hat
+
+Let's try to get all groups through both problems before discussing
+We can use the remaining time if necessary.
+
+I'll have my computer open and can compute any values they request in R.
+
+Slide  16: BQ: MLE coins
+   push them to use log likelihood.
+   Much more accurate to find lp = lchoose(80,49) + 49*log(p) + 31*log(1-p) and then compute p = exp(lp).
+
+Slide 17: BQ: MLE light bulbs
+   Use log likelihood.
+   Let's try to get all groups through 

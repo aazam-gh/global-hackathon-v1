@@ -1,0 +1,93 @@
+#---------------------------------------------------------
+# File:   MIT18_05S22_in-class18-script.txt
+# Author: Jeremy Orloff
+#
+# MIT OpenCourseWare: https://ocw.mit.edu
+# 18.05 Introduction to Probability and Statistics
+# Spring 2022
+# For information about citing these materials or our Terms of Use, visit:
+# https://ocw.mit.edu/terms.
+#
+#---------------------------------------------------------
+Class 18 NHST: significance, power, t-tests
+
+Jerry
+  Slide 1
+
+  Slide 2: Announcements/Agenda (2 minutes)
+
+  Slide 3: Understand this figure (4 minutes)
+    We use this figure all the time.
+    It turns out that many students don't really understand it
+    This is an attempt tackle this problem head on.
+
+  Slide 4: Simple and composite hypotheses (2 minutes)
+    Key point: simple: the sampling distribution well-defined;
+    composite: sampling distribution depends on which value of parameter
+
+  Slides 5 --Outlines pieces of NHST (3 minutes)
+
+  Slides 6-7: Meaning of p-values --one sided (3 minutes)
+    Many paused slides
+
+  Slide 8: Critical values (2 minutes) 
+
+  Slide 9: Meaning of p-value: two-sided (4 minutes) 
+     Key point min(left prob, right prob) < alpha/2 --> reject
+
+  Slides 10abc  CONCEPT questions (8 minutes)
+    Computing critical values and p values
+    Draw some pictures
+    10c. We obviously don't reject because 
+         z = 1.8 and the test is LEFT-sided
+
+  Slide 11: Error, significance, power (3 minutes)
+    Key: power and significance, both prob(test stat in rej. region)
+
+Jen
+  Slide 12 TABLE QUESTION significance and power (3 minutes work, 3 minutes discussion)
+    DISCUSSION: KEY POINT: both are probabilities of 
+    rejection region for the correct hypothesis.
+    Prob. of type II depends on H_A = 1 - power
+   
+  Slide 13 CONCEPT question power is given by what area (5 minutes)
+    key explanation: power = P(x in rejection region | H_A)
+
+  Slide 14 CONCEPT question which has higher power (5 minutes)
+    -- Have test statistic, null distribution, rejection region
+    -- Have alternative distrtribution
+    -- Power = area under alt. distr above rejection region
+
+  Slide 15 Discussion (6 minutes)
+    SKIP THIS IF NOT ENOUGH TIME TO GET TO THE BOARD QUESTION
+    Give them a chance to discuss without any hints.
+    Rejection region > 2\sigma, so alpha \approx 0.025
+    Trick question: Can't compute power without specificying H_A
+
+  Slide 16: reminder z test (2 minutes)
+    Key --use a specific known value of mu_0
+
+  Slide 17 One sample t-test (2 minutes)
+    Just like z-test except: use sample variance instead of true variance.
+    So get a different null distribution
+  
+  Slide 18 BOARD Question: z and 1-sample t (Work 8 minutes, discussion 4 minutes)
+    Discussion: brief. Compute stat, use known null distribution to compute p-value.
+
+  ------
+  Probably won't get to here
+  If a little bit of time left, skip to discussion on slides 21-23
+    Slide 19 Two sample t-test review of formulas (1 minutes)
+
+Jerry
+  Slide 20 BOARD question: 2-sample t-test (Work: 8 minutes, discussion: 4 minutes)
+    BRIEF DISCUSSION: No computation. You compute the test stat and use 
+    the known null distribution to compute the p-value
+    Point them to posted solutions
+
+  Slides 21-23 Discussion: effect of base rate (6 minutes)
+    Key: these asks for prob. of a hypothesis
+    Use board to write prob. being referred to
+    Q1: P(H0 is true | published) = P(H0 | rejection) --can't answer
+    Q2: (b) Same --given baserates so can answer: 100 %
+    Q3: (b) Same --given baserates so can answer:  0 %
